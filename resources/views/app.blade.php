@@ -23,7 +23,7 @@
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-mini sidebar-collapse">
     <div class="wrapper">
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-dark border-bottom-0" style="background-color: #A7201F;">
+        <nav class="main-header navbar navbar-expand navbar-dark border-bottom-0" style="background-color: #9e180c;">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -148,17 +148,17 @@
                 <img src="{{asset('images/user.png')}}"class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                    <a href="#" class="d-block">Usuario</a>
+                    <a href="#" class="d-block"> {{ Auth::user()->name;}} </a>
                 {{-- <span>{{(Auth::user()->roles[0]->name)}}</span> --}}
-                {{-- <a class="d-block" href="{{ route('logout') }}"
+                <a class="d-block" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">
                  {{ __('Cerrar sesión') }}
-                </a> --}}
+                </a> 
 
-             {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                  @csrf
-             </form> --}}
+             </form> 
               </div>
             </div>
 

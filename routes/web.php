@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ReporteController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReporteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +20,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [HomeController::class, 'home']);
+Route::get('/dashboard', [HomeController::class, 'home'])->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/home', [HomeController::class, 'home']);
 
 //Rutas de alumnos
-Route::get('/reporte/consultar', [ReporteController::class, 'consultar']);
-Route::get('/reporte/registrar', [ReporteController::class, 'registrar']);
-Route::get('/reporte/pdf', [ReporteController::class, 'reportePdf']);
-
-Route::get('/blank', function () {
-    return view('blankpage');
+    Route::get('/reporte/consultar', [ReporteController::class, 'consultar']);
+    Route::get('/reporte/registrar', [ReporteController::class, 'registrar']);
+    Route::get('/reporte/pdf', [ReporteController::class, 'reportePdf']);
 });
+
+require __DIR__.'/auth.php';

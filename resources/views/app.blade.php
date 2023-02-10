@@ -23,7 +23,7 @@
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-mini sidebar-collapse">
     <div class="wrapper">
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-dark border-bottom-0" style="background-color: #065698;">
+        <nav class="main-header navbar navbar-expand navbar-dark border-bottom-0" style="background-color: #A7201F;">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -133,7 +133,7 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar elevation-4 sidebar-light-warning">
+        <aside class="main-sidebar elevation-4 sidebar-light-warning"  style="background-color: #DFDFDF;">
           <!-- Brand Logo -->
           <a href="{{asset('/home')}}" class="brand-link">
             <img src="{{ url('images/AdminLTELogo.png') }}" alt="baessh" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -189,14 +189,14 @@
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-users""></i>
+                    <i class="far fa-copy nav-icon"></i>
                     <p>
-                       Alumnos
+                       Registrar reportes
                       <i class="fas fa-angle-left right"></i>
                     </p>
                   </a>
                   <ul class="nav nav-treeview">
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                       <a href="{{asset('/alumno/consultar')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Consultar</p>
@@ -207,14 +207,67 @@
                         <i class="far fa-circle nav-icon"></i>
                         <p>Registrar</p>
                       </a>
+                    </li>-->
+                    <li class="nav-item">
+                      <a href="{{asset('/reporte/registrar')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Individual</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Grupal</p>
+                      </a>
+                    </li><li class="nav-item">
+                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Justificante</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Baja</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Carta buena conducta</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Carta condicional</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Carta compromiso</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Canalización</p>
+                      </a>
                     </li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                      <a href="{{asset('/reporte/consultar')}}" class="nav-link">
+                      <i class="fas fa-book nav-icon"></i>
+                        <p>Consular reportes</p>
+                      </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="{{asset('/reporte/consultar')}}" class="nav-link">
                       <i class="nav-icon fas fa-tools""></i>
                       <p>
-                         Otro menu
+                         Consultar reportes
                         <i class="fas fa-angle-left right"></i>
                       </p>
                     </a>
@@ -232,7 +285,7 @@
                         </a>
                       </li>
                     </ul>
-                </li>
+                </li> -->
               </ul>
             </nav>
             <!-- /.sidebar-menu -->

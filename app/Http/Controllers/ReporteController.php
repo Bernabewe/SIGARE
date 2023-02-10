@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use PDF;
 use Illuminate\Http\Request;
 
-class AlumnoController extends Controller
+class ReporteController extends Controller
 {
     public function consultar(){
         //consultas el alumno
-        return view('alumno.consultar');
+        return view('reporte.consultar');
     }
 
     public function registrar(){
         //consultas el alumno
-        return view('alumno.registrar');
+        return view('reporte.registrar');
     }
 
     public function reportePdf(){

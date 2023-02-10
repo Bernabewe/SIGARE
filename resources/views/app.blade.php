@@ -181,7 +181,7 @@
                      with font-awesome or any other icon font library -->
                 <li class="nav-item active">
                   <a href="{{asset('/home')}}" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <i class="fas fa-home nav-icon"></i>
                     <p>
                       Inicio
                     </p>
@@ -209,48 +209,48 @@
                       </a>
                     </li>-->
                     <li class="nav-item">
-                      <a href="{{asset('/reporte/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/individual')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Individual</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/grupal')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Grupal</p>
                       </a>
                     </li><li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/justificante')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Justificante</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/baja')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Baja</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/cartaBuenaConducta')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Carta buena conducta</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/cartaCondicional')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Carta condicional</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/cartaCompromiso')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Carta compromiso</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/canalizacion')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Canalización</p>
                       </a>
@@ -260,7 +260,7 @@
                 <li class="nav-item">
                       <a href="{{asset('/reporte/consultar')}}" class="nav-link">
                       <i class="fas fa-book nav-icon"></i>
-                        <p>Consular reportes</p>
+                        <p>Consultar reportes</p>
                       </a>
                 </li>
                 <!-- <li class="nav-item">

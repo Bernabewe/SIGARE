@@ -23,7 +23,14 @@ Route::get('/home', [HomeController::class, 'home']);
 
 //Rutas de alumnos
 Route::get('/reporte/consultar', [ReporteController::class, 'consultar']);
-Route::get('/reporte/registrar', [ReporteController::class, 'registrar']);
+Route::get('/reporte/individual', [ReporteController::class, 'registrarIndividual']);
+Route::get('/reporte/grupal', [ReporteController::class, 'registrarGrupal']);
+Route::get('/reporte/justificante', [ReporteController::class, 'registrarJustificante']);
+Route::get('/reporte/baja', [ReporteController::class, 'registrarBaja']);
+Route::get('/reporte/cartaBuenaConducta', [ReporteController::class, 'registrarCartaBuenaConducta']);
+Route::get('/reporte/cartaCondicional', [ReporteController::class, 'registrarCartaCondicional']);
+Route::get('/reporte/cartaCompromiso', [ReporteController::class, 'registrarCartaCompromiso']);
+Route::get('/reporte/canalizacion', [ReporteController::class, 'registrarCanalizacion']);
 Route::get('/reporte/pdf', [ReporteController::class, 'reportePdf']);
 
 Route::get('/blank', function () {

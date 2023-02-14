@@ -5,18 +5,19 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
+        <div class="form-group">
+            <center><label class="text-red-900 font-sans ">Inicio de Sesion</label></center><br>
+        </div>
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Correo Electronico:')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" placeholder="Correo Electronico" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Contraseña:')" />
 
-            <x-text-input id="password" class="block mt-1 w-full" 
+            <x-text-input id="password" class="block mt-1 w-full" placeholder="Contraseña"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
@@ -31,17 +32,20 @@
                 <span class="ml-2 text-sm text-red-600">{{ __('Recuerdame') }}</span>
             </label>
         </div>
-    
+        <br>
+
+        <center><div>
+            <x-primary-button class="ml-3">
+                {{ __('Iniciar Sesion') }}
+            </x-primary-button>
+        </div></center>
+
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                     {{ __('Olvidaste tu contraseña?') }}
                 </a>
             @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
         </div>
     </form>
 </x-guest-layout>

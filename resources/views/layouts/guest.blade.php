@@ -14,11 +14,12 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-red-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-1 sm:pt-0 bg-#E5E5E5-100">
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-1 sm:pt-0 bg-gray-300">
 
-            <div class="w-1000 sm:max-w-md mt-4 px-4 py-2 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            
+            <div class="w-100 h-200  mt-9 px-9 py-5 bg-white shadow-md-color-red sm:rounded-lg">
                 <a href="/">
-                    <img class= "w-100 h-20 fill-current text-red-500" src= "{{asset('/img/Logo.png')}}" />
+                    <img class= "w-85 h-25" src= "{{asset('/img/Logo.png')}}" />
                 </a><br>
                 {{ $slot }}
                 

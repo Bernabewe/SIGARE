@@ -6,14 +6,13 @@
         @csrf
 
         <div class="form-group">
-            <center><label class="text-red-900 font-sans ">Inicio de Sesion</label></center><br>
+            <center><label class="text-red-900 font-sans " style="font-size: 28px">Inicio de sesión</label></center><br>
         </div>
         <!-- Email Address -->
         <div>
             <x-text-input id="email" class="block mt-1 w-full" placeholder="Correo Electronico" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
-
         <!-- Password -->
         <div class="mt-4">
 
@@ -29,14 +28,14 @@
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox"  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-red-600">{{ __('Recuerdame') }}</span>
+                <span class="ml-2 text-sm" style="font-color:#b00702; font-size:15px;">{{ __('Recuerdame') }}</span>
             </label>
         </div>
         <br>
 
         <center><div>
             <x-primary-button class="ml-3">
-                {{ __('Iniciar Sesion') }}
+                {{ __('Iniciar Sesión') }}
             </x-primary-button>
         </div></center>
 

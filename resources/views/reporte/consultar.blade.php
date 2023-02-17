@@ -25,16 +25,17 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($alumnos as $a)
                 <tr>
-                    <td>2</td>
+                    <td>1</td>
                     <td>12345678910</td>
-                    <td>Juan</td>
+                    <td>{{ $a-> nombre }}</td>
                     <td>Programación</td>
                     <td>Indvidual</td>
                     <td>Maria</td>
                     <td>12/02/2023</td>
                     <td>
-                        <a href="{{ url('reporte/pdf') }}" class="btn btn-success btn-sm">
+                        <a href="{{ url('reporte/pdfJustificante') }}" class="btn btn-success btn-sm">
                             <i class="far fa-file-pdf"></i>
                         </a>
                         <a href="" class="btn btn-primary btn-sm">
@@ -46,6 +47,7 @@
                         </a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

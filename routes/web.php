@@ -31,8 +31,13 @@ Route::get('/reporte/cartaBuenaConducta', [ReporteController::class, 'registrarC
 Route::get('/reporte/cartaCondicional', [ReporteController::class, 'registrarCartaCondicional']);
 Route::get('/reporte/cartaCompromiso', [ReporteController::class, 'registrarCartaCompromiso']);
 Route::get('/reporte/canalizacion', [ReporteController::class, 'registrarCanalizacion']);
-Route::get('/reporte/pdf', [ReporteController::class, 'reportePdf']);
+Route::get('/reporte/pdfIndividual', [ReporteController::class, 'pdfIndividual']);
+Route::get('/reporte/pdfJustificante', [ReporteController::class, 'pdfJustificante']);
 
 Route::get('/blank', function () {
     return view('blankpage');
 });
+
+/* Route::get('/reporte/pdf', function () {
+    return view('PDF.justificante');
+}); */

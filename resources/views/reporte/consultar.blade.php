@@ -35,7 +35,7 @@
                     <td>Maria</td>
                     <td>12/02/2023</td>
                     <td>
-                        <a href="{{ url('reporte/pdfCartaBuenaConducta') }}" class="btn btn-success btn-sm">
+                        <a href="{{ url('reporte/pdfCartaCondicional') }}" class="btn btn-success btn-sm">
                             <i class="far fa-file-pdf"></i>
                         </a>
                         <a href="" class="btn btn-primary btn-sm">

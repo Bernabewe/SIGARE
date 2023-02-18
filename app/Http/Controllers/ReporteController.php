@@ -56,6 +56,14 @@ class ReporteController extends Controller
         $pdf = PDF::loadView('PDF.PDFjustificante');
         return $pdf->download("PDFjustificante.pdf");
     }
+    public function pdfBaja(){
+        $pdf = PDF::loadView('PDF.PDFbaja');
+        return $pdf->download("PDFbaja.pdf");
+    }
+    public function pdfReporteGrupal(){
+        $pdf = PDF::loadView('PDF.PDFreporteGrupal');
+        return $pdf->download("PDFreporteGrupal.pdf");
+    }
     public function pdfCanalizacion(){
         $pdf = PDF::loadView('PDF.PDFcanalizacion');
         return $pdf->download("PDFcanalizaion.pdf"); 
@@ -68,5 +76,8 @@ class ReporteController extends Controller
         $pdf = PDF::loadView('PDF.PDFcartaBuenaConducta');
         return $pdf->download("PDFcartaBuenaConducta.pdf"); 
     }
-    
+    public function pdfCartaCondicional(){
+        $pdf = PDF::loadView('PDF.PDFcartaCondicional');
+        return $pdf->download("PDFcartaCondicional.pdf");
+    }
 }

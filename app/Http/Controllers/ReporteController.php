@@ -56,4 +56,16 @@ class ReporteController extends Controller
         $pdf = PDF::loadView('PDF.PDFjustificante');//Carga la vista y la convierte a PDF
         return $pdf->download("PDFjustificante.pdf"); //Descarga el PDF con ese nombre
     }
+    public function pdfBaja(){
+        $pdf = PDF::loadView('PDF.PDFbaja');//Carga la vista y la convierte a PDF
+        return $pdf->download("PDFbaja.pdf"); //Descarga el PDF con ese nombre
+    }
+    public function pdfReporteGrupal(){
+        $pdf = PDF::loadView('PDF.PDFreporteGrupal');//Carga la vista y la convierte a PDF
+        return $pdf->download("PDFreporteGrupal.pdf"); //Descarga el PDF con ese nombre
+    }
+    public function pdfCartaCondicional(){
+        $pdf = PDF::loadView('PDF.PDFcartaCondicional');//Carga la vista y la convierte a PDF
+        return $pdf->download("PDFcartaCondicional.pdf"); //Descarga el PDF con ese nombre
+    }
 }

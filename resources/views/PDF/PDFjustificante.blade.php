@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +24,6 @@
         }
         .table tr td {border: 1px solid black; height: 30px;}
         .table tr th {border: 1px solid black; height: 30px;}
-
     </style>
 </head> 
 <body>

@@ -35,12 +35,11 @@
                     <td>Maria</td>
                     <td>12/02/2023</td>
                     <td>
-                        <a href="{{ url('reporte/pdfJustificante') }}" class="btn btn-success btn-sm">
+                        <a href="{{ url('reporte/pdfCartaBuenaConducta') }}" class="btn btn-success btn-sm">
                             <i class="far fa-file-pdf"></i>
                         </a>
                         <a href="" class="btn btn-primary btn-sm">
                             <i class="far fa-edit"></i>
-                            <!-- <i class="fas fa-pencil-alt"></i> -->
                         </a>
                         <a href="" class="btn btn-danger btn-sm">
                             <i class="fas fa-times"></i>

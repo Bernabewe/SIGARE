@@ -22,7 +22,7 @@
             <label for="">Turno:</label>
         </div>
         <div class="form-group">
-            <label for="">Motivo</label>
+            <label for="">Motivo (Especifiqué el problema)</label>
             <input type="text" class="form-control">
         </div>
         
@@ -32,6 +32,10 @@
         </div>
         <div class="form-group">
             <label for="">Domicilio</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Área de canalización</label>
             <input type="text" class="form-control">
         </div>
         <div class="form-group">

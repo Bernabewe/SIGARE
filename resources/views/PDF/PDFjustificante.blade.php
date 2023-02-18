@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Reporte Individual</title>
-    <!-- <title>Reporte PDF Generico</title> -->
     <style>
         .text {
             font-size: 18px;

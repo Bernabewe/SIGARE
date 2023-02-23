@@ -326,7 +326,7 @@
         <!-- /.control-sidebar -->
         <!-- Main Footer -->
         <footer class="main-footer">
-          <strong>Tu proyecto Web App &copy; 2023.</strong>
+          <strong>Sistema de Gestión y Almacenamiento de Reportes &copy; 2023.</strong>
           derechos reservados.
           <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 1.0

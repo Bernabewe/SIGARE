@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use PDF;
 use Illuminate\Http\Request;
-use App\Models\Alumno;
-
+/* use App\Models\Alumno; */
+use App\Models\Reporte;
 class ReporteController extends Controller
 {
-    public function consultar(){
+/*     public function consultar(){
         $alumnos= Alumno::all();
         return view('reporte.consultar', compact('alumnos') );
-    }
+    } */
     public function registrarIndividual(){
         
         return view('reporte.individual');

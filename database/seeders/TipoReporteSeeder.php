@@ -15,13 +15,13 @@ class TipoReporteSeeder extends Seeder
      */
     public function run()
     {
-        TipoReporte::create([ 'nombre' => 'grupal' ]);
-        TipoReporte::create([ 'nombre' => 'baja' ]);
-        TipoReporte::create([ 'nombre' => 'justificante' ]);
-        TipoReporte::create([ 'nombre' => 'cartaBuenaConducta' ]);
-        TipoReporte::create([ 'nombre' => 'cartaCondicional' ]);
-        TipoReporte::create([ 'nombre' => 'cartaCompromiso' ]);
-        TipoReporte::create([ 'nombre' => 'Canalizacion' ]);
-        TipoReporte::create([ 'nombre' => 'individual' ]);
+        TipoReporte::create([ 'nombre' => 'Grupal' ]);
+        TipoReporte::create([ 'nombre' => 'Baja' ]);
+        TipoReporte::create([ 'nombre' => 'Justificante' ]);
+        TipoReporte::create([ 'nombre' => 'Carta Buena Conducta' ]);
+        TipoReporte::create([ 'nombre' => 'Carta Condicional' ]);
+        TipoReporte::create([ 'nombre' => 'Carta Compromiso' ]);
+        TipoReporte::create([ 'nombre' => 'Canalización' ]);
+        TipoReporte::create([ 'nombre' => 'Individual' ]);
     }
 }

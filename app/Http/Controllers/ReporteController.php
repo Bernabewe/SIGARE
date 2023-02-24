@@ -4,17 +4,44 @@ namespace App\Http\Controllers;
 
 use PDF;
 use Illuminate\Http\Request;
-/* use App\Models\Alumno; */
+use App\Models\Alumno;
 use App\Models\Reporte;
+use App\Models\Detalle;
+use Carbon\Carbon;
+
 class ReporteController extends Controller
 {
-/*     public function consultar(){
-        $alumnos= Alumno::all();
-        return view('reporte.consultar', compact('alumnos') );
-    } */
+    public function consultar(){
+        $reportes= Reporte::with(['detalle', 'tipo'])->get();
+        return view('reporte.consultar', compact('reportes') );
+    }
     public function registrarIndividual(){
-        
-        return view('reporte.individual');
+        $alumno=null;
+        return view('reporte.individual', compact('alumno'));
+    }
+    public function registrarIndividualBuscar(Request $datos){
+        $numero_control=$datos->input('numero_control');
+        $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
+        return view('reporte.individual', compact('alumno'));
+    }
+    public function registrarIndividualGuardar(Request $datos){
+        $alumno=Alumno::find($datos->input('id'));
+        $reporte_detalle=Detalle::create([
+            'motivo'            =>$datos->input('motivo'),
+            'numero_control'    =>$alumno->numero_control
+        ]); 
+        $alumno=Alumno::find($datos->input('id'));
+        Reporte::create([
+            'tipo_id'=>8, 
+            'detalle_id'=>$reporte_detalle->id,
+            'user_id'=>1,
+            'fecha'=>Carbon::now(),
+            'especialidad'=>$alumno->carrera,
+            'grupo'=>$alumno->grupo,
+            'turno'=>$alumno->turno,
+            'generacion'=>$alumno->generacion
+        ]);
+        return redirect('/reporte/consultar');
     }
     public function registrarGrupal(){
         

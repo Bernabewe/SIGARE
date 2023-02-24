@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('detalles', function (Blueprint $table) {
             $table->id();
-            $table->string('motivo');
-            $table->string('solicitante');
-            $table->string('numero_control');
-            $table->string('tutor');
-            $table->date('fecha_inicial');
-            $table->date('fecha_final');
-            $table->string('articulo');
-            $table->string('compromisos');
-            $table->string('domicilio');
-            $table->string('observaciones');
+            $table->string('motivo')->nullable();
+            $table->string('solicitante')->nullable();
+            $table->string('numero_control')->nullable();
+            $table->string('tutor')->nullable();
+            $table->date('fecha_inicial')->nullable();
+            $table->date('fecha_final')->nullable();
+            $table->string('articulo')->nullable();
+            $table->string('compromisos')->nullable();
+            $table->string('domicilio')->nullable();
+            $table->string('observaciones')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

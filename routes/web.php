@@ -24,6 +24,8 @@ Route::get('/home', [HomeController::class, 'home']);
 //Rutas de alumnos
 Route::get('/reporte/consultar', [ReporteController::class, 'consultar']);
 Route::get('/reporte/individual', [ReporteController::class, 'registrarIndividual']);
+Route::post('/reporte/individual', [ReporteController::class, 'registrarIndividualBuscar']);
+Route::post('/reporte/individual/guardar', [ReporteController::class, 'registrarIndividualGuardar']);
 Route::get('/reporte/grupal', [ReporteController::class, 'registrarGrupal']);
 Route::get('/reporte/justificante', [ReporteController::class, 'registrarJustificante']);
 Route::get('/reporte/baja', [ReporteController::class, 'registrarBaja']);

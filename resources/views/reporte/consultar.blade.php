@@ -1,12 +1,12 @@
 @extends('app')
 
 @section('titulo')
-    <h1>Consultar Alumnos</h1>
+    <h1>Consultar Reportes</h1>
 @stop
 
 @section('breadcrum')
     <li class="breadcrumb-item"><a href="{{ url('/home') }}">Inicio</a></li>
-    <li class="breadcrumb-item active">Consultar Alumnos</li>
+    <li class="breadcrumb-item active">Consultar Reportes</li>
 @stop
 
 @section('contenido')
@@ -24,16 +24,16 @@
                     <th>Opciones</th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach ($alumnos as $a)
+            <tbody> 
+                @foreach($reportes as $r)              
                 <tr>
-                    <td>1</td>
-                    <td>12345678910</td>
-                    <td>{{ $a-> nombre }}</td>
-                    <td>Programación</td>
-                    <td>Indvidual</td>
-                    <td>Maria</td>
-                    <td>12/02/2023</td>
+                    <td>{{$r->id}}</td>
+                    <td>{{$r->detalle->numero_control}}</td>
+                    <td>{{$r->detalle->alumno->nombre}}</td>
+                    <td>{{$r->detalle->alumno->carrera}}</td>
+                    <td>{{$r->tipo->nombre}}</td>
+                    <td>Pendiente Sesión</td>
+                    <td>{{$r->created_at}}</td>
                     <td>
                         <a href="{{ url('reporte/pdfCartaCondicional') }}" class="btn btn-success btn-sm">
                             <i class="far fa-file-pdf"></i>

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('paterno');
             $table->string('materno');
             $table->string('nombre_completo');
-            $table->string('CURP');
+            $table->string('curp');
             $table->string('sexo');
 
             $table->timestamps();

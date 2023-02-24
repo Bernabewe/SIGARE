@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Tipo_Reporte;
+use App\Models\TipoReporte;
 
 class TipoReporteSeeder extends Seeder
 {
@@ -15,13 +15,13 @@ class TipoReporteSeeder extends Seeder
      */
     public function run()
     {
-        Tipo_Reporte::create([ 'nombre' => 'grupal' ]);
-        Tipo_Reporte::create([ 'nombre' => 'baja' ]);
-        Tipo_Reporte::create([ 'nombre' => 'justificante' ]);
-        Tipo_Reporte::create([ 'nombre' => 'cartaBuenaConducta' ]);
-        Tipo_Reporte::create([ 'nombre' => 'cartaCondicional' ]);
-        Tipo_Reporte::create([ 'nombre' => 'cartaCompromiso' ]);
-        Tipo_Reporte::create([ 'nombre' => 'Canalizacion' ]);
-        Tipo_Reporte::create([ 'nombre' => 'individual' ]);
+        TipoReporte::create([ 'nombre' => 'grupal' ]);
+        TipoReporte::create([ 'nombre' => 'baja' ]);
+        TipoReporte::create([ 'nombre' => 'justificante' ]);
+        TipoReporte::create([ 'nombre' => 'cartaBuenaConducta' ]);
+        TipoReporte::create([ 'nombre' => 'cartaCondicional' ]);
+        TipoReporte::create([ 'nombre' => 'cartaCompromiso' ]);
+        TipoReporte::create([ 'nombre' => 'Canalizacion' ]);
+        TipoReporte::create([ 'nombre' => 'individual' ]);
     }
 }

@@ -16,21 +16,20 @@ return new class extends Migration
         Schema::create('reportes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('tipo_id');
+            $table->unsignedBigInteger('detalle_id');
+            $table->unsignedBigInteger('user_id');
             $table->date('fecha');
-            /* $table->unsignedBigInteger('user_id'); */
             $table->string('especialidad');
             $table->string('grupo');
             $table->string('turno');
             $table->string('generacion');
-            $table->unsignedBigInteger('detalle_id');
 
             $table->timestamps();
             $table->softDeletes();
 
-
-            $table->foreign('tipo_id')->references('id')->on('tipo__reportes');
+            $table->foreign('tipo_id')->references('id')->on('tipo_reportes');
             $table->foreign('detalle_id')->references('id')->on('detalles');
-            /* $table->foreign('user_id')->references('id')->on('usuarios'); */
+            $table->foreign('user_id')->references('id')->on('users');
 
         });
     }

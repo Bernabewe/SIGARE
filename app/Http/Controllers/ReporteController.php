@@ -15,6 +15,8 @@ class ReporteController extends Controller
         $reportes= Reporte::with(['detalle', 'tipo'])->get();
         return view('reporte.consultar', compact('reportes') );
     }
+
+    //Reporte individual - Funciones para vistas
     public function registrarIndividual(){
         $alumno=null;
         return view('reporte.individual', compact('alumno'));
@@ -43,36 +45,123 @@ class ReporteController extends Controller
         ]);
         return redirect('/reporte/consultar');
     }
+
+    //Reporte grupal - Funciones para vistas
     public function registrarGrupal(){
         
         return view('reporte.grupal');
     }
+
+    //Justificante - Funciones para vistas
     public function registrarJustificante(){
-        
-        return view('reporte.justificante');
+        $alumno=null;
+        return view('reporte.justificante', compact('alumno'));
     }
+    public function registrarJustificanteBuscar(Request $datos){
+        $numero_control=$datos->input('numero_control');
+        $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
+        return view('reporte.justificante', compact('alumno'));
+    }
+    public function registrarJustificanteGuardar(Request $datos){
+        $alumno=Alumno::find($datos->input('id'));
+        $reporte_detalle=Detalle::create([
+            'motivo'            =>$datos->input('motivo'),
+            'fecha_inicial'     =>$datos->input('fecha_inicial'),
+            'fecha_final'       =>$datos->input('fecha_final'),
+            'numero_control'    =>$alumno->numero_control
+        ]);
+        $alumno=Alumno::find($datos->input('id'));
+        Reporte::create([
+            'tipo_id'           =>3, 
+            'detalle_id'        =>$reporte_detalle->id,
+            'user_id'           =>1,
+            'fecha'             =>Carbon::now(),
+            'especialidad'      =>$alumno->carrera,
+            'grupo'             =>$alumno->grupo,
+            'turno'             =>$alumno->turno,
+            'generacion'        =>$alumno->generacion
+        ]);
+        return redirect('/reporte/consultar');
+    }
+
+    //Baja - Funciones para vistas
     public function registrarBaja(){
-        
-        return view('reporte.baja');
+        $alumno=null;
+        return view('reporte.baja', compact('alumno'));
     }
+    public function registrarBajaBuscar(Request $datos){
+        $numero_control=$datos->input('numero_control');
+        $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
+        return view('reporte.baja', compact('alumno'));
+    }
+    public function registrarBajaGuardar(Request $datos){
+        $alumno=Alumno::find($datos->input('id'));
+        $reporte_detalle=Detalle::create([
+            'motivo'            =>$datos->input('motivo'),
+            'numero_control'    =>$alumno->numero_control
+        ]);
+        $alumno=Alumno::find($datos->input('id'));
+        Reporte::create([
+            'tipo_id'           =>2, 
+            'detalle_id'        =>$reporte_detalle->id,
+            'user_id'           =>1,
+            'fecha'             =>Carbon::now(),
+            'especialidad'      =>$alumno->carrera,
+            'grupo'             =>$alumno->grupo,
+            'turno'             =>$alumno->turno,
+            'generacion'        =>$alumno->generacion
+        ]);
+        return redirect('/reporte/consultar');
+    }
+
+    //Carta buena conducta - Funciones para vistas
     public function registrarCartaBuenaConducta(){
-        
-        return view('reporte.cartaBuenaConducta');
+        $alumno=null;
+        return view('reporte.cartaBuenaConducta', compact('alumno'));
     }
+    public function registrarCartaBuenaConductaBuscar(Request $datos){
+        $numero_control=$datos->input('numero_control');
+        $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
+        return view('reporte.cartaBuenaConducta', compact('alumno'));
+    }
+    public function registrarCartaBuenaConductaGuardar(Request $datos){
+        $alumno=Alumno::find($datos->input('id'));
+        $reporte_detalle=Detalle::create([
+            'numero_control'    =>$alumno->numero_control
+        ]);
+        $alumno=Alumno::find($datos->input('id'));
+        Reporte::create([
+            'tipo_id'           =>4, 
+            'detalle_id'        =>$reporte_detalle->id,
+            'user_id'           =>1,
+            'fecha'             =>Carbon::now(),
+            'especialidad'      =>$alumno->carrera,
+            'grupo'             =>$alumno->grupo,
+            'turno'             =>$alumno->turno,
+            'generacion'        =>$alumno->generacion
+        ]);
+        return redirect('/reporte/consultar');
+    }
+
+    //Carta condicional - Funciones para vistas
     public function registrarCartaCondicional(){
         
         return view('reporte.cartaCondicional');
     }
+
+    //Carta compromiso - Funciones para vistas
     public function registrarCartaCompromiso(){
         
         return view('reporte.cartaCompromiso');
     }
+
+    //Canalizacion - Funciones para vistas
     public function registrarCanalizacion(){
         
         return view('reporte.canalizacion');
     }
     
-    
+    //PDFs - Funciones
     public function pdfIndividual(){
         $alumnos = array("Alumno1", "Alumno2", "Alumno3");
         PDF::SetPaper('A4', 'landscape');

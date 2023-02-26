@@ -31,7 +31,7 @@
                     <td>{{$r->detalle->numero_control}}</td>
                     <td>{{$r->detalle->alumno->nombre}}</td>
                     <td>{{$r->detalle->alumno->carrera}}</td>
-                    <td>{{$r->tipo->nombre}}</td>
+                    <td>{{strtoupper($r->tipo->nombre)}}</td>
                     <td>Pendiente Sesión</td>
                     <td>{{$r->created_at}}</td>
                     <td>

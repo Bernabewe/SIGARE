@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('articulo')->nullable();
             $table->string('compromisos')->nullable();
             $table->string('domicilio')->nullable();
+            $table->string('area_canalizacion')->nullable();
             $table->string('observaciones')->nullable();
 
             $table->timestamps();

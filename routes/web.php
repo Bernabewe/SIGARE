@@ -49,12 +49,18 @@ Route::post('/reporte/cartaBuenaConducta/guardar', [ReporteController::class, 'r
 
 //Carta condicional
 Route::get('/reporte/cartaCondicional', [ReporteController::class, 'registrarCartaCondicional']);
+Route::post('reporte/cartaCondicional', [ReporteController::class, 'registrarCartaCondicionalBuscar']);
+Route::post('reporte/cartaCondicional/guardar', [ReporteController::class, 'registrarCartaCondicionalGuardar']);
 
 //Carta compromiso
 Route::get('/reporte/cartaCompromiso', [ReporteController::class, 'registrarCartaCompromiso']);
+Route::post('reporte/cartaCompromiso', [ReporteController::class, 'registrarCartaCompromisoBuscar']);
+Route::post('reporte/cartaCompromiso/guardar', [ReporteController::class, 'registrarCartaCompromisoGuardar']);
 
 //Canalizacion
 Route::get('/reporte/canalizacion', [ReporteController::class, 'registrarCanalizacion']);
+Route::post('reporte/canalizacion', [ReporteController::class, 'registrarCanalizacionBuscar']);
+Route::post('reporte/canalizacion/guardar', [ReporteController::class, 'registrarCanalizacionGuardar']);
 
 //PDFs
 Route::get('/reporte/pdfIndividual', [ReporteController::class, 'pdfIndividual']);

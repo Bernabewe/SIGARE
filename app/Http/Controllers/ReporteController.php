@@ -15,6 +15,11 @@ class ReporteController extends Controller
         $reportes= Reporte::with(['detalle', 'tipo'])->get();
         return view('reporte.consultar', compact('reportes') );
     }
+    public function eliminar($id){
+        $reporte=Reporte::find($id);
+        $reporte->delete();
+        return redirect('reporte/consultar');
+    }
 
     //Reporte individual - Funciones para vistas
     public function registrarIndividual(){
@@ -32,7 +37,6 @@ class ReporteController extends Controller
             'motivo'            =>$datos->input('motivo'),
             'numero_control'    =>$alumno->numero_control
         ]); 
-        $alumno=Alumno::find($datos->input('id'));
         Reporte::create([
             'tipo_id'=>8, 
             'detalle_id'=>$reporte_detalle->id,
@@ -45,6 +49,35 @@ class ReporteController extends Controller
         ]);
         return redirect('/reporte/consultar');
     }
+    public function editarIndividual($id){
+        $reporte=Reporte::find($id);
+        $detalle=Detalle::where('id', '=', $reporte->detalle_id)->first();
+        $alumno=Alumno::where('numero_control', '=', $detalle->numero_control)->first();
+        $tipo=$reporte->tipo_id;
+        if($tipo = 8){
+            return view('reporte.editarIndividual', compact('reporte', 'detalle', 'alumno'));
+        }
+        elseif($tipo = 2){
+            return view('home', compact('reporte', 'detalle', 'alumno'));
+        }
+        
+    }
+    public function actualizarIndividual(Request $datos, $id){
+        $reporte=Reporte::find($id);
+        $detalle=Detalle::where('id', '=', $reporte->detalle_id)->first();
+        $alumno=Alumno::where('numero_control', '=', $detalle->numero_control)->first();
+        $reporte->fecha         =Carbon::now();
+        $reporte->especialidad  =$alumno->carrera;
+        $reporte->grupo         =$alumno->grupo;
+        $reporte->turno         =$alumno->turno;
+        $reporte->generacion    =$alumno->generacion;
+        $reporte->save();
+        $detalle->motivo        =$datos->input('motivo');
+        $detalle->save();
+
+
+        return redirect('/reporte/consultar');
+    }   
 
     //Reporte grupal - Funciones para vistas
     public function registrarGrupal(){
@@ -70,7 +103,6 @@ class ReporteController extends Controller
             'fecha_final'       =>$datos->input('fecha_final'),
             'numero_control'    =>$alumno->numero_control
         ]);
-        $alumno=Alumno::find($datos->input('id'));
         Reporte::create([
             'tipo_id'           =>3, 
             'detalle_id'        =>$reporte_detalle->id,
@@ -100,7 +132,6 @@ class ReporteController extends Controller
             'motivo'            =>$datos->input('motivo'),
             'numero_control'    =>$alumno->numero_control
         ]);
-        $alumno=Alumno::find($datos->input('id'));
         Reporte::create([
             'tipo_id'           =>2, 
             'detalle_id'        =>$reporte_detalle->id,
@@ -129,7 +160,6 @@ class ReporteController extends Controller
         $reporte_detalle=Detalle::create([
             'numero_control'    =>$alumno->numero_control
         ]);
-        $alumno=Alumno::find($datos->input('id'));
         Reporte::create([
             'tipo_id'           =>4, 
             'detalle_id'        =>$reporte_detalle->id,
@@ -159,41 +189,5 @@ class ReporteController extends Controller
     public function registrarCanalizacion(){
         
         return view('reporte.canalizacion');
-    }
-    
-    //PDFs - Funciones
-    public function pdfIndividual(){
-        $alumnos = array("Alumno1", "Alumno2", "Alumno3");
-        PDF::SetPaper('A4', 'landscape');
-        $pdf = PDF::loadView('PDF.PDFreporteIndividual', array('alumnos' => $alumnos));
-        return $pdf->download("PDFreporteIndividual.pdf");
-    }
-    public function pdfJustificante(){
-        $pdf = PDF::loadView('PDF.PDFjustificante');
-        return $pdf->download("PDFjustificante.pdf");
-    }
-    public function pdfBaja(){
-        $pdf = PDF::loadView('PDF.PDFbaja');
-        return $pdf->download("PDFbaja.pdf");
-    }
-    public function pdfReporteGrupal(){
-        $pdf = PDF::loadView('PDF.PDFreporteGrupal');
-        return $pdf->download("PDFreporteGrupal.pdf");
-    }
-    public function pdfCanalizacion(){
-        $pdf = PDF::loadView('PDF.PDFcanalizacion');
-        return $pdf->download("PDFcanalizaion.pdf"); 
-    }
-    public function pdfCartaCompromiso(){
-        $pdf = PDF::loadView('PDF.PDFcartaCompromiso');
-        return $pdf->download("PDFcartaCompromiso.pdf"); 
-    }
-    public function pdfCartaBuenaConducta(){
-        $pdf = PDF::loadView('PDF.PDFcartaBuenaConducta');
-        return $pdf->download("PDFcartaBuenaConducta.pdf"); 
-    }
-    public function pdfCartaCondicional(){
-        $pdf = PDF::loadView('PDF.PDFcartaCondicional');
-        return $pdf->download("PDFcartaCondicional.pdf");
     }
 }

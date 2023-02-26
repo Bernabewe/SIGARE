@@ -35,13 +35,13 @@
                     <td>Pendiente Sesión</td>
                     <td>{{$r->created_at}}</td>
                     <td>
-                        <a href="{{ url('reporte/pdfCartaCondicional') }}" class="btn btn-success btn-sm">
+                        <a href="{{ url('reporte/pdfIndividual') }}/{{$r->id}}" class="btn btn-success btn-sm">
                             <i class="far fa-file-pdf"></i>
                         </a>
-                        <a href="" class="btn btn-primary btn-sm">
+                        <a href="{{url('reporte/Individual/editar')}}/{{$r->id}}" class="btn btn-primary btn-sm">
                             <i class="far fa-edit"></i>
                         </a>
-                        <a href="" class="btn btn-danger btn-sm">
+                        <a href="{{url('reporte/eliminar')}}/{{$r->id}}" class="btn btn-danger btn-sm">
                             <i class="fas fa-times"></i>
                         </a>
                     </td>

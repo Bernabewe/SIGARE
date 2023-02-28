@@ -17,9 +17,9 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-1 sm:pt-0 bg-gray-300">
 
             
-            <div class="w-100 h-200  mt-8 px-8 py-1 bg-white shadow-md-color-red sm:rounded-lg" style="box-shadow: 2px 3px #903434;">
+            <div class="w-250 h-250  mt-5 px-5 py-1 bg-white shadow-md-color-red sm:rounded-lg" style="box-shadow: 0px 0px 5px 3px #691c32;">
                 <a href="/">
-                    <img class= "w-75 h-25" src= "{{asset('/img/Logo.png')}}" />
+                    <img class= "w-15 h-15" src= "{{asset('/img/Logo.png')}}" />
                 </a><br>
                 {{ $slot }}
                 

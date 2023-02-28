@@ -6,7 +6,7 @@
         @csrf
 
         <div class="form-group">
-            <center><label class="text-red-900 font-sans " style="font-size: 28px">Inicio de sesión</label></center><br>
+            <center><label style="font-size: 27px; font-family: sans; font-color: #691c32;">Inicio de sesión</label></center><br>
         </div>
         <!-- Email Address -->
         <div>

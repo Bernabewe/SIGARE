@@ -46,7 +46,6 @@ class ReporteController extends Controller
             return view('reporte.editarCompromiso', compact('reporte', 'alumno'));
         }
         else{
-            dd($reporte->detalle->area_canalizacion);
             return view('reporte.editarCanalizacion', compact('reporte', 'alumno'));
         }
     }
@@ -210,7 +209,6 @@ class ReporteController extends Controller
             'compromisos'       =>$datos->input('compromisos'),
             'numero_control'    =>$alumno->numero_control
         ]);
-        $alumno=Alumno::find($datos->input('id'));
         Reporte::create([
             'tipo_id'           =>5, 
             'detalle_id'        =>$reporte_detalle->id,
@@ -242,7 +240,6 @@ class ReporteController extends Controller
             'compromisos'       =>$datos->input('compromisos'),
             'numero_control'    =>$alumno->numero_control
         ]);
-        $alumno=Alumno::find($datos->input('id'));
         Reporte::create([
             'tipo_id'           =>6, 
             'detalle_id'        =>$reporte_detalle->id,
@@ -276,7 +273,6 @@ class ReporteController extends Controller
             'area_canalizacion' =>$datos->input('area_canalizacion'),
             'numero_control'    =>$alumno->numero_control
         ]);
-        $alumno=Alumno::find($datos->input('id'));
         Reporte::create([
             'tipo_id'           =>7, 
             'detalle_id'        =>$reporte_detalle->id,

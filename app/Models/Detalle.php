@@ -22,6 +22,7 @@ class Detalle extends Model
         'articulo',
         'compromisos',
         'domicilio',
+        'area_canalizacion',
         'observaciones'
     ];
     public function alumno(){

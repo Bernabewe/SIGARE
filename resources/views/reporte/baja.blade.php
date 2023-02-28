@@ -26,7 +26,7 @@
     <form action="{{url('/reporte/baja/guardar')}}" class="mt-4" method="POST">
         @csrf
         <input type="hidden" value="{{$alumno->id}}" name="id">
-        <div style="text-align:left; padding-left: 15px;">
+        <div style="padding-left: 15px; margin-bottom: 20px;">
             <label for="">Nombre: {{$alumno->nombre_completo}}</label><br>
             <label for="">Grupo: {{$alumno->grupo}}</label><br>
             <label for="">Especialidad: {{$alumno->carrera}}</label><br>

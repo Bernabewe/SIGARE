@@ -17,7 +17,7 @@
                     <th>ID</th>
                     <th>Num. de cotrol</th>
                     <th>Nombre</th>
-                    <th>Especialida</th>
+                    <th>Especialidad</th>
                     <th>Tipo de reporte</th>
                     <th>Orientadora</th>
                     <th>Fecha de creación</th>
@@ -29,19 +29,19 @@
                 <tr>
                     <td>{{$r->id}}</td>
                     <td>{{$r->detalle->numero_control}}</td>
-                    <td>{{$r->detalle->alumno->nombre}}</td>
-                    <td>{{$r->detalle->alumno->carrera}}</td>
-                    <td>{{strtoupper($r->tipo->nombre)}}</td>
+                    <td>{{ucwords(mb_convert_case($r->detalle->alumno->nombre, MB_CASE_LOWER, "UTF-8"))}}</td>
+                    <td>{{ucwords(mb_convert_case($r->detalle->alumno->carrera, MB_CASE_LOWER, "UTF-8"))}}</td>
+                    <td>{{ucwords(mb_convert_case($r->tipo->nombre, MB_CASE_LOWER, "UTF-8"))}}</td>
                     <td>Pendiente Sesión</td>
                     <td>{{$r->created_at}}</td>
                     <td>
-                        <a href="{{ url('reporte/pdfCartaCondicional') }}" class="btn btn-success btn-sm">
+                        <a href="{{ url('reporte/pdf') }}/{{$r->id}}" class="btn btn-success btn-sm">
                             <i class="far fa-file-pdf"></i>
                         </a>
-                        <a href="" class="btn btn-primary btn-sm">
+                        <a href="{{url('reporte/Individual/editar')}}/{{$r->id}}" class="btn btn-primary btn-sm">
                             <i class="far fa-edit"></i>
                         </a>
-                        <a href="" class="btn btn-danger btn-sm">
+                        <a href="{{url('reporte/eliminar')}}/{{$r->id}}" class="btn btn-danger btn-sm">
                             <i class="fas fa-times"></i>
                         </a>
                     </td>

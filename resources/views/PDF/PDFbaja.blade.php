@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte Individual</title>
+    <title>Baja</title>
     <!-- <title>Reporte PDF Generico</title> -->
     <style>
         .text {
@@ -42,13 +42,14 @@
 
     <div class="text">
         <p> 
-            Por este conducto informó que el alumno: <b>NOMBRE ALUMNO,</b> con No. De Control <b>22325061070210</b> del semestre <b>1RO. E</b> Del turno 
-            <b>MATUTINO,</b> de la especialidad  de <b>COMPONENTE BÁSICO Y PROPEDÉUTICO,
+            Por este conducto informó que el alumno: <b>{{$alumno->nombre_completo}},</b> con No. De Control <b>{{$alumno->numero_control}}</b> 
+            del semestre <b>{{$alumno->grupo}}</b> Del turno 
+            <b>{{$alumno->turno}},</b> de la especialidad  de <b>{{$alumno->carrera}},
             </b> se le de la <b>BAJA DEFINITIVA</b> en esta institución. 
         </p>
     </div>
     <div class="text">
-        <p>Motivo: <b>CAMBIO POR PORTABILIDAD.</b></p>
+        <p>Motivo: <b>{{$reporte->detalle->motivo}}.</b></p>
     </div>
     <div class="text">
         Sin otro asunto en particulas, y esperando que usted haya tomado

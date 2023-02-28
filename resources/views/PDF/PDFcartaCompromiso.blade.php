@@ -32,26 +32,26 @@
         <h2> Carta Compromiso </h2>
     </div>
     <div style="text-align: right;">
-        <p>Culiacán, Sinaloa; a ***FECHA***.</p> 
+        <p>Culiacán, Sinaloa; a {{$fecha}}.</p> 
     </div>
     <div class="text">
         <p> 
             De acuerdo a la reunión llevada a cabo por la Dirección del Centro de Estudios Tecnológicos
-            Industrial y de Servicios no. 107 para revisar la falta en la que incurrió el alumno: NOMBRE DEL ALUMNO
-            del grupo XXX que consiste en: XXXXXXXXXXXXX, se presentó la madre de familia: XXXXXXXXXXXXXX, con la
+            Industrial y de Servicios no. 107 para revisar la falta en la que incurrió el alumno: {{$alumno->nombre_completo}}
+            del grupo {{$alumno->grupo}} que consiste en: {{$reporte->detalle->motivo}}, se presentó la madre de familia: {{$reporte->detalle->tutor}}, con la
             finalidad de llevar a cabo compromisos y acuerdos que sirvan de pauta para mejorar dicha situación.
         </p>
         <p>
             Por cada una de las partes interesadas se establecerán los siguientes compromisos y estrategias para
-            que el alumno: XXXXXXXXXXXXXXXXXXXX corrija y resuelva sus dificultades.
+            que el alumno: {{$alumno->nombre_completo}} corrija y resuelva sus dificultades.
         </p>
     </div>
     <div class="text">
         <ul>
-            <li>***COMPROMISO***</li>
-            <li>***COMPROMISO***</li>
-            <li>***COMPROMISO***</li>
-            <li>***COMPROMISO***</li>
+            <li>{{$reporte->detalle->compromisos}}</li>
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
     </div>
     <div class="text">
@@ -65,12 +65,12 @@
         </p>
     </div>
     <div style="text-align: center; margin-top: 60px;">
-        <p>***Aqui va el nombre del alumno***</p>
+        <p>{{$alumno->nombre_completo}}</p>
         <p>Alumno </p>
     </div>
     <div class="contenedor">
         <div class="celda">
-            <p>***Aqui va el nombre del padre***</p>
+            <p>{{$reporte->detalle->tutor}}</p>
             <p>Padre, madre o tutor</p>          
         </div>
         <div class="celda">

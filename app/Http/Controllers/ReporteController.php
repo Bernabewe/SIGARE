@@ -20,6 +20,54 @@ class ReporteController extends Controller
         $reporte->delete();
         return redirect('reporte/consultar');
     }
+    public function editar($id){
+        $reporte=Reporte::with('detalle')->find($id);
+        $alumno=Alumno::where('numero_control', '=', $reporte->detalle->numero_control)->first();
+        $tipo=$reporte->tipo_id;
+        if($tipo==8){
+            return view('reporte.editarIndividual', compact('reporte', 'alumno'));
+        }
+        elseif($tipo==1){
+            $this->pdfGrupal();
+        }
+        elseif($tipo==2){
+            return view('reporte.editarBaja', compact('reporte', 'alumno'));
+        }
+        elseif($tipo==3){
+            return view('reporte.editarJustificante', compact('reporte', 'alumno'));
+        }
+        elseif($tipo==4){
+            return view('reporte.editarBuenaConducta', compact('reporte', 'alumno'));
+        }
+        elseif($tipo==5){
+            return view('reporte.editarCondicional', compact('reporte', 'alumno'));
+        }
+        elseif($tipo==6){
+            return view('reporte.editarCompromiso', compact('reporte', 'alumno'));
+        }
+        else{
+            dd($reporte->detalle->area_canalizacion);
+            return view('reporte.editarCanalizacion', compact('reporte', 'alumno'));
+        }
+    }
+    public function actualizar(Request $datos, $id){
+        $reporte=Reporte::with('detalle')->find($id);
+        $alumno=Alumno::where('numero_control', '=', $reporte->detalle->numero_control)->first();
+        $reporte->fecha             =Carbon::now();
+        $reporte->save();
+        $reporte->detalle->motivo           =$datos->input('motivo');
+        $reporte->detalle->tutor            =$datos->input('tutor');
+        $reporte->detalle->fecha_inicial    =$datos->input('fecha_inicial');
+        $reporte->detalle->fecha_final      =$datos->input('fecha_final');
+        $reporte->detalle->articulo         =$datos->input('articulo');
+        $reporte->detalle->compromisos      =$datos->input('compromisos');
+        $reporte->detalle->domicilio        =$datos->input('domicilio');
+        $reporte->detalle->area_canalizacion=$datos->input('area_canalizacion');
+        $reporte->detalle->observaciones    =$datos->input('observaciones');
+        $reporte->detalle->save();
+
+        return redirect('/reporte/consultar');
+    }   
 
     //Reporte individual - Funciones para vistas
     public function registrarIndividual(){
@@ -48,51 +96,7 @@ class ReporteController extends Controller
             'generacion'=>$alumno->generacion
         ]);
         return redirect('/reporte/consultar');
-    }
-    public function editar($id){
-        $reporte=Reporte::with('detalle')->find($id);
-        $alumno=Alumno::where('numero_control', '=', $reporte->detalle->numero_control)->first();
-        $tipo=$reporte->tipo_id;
-        if($tipo==8){
-            return view('reporte.editarIndividual', compact('reporte', 'alumno'));
-        }
-        elseif($tipo==1){
-            $this->pdfGrupal();
-        }
-        elseif($tipo==2){
-            $this->pdfBaja();
-        }
-        elseif($tipo==3){
-            $this->pdfJustificante();
-        }
-        elseif($tipo==4){
-            $this->pdfCartaBuenaConducta();
-        }
-        elseif($tipo==5){
-            $this->pdfCartaCondicional();
-        }
-        elseif($tipo==6){
-            $this->pdfCartaCompromiso();
-        }
-        else{
-            $this->pdfCanalizacion();
-        }
-        
-    }
-    public function actualizarIndividual(Request $datos, $id){
-        $reporte=Reporte::with('detalle')->find($id);
-        $alumno=Alumno::where('numero_control', '=', $reporte->detalle->numero_control)->first();
-        $reporte->fecha         =Carbon::now();
-        $reporte->especialidad  =$alumno->carrera;
-        $reporte->grupo         =$alumno->grupo;
-        $reporte->turno         =$alumno->turno;
-        $reporte->generacion    =$alumno->generacion;
-        $reporte->save();
-        $detalle->motivo        =$datos->input('motivo');
-        $detalle->save();
-
-        return redirect('/reporte/consultar');
-    }   
+    }  
 
     //Reporte grupal - Funciones para vistas
     public function registrarGrupal(){
@@ -158,7 +162,7 @@ class ReporteController extends Controller
             'generacion'        =>$alumno->generacion
         ]);
         return redirect('/reporte/consultar');
-    }
+    }    
 
     //Carta buena conducta - Funciones para vistas
     public function registrarCartaBuenaConducta(){
@@ -219,7 +223,7 @@ class ReporteController extends Controller
         ]);
         return redirect('/reporte/consultar');
     }
-
+    
     //Carta compromiso - Funciones para vistas
     public function registrarCartaCompromiso(){
         $alumno=null;

@@ -73,6 +73,6 @@ class PDFController extends Controller
     }
     public function pdfCartaCondicional(){
         $pdf = PDF::loadView('PDF.PDFcartaCondicional');
-        return $pdf->dowload("PDFcartaCondicional.pdf");
+        return $pdf->download("PDFcartaCondicional.pdf");
     }
 }

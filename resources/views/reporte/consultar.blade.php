@@ -38,7 +38,7 @@
                         <a href="{{ url('reporte/pdf') }}/{{$r->id}}" class="btn btn-success btn-sm">
                             <i class="far fa-file-pdf"></i>
                         </a>
-                        <a href="{{url('reporte/Individual/editar')}}/{{$r->id}}" class="btn btn-primary btn-sm">
+                        <a href="{{url('reporte/editar')}}/{{$r->id}}" class="btn btn-primary btn-sm">
                             <i class="far fa-edit"></i>
                         </a>
                         <a href="{{url('reporte/eliminar')}}/{{$r->id}}" class="btn btn-danger btn-sm">

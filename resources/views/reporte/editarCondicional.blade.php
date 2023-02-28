@@ -1,12 +1,12 @@
 @extends('app')
 
 @section('titulo')
-    <h1>Reporte individual</h1>
+    <h1>Carta condicional</h1>
 @stop
 
 @section('breadcrum')
     <li class="breadcrumb-item"><a href="{{ url('/home') }}">Inicio</a></li>
-    <li class="breadcrumb-item active">Reporte individual</li>
+    <li class="breadcrumb-item active">Carta condicional </li>
 @stop
 
 @section('contenido')
@@ -19,21 +19,28 @@
             <input type="submit" value="Buscar" class="btn btn-secondary" disabled>
         </div>
     </div>
-    <form action="{{url('/reporte/individual/actualizar')}}/{{$reporte->id}}" class="mt-4" method="POST">
+    <form action="{{url('/reporte/cartaCondicional/actualizar')}}/{{$reporte->id}}" method="POST">
         @csrf
         <input type="hidden" value="{{$alumno->id}}" name="id">
-        <div style="padding-left: 15px; margin-bottom: 20px;">
+        <div style="text-align:left; padding-left: 15px;">
             <label for="">Nombre: {{$alumno->nombre_completo}}</label><br>
             <label for="">Grupo: {{$alumno->grupo}}</label><br>
             <label for="">Especialidad: {{$alumno->carrera}}</label><br>
-            <label for="">Turno: {{strtoupper($alumno->turno)}}</label><br>
         </div>
         <div class="form-group">
             <label for="">Motivo</label>
             <input value="{{$reporte->detalle->motivo}}" type="text" class="form-control" name="motivo">
         </div>
+        <div class="form-group">
+            <label for="">Artículo incumplido  (Separar cada artículo por comas)</label>
+            <input value="{{$reporte->detalle->articulo}}" type="text" class="form-control" name="articulo">
+        </div>
+        <div class="form-group">
+            <label for="">Compromisos (Separar cada compromiso por comas)</label>
+            <input value="{{$reporte->detalle->compromisos}}" type="text" class="form-control" name="compromisos">
+        </div>
         <div style="text-align:right;">
-            <input value="Guardar" type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary">Guardar</button>
             <a href="{{ asset('/reporte/consultar') }}" class="btn btn-danger">Cancelar</a>
         </div>
     </form>

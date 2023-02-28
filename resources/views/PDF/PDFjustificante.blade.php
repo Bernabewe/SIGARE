@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte Individual</title>
+    <title>Justificante</title>
     <style>
         .text {
             font-size: 18px;
@@ -28,8 +28,8 @@
 <body>
     <img src="{{asset('images/encabezado.jpg')}}" alt="">
     <div style="text-align: right;">
-        <p>Culiacán Sin. ***Fecha*** <br>
-        OFICIO: ***Fecha oficio***</p>
+        <p>Culiacán Sin., {{$fecha}} <br>
+            OFICIO: {{$folio}}</p>
     </div>
     <div style="text-align: center;">
         <h2>Justificante de inasistencias</h2>
@@ -37,17 +37,17 @@
     </div>
     <div class="text">
         <p> 
-            C.C. PROFESORES DEL GRUPO: 5B <br>
-            ESPECIALIDAD: CONSTRUCCIÓN <br>
-            TURNO: MATUTINO <br>
+            C.C. PROFESORES DEL GRUPO: {{$alumno->grupo}} <br>
+            ESPECIALIDAD: {{$alumno->carrera}} <br>
+            TURNO: {{$alumno->turno}} <br>
             P R E S E N T E.
         </p>
     </div>
     <div class="text">
         <p> 
             Por este conducto, solicito le sea(n) justificada(s) las inasistencias al alumno (a):
-            NOMBRE DEL ALUMNO quien por motivos DE PARTICIÁCIÓN EN EL ENAC, no acudió a
-            clases el(los) día(s): 15 DE NOVIEMBRE del presente año.
+            {{$alumno->nombre_completo}} quien por motivos de {{$reporte->detalle->motivo}}, no acudió a
+            clases el(los) día(s): {{$reporte->detalle->fecha_inicial}} del presente año.
             Cabe señalar que es RESPONSABILIDAD del ALUMNO(A) regularizarse en la entrega de trabajos
             y/o tareas que el (la) profesor(a) haya encomendado, haciendo mención que el presente documento
             NO EXENTA al alumno de sus obligaciones académicas.

@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte Individual</title>
+    <title>Carta Condicional</title>
     <!-- <title>Reporte PDF Generico</title> -->
     <style>
         .text {
-            font-size: 15px;
+            font-size: 14px;
             text-align: justify;
         }
         .footer {
@@ -43,22 +43,23 @@
     </div>
 
     <div class="text; text-align: right;">
-        <p>Culiacán, Sinaloa; a ## de ##### de ####.</p>
+        <p>Culiacán, Sinaloa; a {{$fecha}}.</p>
     </div>
     <div class="text">
-        <p>Conscientes de la formación educativa que promueve el Plantel, y que mi hijo (a) <b>NOMBRE DEL
-            ALUMNO,</b> del grupo <b>1ro. “GRUPO”</b> Turno <b>Vespertino,</b> de la Especialidad: <b>Componente Básico,</b> ha
+        <p>Conscientes de la formación educativa que promueve el Plantel, y que mi hijo (a) <b>{{$alumno->nombre_completo}},
+            </b> del grupo <b>"{{$alumno->grupo}}"</b> Turno <b>{{$alumno->turno}},</b> de la Especialidad: <b>{{$alumno->carrera}},</b> ha
             Infringido el Reglamento Escolar de los Planteles dependientes de la D.G.E.T.I., que en su artículo 1º dice:
             “Acatar y cumplir los reglamentos e instrucciones que establezca la Dirección General de Educación
             Tecnológica Industrial, así como las disposiciones que dicten las autoridades del plantel”, al igual que el
-            Reglamento Interno del Plantel, al haber incurrido en:<b> MOTIVO, lo que señala cómo falta al Art. X del
+            Reglamento Interno del Plantel, al haber incurrido en:<b> {{$reporte->detalle->motivo}}, lo que señala cómo falta al Art.{{$reporte->detalle->articulo}}  del
             reglamento interno.</b></p>
     </div><br>
     <div class="text">
         <p>Manifestamos nuestro compromiso, de:</p>
         <ul>
             <li style="text-decoration: underline;">COMPROMISOS.</li>
-          </ul>
+            <li style="text-decoration: underline;">{{$reporte->detalle->compromisos}}.</li>
+        </ul>
     </div><br>
     <div class="text">
         <p>Además de observar y cumplir estrictamente con los reglamentos de la DGETI y el Reglamento Interno

@@ -41,10 +41,10 @@
         </p>
     </div>
     <div class="text">
-        <p> Nombre del Alumno(a): NOMBRE </p>
-        <p> No. de control: 19325061070105 </p>
-        <p> Especialidad: CONSTRUCCIÓN </p>
-        <p> Generación: 2019-2022 </p>
+        <p> Nombre del Alumno(a): {{$alumno->nombre_completo}} </p>
+        <p> No. de control: {{$alumno->numero_control}} </p>
+        <p> Especialidad: {{$alumno->carrera}} </p>
+        <p> Generación: {{$alumno->generacion}} </p>
     </div>
     <div class="text">
         <p> 

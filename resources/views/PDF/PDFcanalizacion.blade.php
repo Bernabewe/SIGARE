@@ -35,17 +35,17 @@
         <p>Fecha: ***FECHA***</p> 
     </div>
     <div class="text">
-        <p>Nombre del Alumno(a): NOMBRE </p>
-        <p>Grupo: GRUPO  Turno: VESPERTINO  Especialidad: ESPECIALIDAD</p>
-        <p>Nombre del padre o tutor: PADRE O TUTOR</p>
+        <p>Nombre del Alumno(a): {{$alumno->nombre_completo}} </p>
+        <p>Grupo: {{$alumno->grupo}}  Turno: {{$alumno->turno}}  Especialidad: {{$alumno->carrera}}</p>
+        <p>Nombre del padre o tutor: {{$reporte->detalle->tutor}}</p>
         <p>Nombre de la institución: CETIS 107</p>
-        <p>Domiciliio: DOMICILIO</p>
+        <p>Domiciliio: {{$reporte->detalle->domicilio}}</p>
         <p>Teléfono: TELEFONO</p>
     </div>
     <div class="text">
-        <p>Especifiqué el problema: MOTIVO</p>
-        <p>Área donde se canaliza:</p>
-        <p>Observaciones:</p>
+        <p>Especifiqué el problema: {{$reporte->detalle->motivo}}</p>
+        <p>Área donde se canaliza: {{$reporte->detalle->area_canalizacion}}</p>
+        <p>Observaciones: {{$reporte->detalle->observaciones}}</p>
     </div>
     <div style="text-align: center;">
         <p><b> ATENTAMENTE</p> 

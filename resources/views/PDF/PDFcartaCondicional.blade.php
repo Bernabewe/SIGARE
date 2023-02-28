@@ -42,8 +42,8 @@
         <p style="font-weight: bold;text-align: center;"> CARTA CONDICIONAL</p>
     </div>
 
-    <div class="text; text-align: right;">
-        <p>Culiacán, Sinaloa; a {{$fecha}}.</p>
+    <div style="text-align: right;">
+        <p>Culiacán Sin., {{$fecha}} <br></p>
     </div>
     <div class="text">
         <p>Conscientes de la formación educativa que promueve el Plantel, y que mi hijo (a) <b>{{$alumno->nombre_completo}},

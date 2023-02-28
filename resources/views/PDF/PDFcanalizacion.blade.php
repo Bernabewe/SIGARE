@@ -32,7 +32,7 @@
         <h2> Hoja de Canalización </h2>
     </div>
     <div style="text-align: right;">
-        <p>Fecha: ***FECHA***</p> 
+        <p>Fecha: {{$fecha}}.
     </div>
     <div class="text">
         <p>Nombre del Alumno(a): {{$alumno->nombre_completo}} </p>

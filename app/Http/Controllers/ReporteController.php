@@ -190,19 +190,99 @@ class ReporteController extends Controller
 
     //Carta condicional - Funciones para vistas
     public function registrarCartaCondicional(){
-        
-        return view('reporte.cartaCondicional');
+        $alumno=null;
+        return view('reporte.cartaCondicional', compact('alumno'));
+    }
+    public function registrarCartaCondicionalBuscar(Request $datos){
+        $numero_control=$datos->input('numero_control');
+        $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
+        return view('reporte.cartaCondicional', compact('alumno'));
+    }
+    public function registrarCartaCondicionalGuardar(Request $datos){
+        $alumno=Alumno::find($datos->input('id'));
+        $reporte_detalle=Detalle::create([
+            'motivo'            =>$datos->input('motivo'),
+            'articulo'          =>$datos->input('articulo'),
+            'compromisos'       =>$datos->input('compromisos'),
+            'numero_control'    =>$alumno->numero_control
+        ]);
+        $alumno=Alumno::find($datos->input('id'));
+        Reporte::create([
+            'tipo_id'           =>5, 
+            'detalle_id'        =>$reporte_detalle->id,
+            'user_id'           =>1,
+            'fecha'             =>Carbon::now(),
+            'especialidad'      =>$alumno->carrera,
+            'grupo'             =>$alumno->grupo,
+            'turno'             =>$alumno->turno,
+            'generacion'        =>$alumno->generacion
+        ]);
+        return redirect('/reporte/consultar');
     }
 
     //Carta compromiso - Funciones para vistas
     public function registrarCartaCompromiso(){
-        
-        return view('reporte.cartaCompromiso');
+        $alumno=null;
+        return view('reporte.cartaCompromiso', compact('alumno'));
+    }
+    public function registrarCartaCompromisoBuscar(Request $datos){
+        $numero_control=$datos->input('numero_control');
+        $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
+        return view('reporte.cartaCompromiso', compact('alumno'));
+    }
+    public function registrarCartaCompromisoGuardar(Request $datos){
+        $alumno=Alumno::find($datos->input('id'));
+        $reporte_detalle=Detalle::create([
+            'motivo'            =>$datos->input('motivo'),
+            'tutor'             =>$datos->input('tutor'),
+            'compromisos'       =>$datos->input('compromisos'),
+            'numero_control'    =>$alumno->numero_control
+        ]);
+        $alumno=Alumno::find($datos->input('id'));
+        Reporte::create([
+            'tipo_id'           =>6, 
+            'detalle_id'        =>$reporte_detalle->id,
+            'user_id'           =>1,
+            'fecha'             =>Carbon::now(),
+            'especialidad'      =>$alumno->carrera,
+            'grupo'             =>$alumno->grupo,
+            'turno'             =>$alumno->turno,
+            'generacion'        =>$alumno->generacion
+        ]);
+        return redirect('/reporte/consultar');
     }
 
     //Canalizacion - Funciones para vistas
     public function registrarCanalizacion(){
-        
-        return view('reporte.canalizacion');
+        $alumno=null;
+        return view('reporte.Canalizacion', compact('alumno'));
     }
-}
+    public function registrarCanalizacionBuscar(Request $datos){
+        $numero_control=$datos->input('numero_control');
+        $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
+        return view('reporte.Canalizacion', compact('alumno'));
+    }
+    public function registrarCanalizacionGuardar(Request $datos){
+        $alumno=Alumno::find($datos->input('id'));
+        $reporte_detalle=Detalle::create([
+            'motivo'            =>$datos->input('motivo'),
+            'tutor'             =>$datos->input('tutor'),
+            'domicilio'         =>$datos->input('domicilio'),
+            'observaciones'     =>$datos->input('observaciones'),
+            'area_canalizacion' =>$datos->input('area_canalizacion'),
+            'numero_control'    =>$alumno->numero_control
+        ]);
+        $alumno=Alumno::find($datos->input('id'));
+        Reporte::create([
+            'tipo_id'           =>7, 
+            'detalle_id'        =>$reporte_detalle->id,
+            'user_id'           =>1,
+            'fecha'             =>Carbon::now(),
+            'especialidad'      =>$alumno->carrera,
+            'grupo'             =>$alumno->grupo,
+            'turno'             =>$alumno->turno,
+            'generacion'        =>$alumno->generacion
+        ]);
+        return redirect('/reporte/consultar');
+    }
+}    

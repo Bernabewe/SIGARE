@@ -28,7 +28,7 @@ Route::get('/reporte/eliminar/{id}', [ReporteController::class, 'eliminar']);
 
 //Reporte individual
 Route::get('/reporte/individual', [ReporteController::class, 'registrarIndividual']);
-Route::get('/reporte/Individual/editar/{id}', [ReporteController::class, 'editarIndividual']);
+Route::get('/reporte/Individual/editar/{id}', [ReporteController::class, 'editar']);
 Route::post('/reporte/individual/actualizar/{id}', [ReporteController::class, 'actualizarIndividual']);
 Route::post('/reporte/individual', [ReporteController::class, 'registrarIndividualBuscar']);
 Route::post('/reporte/individual/guardar', [ReporteController::class, 'registrarIndividualGuardar']);
@@ -61,10 +61,11 @@ Route::get('/reporte/cartaCompromiso', [ReporteController::class, 'registrarCart
 Route::get('/reporte/canalizacion', [ReporteController::class, 'registrarCanalizacion']);
 
 //PDFs
+Route::get('/reporte/pdf/{id}', [PDFController::class, 'pdfMaster']);
 Route::get('/reporte/pdfIndividual', [PDFController::class, 'pdfIndividual']);
 Route::get('/reporte/pdfJustificante', [PDFController::class, 'pdfJustificante']);
 Route::get('/reporte/pdfBaja', [PDFController::class, 'pdfBaja']);
-Route::get('/reporte/pdfReporteGrupal', [PDFController::class, 'pdfReporteGrupal']);
+Route::get('/reporte/pdfReporteGrupal', [PDFController::class, 'pdfGrupal']);
 Route::get('/reporte/pdfCanalizacion', [PDFController::class, 'pdfCanalizacion']);
 Route::get('/reporte/pdfCartaCompromiso', [PDFController::class, 'pdfCartaCompromiso']);
 Route::get('/reporte/pdfCartaBuenaConducta', [PDFController::class, 'pdfCartaBuenaConducta']);

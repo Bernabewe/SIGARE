@@ -49,23 +49,39 @@ class ReporteController extends Controller
         ]);
         return redirect('/reporte/consultar');
     }
-    public function editarIndividual($id){
-        $reporte=Reporte::find($id);
-        $detalle=Detalle::where('id', '=', $reporte->detalle_id)->first();
-        $alumno=Alumno::where('numero_control', '=', $detalle->numero_control)->first();
+    public function editar($id){
+        $reporte=Reporte::with('detalle')->find($id);
+        $alumno=Alumno::where('numero_control', '=', $reporte->detalle->numero_control)->first();
         $tipo=$reporte->tipo_id;
-        if($tipo = 8){
-            return view('reporte.editarIndividual', compact('reporte', 'detalle', 'alumno'));
+        if($tipo==8){
+            return view('reporte.editarIndividual', compact('reporte', 'alumno'));
         }
-        elseif($tipo = 2){
-            return view('home', compact('reporte', 'detalle', 'alumno'));
+        elseif($tipo==1){
+            $this->pdfGrupal();
+        }
+        elseif($tipo==2){
+            $this->pdfBaja();
+        }
+        elseif($tipo==3){
+            $this->pdfJustificante();
+        }
+        elseif($tipo==4){
+            $this->pdfCartaBuenaConducta();
+        }
+        elseif($tipo==5){
+            $this->pdfCartaCondicional();
+        }
+        elseif($tipo==6){
+            $this->pdfCartaCompromiso();
+        }
+        else{
+            $this->pdfCanalizacion();
         }
         
     }
     public function actualizarIndividual(Request $datos, $id){
-        $reporte=Reporte::find($id);
-        $detalle=Detalle::where('id', '=', $reporte->detalle_id)->first();
-        $alumno=Alumno::where('numero_control', '=', $detalle->numero_control)->first();
+        $reporte=Reporte::with('detalle')->find($id);
+        $alumno=Alumno::where('numero_control', '=', $reporte->detalle->numero_control)->first();
         $reporte->fecha         =Carbon::now();
         $reporte->especialidad  =$alumno->carrera;
         $reporte->grupo         =$alumno->grupo;
@@ -74,7 +90,6 @@ class ReporteController extends Controller
         $reporte->save();
         $detalle->motivo        =$datos->input('motivo');
         $detalle->save();
-
 
         return redirect('/reporte/consultar');
     }   

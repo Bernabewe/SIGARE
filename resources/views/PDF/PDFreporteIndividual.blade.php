@@ -33,21 +33,22 @@
             border: 0.1px solid black;
         }
         
-    </style>
+    </style>  
 </head> 
 <body>
     <img src="{{asset('images/encabezado.jpg')}}" alt="">
     <div style="text-align: right;">
-        <p>Culiacán Sin. ***Fecha*** <br>
-        OFICIO: ***Fecha oficio***</p>
+        <p>Culiacán Sin., {{$fecha}} <br>
+        OFICIO: {{$folio}}</p>
     </div>
     <div style="text-align: center;">
         <h2>Reporte Indivual</h2>
         <br>
     </div>
     <div class="text">
-        <p>Nombre del Alumno(a): NOMBRE Grupo: GRUPO. <br>
-        Especialidad: ESPECIALIDAD Turno: VESPERTINO Motivo MOTIVO
+        <p>Nombre del Alumno(a): <b>{{$alumno->nombre_completo}}</b> Grupo: <b>{{$alumno->grupo}}</b>. <br>
+        Especialidad: <b>{{$alumno->carrera}}</b> Turno: <b>{{$alumno->turno}}</b> <br> 
+        Motivo: <b>{{$reporte->detalle->motivo}}</b>
         </p>
     </div>
     <div class="text">

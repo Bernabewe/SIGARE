@@ -10,12 +10,12 @@
 @stop
 
 @section('contenido')
-    <form action="{{url('/reporte/editarIndividual')}}" method="POST">
+    <form method="POST">
         @csrf
         <div style="width: 100%;">
             <div class="form-group" style="width: 50%; display: inline-block;">
                 <label for="">Número de control del alumno</label>
-                <input type="number" class="form-control" name="numero_control" value="{{$detalle->numero_control}}" disabled>
+                <input type="number" class="form-control" name="numero_control" value="{{$reporte->detalle->numero_control}}" disabled>
             </div>
             <div style="width: 8%; display: inline-block;">
                 <input type="submit" value="Buscar" class="btn btn-secondary" disabled>
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             <label for="">Motivo</label>
-            <input value="{{$detalle->motivo}}" type="text" class="form-control" name="motivo">
+            <input value="{{$reporte->detalle->motivo}}" type="text" class="form-control" name="motivo">
         </div>
         <div style="text-align:right;">
             <input value="Guardar" type="submit" class="btn btn-primary">

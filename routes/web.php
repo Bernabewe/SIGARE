@@ -29,46 +29,48 @@ Route::get('/reporte/editar/{id}', [ReporteController::class, 'editar']);
 
 //Reporte individual
 Route::get('/reporte/individual', [ReporteController::class, 'registrarIndividual']);
-Route::post('/reporte/individual', [ReporteController::class, 'registrarIndividualBuscar']);
-Route::post('/reporte/individual/guardar', [ReporteController::class, 'registrarIndividualGuardar']);
-Route::post('/reporte/individual/actualizar/{id}', [ReporteController::class, 'actualizarIndividual']);
+Route::post('/reporte/individual', [ReporteController::class, 'individualBuscar']);
+Route::post('/reporte/individual/guardar', [ReporteController::class, 'individualGuardar']);
+Route::post('/reporte/individual/actualizar/{id}', [ReporteController::class, 'actualizar']);
 
 //Repote grupal
 Route::get('/reporte/grupal', [ReporteController::class, 'registrarGrupal']);
+Route::post('/reporte/grupal/guardar', [ReporteController::class, 'grupalGuardar']);
+Route::post('/reporte/grupal/actualizar/{id}', [ReporteController::class, 'actualizar']);
 
 //Justificante
 Route::get('/reporte/justificante', [ReporteController::class, 'registrarJustificante']);
-Route::post('/reporte/justificante', [ReporteController::class, 'registrarJustificanteBuscar']);
-Route::post('/reporte/justificante/guardar', [ReporteController::class, 'registrarJustificanteGuardar']);
+Route::post('/reporte/justificante', [ReporteController::class, 'justificanteBuscar']);
+Route::post('/reporte/justificante/guardar', [ReporteController::class, 'justificanteGuardar']);
 Route::post('/reporte/justificante/actualizar/{id}', [ReporteController::class, 'actualizar']);
 
 //Baja
 Route::get('/reporte/baja', [ReporteController::class, 'registrarBaja']);
-Route::post('/reporte/baja', [ReporteController::class, 'registrarBajaBuscar']);
-Route::post('/reporte/baja/guardar', [ReporteController::class, 'registrarBajaGuardar']);
+Route::post('/reporte/baja', [ReporteController::class, 'bajaBuscar']);
+Route::post('/reporte/baja/guardar', [ReporteController::class, 'bajaGuardar']);
 Route::post('/reporte/baja/actualizar/{id}', [ReporteController::class, 'actualizar']);
 
 //Carta buena conducta
 Route::get('/reporte/cartaBuenaConducta', [ReporteController::class, 'registrarCartaBuenaConducta']);
-Route::post('/reporte/cartaBuenaConducta', [ReporteController::class, 'registrarCartaBuenaConductaBuscar']);
-Route::post('/reporte/cartaBuenaConducta/guardar', [ReporteController::class, 'registrarCartaBuenaConductaGuardar']);
+Route::post('/reporte/cartaBuenaConducta', [ReporteController::class, 'cartaBuenaConductaBuscar']);
+Route::post('/reporte/cartaBuenaConducta/guardar', [ReporteController::class, 'cartaBuenaConductaGuardar']);
 
 //Carta condicional
 Route::get('/reporte/cartaCondicional', [ReporteController::class, 'registrarCartaCondicional']);
-Route::post('reporte/cartaCondicional', [ReporteController::class, 'registrarCartaCondicionalBuscar']);
-Route::post('reporte/cartaCondicional/guardar', [ReporteController::class, 'registrarCartaCondicionalGuardar']);
+Route::post('reporte/cartaCondicional', [ReporteController::class, 'cartaCondicionalBuscar']);
+Route::post('reporte/cartaCondicional/guardar', [ReporteController::class, 'cartaCondicionalGuardar']);
 Route::post('reporte/cartaCondicional/actualizar/{id}', [ReporteController::class, 'actualizar']);
 
 //Carta compromiso
 Route::get('/reporte/cartaCompromiso', [ReporteController::class, 'registrarCartaCompromiso']);
-Route::post('reporte/cartaCompromiso', [ReporteController::class, 'registrarCartaCompromisoBuscar']);
-Route::post('reporte/cartaCompromiso/guardar', [ReporteController::class, 'registrarCartaCompromisoGuardar']);
+Route::post('reporte/cartaCompromiso', [ReporteController::class, 'cartaCompromisoBuscar']);
+Route::post('reporte/cartaCompromiso/guardar', [ReporteController::class, 'cartaCompromisoGuardar']);
 Route::post('reporte/cartaCompromiso/actualizar/{id}', [ReporteController::class, 'actualizar']);
 
 //Canalizacion
 Route::get('/reporte/canalizacion', [ReporteController::class, 'registrarCanalizacion']);
-Route::post('reporte/canalizacion', [ReporteController::class, 'registrarCanalizacionBuscar']);
-Route::post('reporte/canalizacion/guardar', [ReporteController::class, 'registrarCanalizacionGuardar']);
+Route::post('reporte/canalizacion', [ReporteController::class, 'canalizacionBuscar']);
+Route::post('reporte/canalizacion/guardar', [ReporteController::class, 'canalizacionGuardar']);
 Route::post('reporte/canalizacion/actulizar/{id}', [ReporteController::class, 'actualizar']);
 
 //PDFs

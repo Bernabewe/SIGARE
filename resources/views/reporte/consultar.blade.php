@@ -35,8 +35,14 @@
                             {{$r->detalle->numero_control}}
                         @endif
                     </td>
-                    <td>{{ucwords(mb_convert_case($r->detalle->alumno->nombre, MB_CASE_LOWER, "UTF-8"))}}</td>
-                    <td>{{ucwords(mb_convert_case($r->alumno->carrera, MB_CASE_LOWER, "UTF-8"))}}</td>
+                    <td>
+                        @if ($r->detalle->alumno == NULL)
+                            -
+                        @else
+                            {{ucwords(mb_convert_case($r->detalle->alumno->nombre, MB_CASE_LOWER, "UTF-8"))}}
+                        @endif
+                    </td>
+                    <td>{{ucwords(mb_convert_case($r->especialidad, MB_CASE_LOWER, "UTF-8"))}}</td>
                     <td>{{ucwords(mb_convert_case($r->tipo->nombre, MB_CASE_LOWER, "UTF-8"))}}</td>
                     <td>Pendiente Sesión</td>
                     <td>{{$r->created_at}}</td>

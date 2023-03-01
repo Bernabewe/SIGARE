@@ -55,8 +55,8 @@ class PDFController extends Controller
         $pdf = PDF::loadView('PDF.PDFbaja', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
         return $pdf->download("PDFbaja.pdf");
     }
-    public function pdfGrupal(Reporte $reporte, Alumno $alumno, $fecha, $folio){
-        $pdf = PDF::loadView('PDF.PDFreporteGrupal', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
+    public function pdfGrupal(Reporte $reporte, $fecha, $folio){
+        $pdf = PDF::loadView('PDF.PDFreporteGrupal', array('reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
         return $pdf->download("PDFreporteGrupal.pdf");
     }
     public function pdfCanalizacion(Reporte $reporte, Alumno $alumno, $fecha, $folio){

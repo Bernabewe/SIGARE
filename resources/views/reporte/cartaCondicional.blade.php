@@ -33,15 +33,15 @@
         </div>
         <div class="form-group">
             <label for="">Motivo</label>
-            <input type="text" class="form-control" name="motivo">
+            <input type="text" class="form-control" name="motivo" required>
         </div>
         <div class="form-group">
             <label for="">Artículo incumplido  (Separar cada artículo por comas)</label>
-            <input type="text" class="form-control" name="articulo">
+            <input type="text" class="form-control" name="articulo" required>
         </div>
         <div class="form-group">
             <label for="">Compromisos (Separar cada compromiso por comas)</label>
-            <input type="text" class="form-control" name="compromisos">
+            <input type="text" class="form-control" name="compromisos" required>
         </div>
         <div style="text-align:right;">
             <button type="submit" class="btn btn-primary">Guardar</button>

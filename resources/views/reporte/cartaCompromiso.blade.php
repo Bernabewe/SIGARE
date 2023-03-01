@@ -33,15 +33,15 @@
         </div>
         <div class="form-group">
             <label for="">Motivo(falta del alumno)</label>
-            <input type="text" class="form-control" name="motivo">
+            <input type="text" class="form-control" name="motivo" required>
         </div>
         <div class="form-group">
             <label for="">Nombre del padre, madre o tutor</label>
-            <input type="text" class="form-control" name="tutor">
+            <input type="text" class="form-control" name="tutor" required>
         </div>
         <div class="form-group">
             <label for="">Compromisos (Separar cada compromiso por comas)</label>
-            <input type="text" class="form-control" name="compromisos">
+            <input type="text" class="form-control" name="compromisos" required>
         </div>
         <div style="text-align:right;">
             <button type="submit" class="btn btn-primary">Guardar</button>

@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <label for="">Inasistencia del día</label>
-                    <input type="date" class="form-control" name="fecha_inicial">
+                    <input type="date" class="form-control" name="fecha_inicial" required>
                 </div>
                 <div class="col-sm-6">
                     <label for="">Al día</label>
@@ -46,7 +46,7 @@
         </div>
         <div class="form-group">
             <label for="">Motivo</label>
-            <input type="text" class="form-control" name="motivo">
+            <input type="text" class="form-control" name="motivo" required>
         </div>
         <div style="text-align:right;">
             <button type="submit" class="btn btn-primary">Guardar</button>

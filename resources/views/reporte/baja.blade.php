@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             <label for="">Motivo</label>
-            <input type="text" class="form-control" name="motivo">
+            <input type="text" class="form-control" name="motivo" required>
         </div>
         <div style="text-align:right;">
             <button type="submit" class="btn btn-primary">Guardar</button>

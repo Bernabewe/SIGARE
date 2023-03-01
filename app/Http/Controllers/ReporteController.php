@@ -29,7 +29,7 @@ class ReporteController extends Controller
             return view('reporte.editarIndividual', compact('reporte', 'alumno'));
         }
         elseif($tipo==1){
-            $this->pdfGrupal();
+            return view('reporte.editarGrupal', compact('reporte'));
         }
         elseif($tipo==2){
             return view('reporte.editarBaja', compact('reporte', 'alumno'));
@@ -74,12 +74,12 @@ class ReporteController extends Controller
         $alumno=null;
         return view('reporte.individual', compact('alumno'));
     }
-    public function registrarIndividualBuscar(Request $datos){
+    public function individualBuscar(Request $datos){
         $numero_control=$datos->input('numero_control');
         $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
         return view('reporte.individual', compact('alumno'));
     }
-    public function registrarIndividualGuardar(Request $datos){
+    public function individualGuardar(Request $datos){
         $alumno=Alumno::find($datos->input('id'));
         $reporte_detalle=Detalle::create([
             'motivo'            =>$datos->input('motivo'),
@@ -105,18 +105,34 @@ class ReporteController extends Controller
         $especialidades=DB::table('alumnos')->select('carrera')->distinct('carrera')->get();
         return view('reporte.grupal', compact('grupos', 'turnos', 'especialidades'));
     }
+    public function grupalGuardar(Request $datos){
+        $reporte_detalle=Detalle::create([
+            'motivo'            =>$datos->input('motivo'),
+        ]);
+        Reporte::create([
+            'tipo_id'           =>1,
+            'detalle_id'        =>$reporte_detalle->id,
+            'user_id'           =>1,
+            'fecha'             =>Carbon::now(),
+            'especialidad'      =>$datos->input('especialidad'),
+            'grupo'             =>$datos->input('grupo'),
+            'turno'             =>$datos->input('turno'),
+            'generacion'        =>NULL
+        ]);
+        return redirect('/reporte/consultar');
+    }
 
     //Justificante - Funciones para vistas
     public function registrarJustificante(){
         $alumno=null;
         return view('reporte.justificante', compact('alumno'));
     }
-    public function registrarJustificanteBuscar(Request $datos){
+    public function justificanteBuscar(Request $datos){
         $numero_control=$datos->input('numero_control');
         $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
         return view('reporte.justificante', compact('alumno'));
     }
-    public function registrarJustificanteGuardar(Request $datos){
+    public function justificanteGuardar(Request $datos){
         $alumno=Alumno::find($datos->input('id'));
         $reporte_detalle=Detalle::create([
             'motivo'            =>$datos->input('motivo'),
@@ -142,12 +158,12 @@ class ReporteController extends Controller
         $alumno=null;
         return view('reporte.baja', compact('alumno'));
     }
-    public function registrarBajaBuscar(Request $datos){
+    public function bajaBuscar(Request $datos){
         $numero_control=$datos->input('numero_control');
         $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
         return view('reporte.baja', compact('alumno'));
     }
-    public function registrarBajaGuardar(Request $datos){
+    public function bajaGuardar(Request $datos){
         $alumno=Alumno::find($datos->input('id'));
         $reporte_detalle=Detalle::create([
             'motivo'            =>$datos->input('motivo'),
@@ -171,12 +187,12 @@ class ReporteController extends Controller
         $alumno=null;
         return view('reporte.cartaBuenaConducta', compact('alumno'));
     }
-    public function registrarCartaBuenaConductaBuscar(Request $datos){
+    public function cartaBuenaConductaBuscar(Request $datos){
         $numero_control=$datos->input('numero_control');
         $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
         return view('reporte.cartaBuenaConducta', compact('alumno'));
     }
-    public function registrarCartaBuenaConductaGuardar(Request $datos){
+    public function cartaBuenaConductaGuardar(Request $datos){
         $alumno=Alumno::find($datos->input('id'));
         $reporte_detalle=Detalle::create([
             'numero_control'    =>$alumno->numero_control
@@ -199,12 +215,12 @@ class ReporteController extends Controller
         $alumno=null;
         return view('reporte.cartaCondicional', compact('alumno'));
     }
-    public function registrarCartaCondicionalBuscar(Request $datos){
+    public function cartaCondicionalBuscar(Request $datos){
         $numero_control=$datos->input('numero_control');
         $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
         return view('reporte.cartaCondicional', compact('alumno'));
     }
-    public function registrarCartaCondicionalGuardar(Request $datos){
+    public function cartaCondicionalGuardar(Request $datos){
         $alumno=Alumno::find($datos->input('id'));
         $reporte_detalle=Detalle::create([
             'motivo'            =>$datos->input('motivo'),
@@ -230,12 +246,12 @@ class ReporteController extends Controller
         $alumno=null;
         return view('reporte.cartaCompromiso', compact('alumno'));
     }
-    public function registrarCartaCompromisoBuscar(Request $datos){
+    public function cartaCompromisoBuscar(Request $datos){
         $numero_control=$datos->input('numero_control');
         $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
         return view('reporte.cartaCompromiso', compact('alumno'));
     }
-    public function registrarCartaCompromisoGuardar(Request $datos){
+    public function cartaCompromisoGuardar(Request $datos){
         $alumno=Alumno::find($datos->input('id'));
         $reporte_detalle=Detalle::create([
             'motivo'            =>$datos->input('motivo'),
@@ -261,12 +277,12 @@ class ReporteController extends Controller
         $alumno=null;
         return view('reporte.Canalizacion', compact('alumno'));
     }
-    public function registrarCanalizacionBuscar(Request $datos){
+    public function canalizacionBuscar(Request $datos){
         $numero_control=$datos->input('numero_control');
         $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
         return view('reporte.Canalizacion', compact('alumno'));
     }
-    public function registrarCanalizacionGuardar(Request $datos){
+    public function canalizacionGuardar(Request $datos){
         $alumno=Alumno::find($datos->input('id'));
         $reporte_detalle=Detalle::create([
             'motivo'            =>$datos->input('motivo'),

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('especialidad');
             $table->string('grupo');
             $table->string('turno');
-            $table->string('generacion');
+            $table->string('generacion')->nullable();;
 
             $table->timestamps();
             $table->softDeletes();

@@ -34,23 +34,23 @@
             </div>
             <div class="form-group">
                 <label for="">Motivo (Especifiqué el problema)</label>
-                <input type="text" class="form-control" name="motivo">
+                <input type="text" class="form-control" name="motivo" required>
             </div>
             <div class="form-group">
                 <label for="">Nombre del padre, madre o tutor</label>
-                <input type="text" class="form-control" name="tutor">
+                <input type="text" class="form-control" name="tutor" required>
             </div>
             <div class="form-group">
                 <label for="">Domicilio</label>
-                <input type="text" class="form-control" name="domicilio">
+                <input type="text" class="form-control" name="domicilio" required>
             </div>
             <div class="form-group">
                 <label for="">Área de canalización</label>
-                <input type="text" class="form-control" name="area_canalizacion">
+                <input type="text" class="form-control" name="area_canalizacion" required>
             </div>
             <div class="form-group">
                 <label for="">Observaciones</label>
-                <input type="text" class="form-control" name="observaciones">
+                <input type="text" class="form-control" name="observaciones" required>
             </div>
             <div style="text-align:right;">
                 <button type="submit" class="btn btn-primary">Guardar</button>

@@ -10,15 +10,35 @@
 @stop
 
 @section('contenido')
-    <form action="">
+    <form action="{url('/reporte/grupal/guardar')}}" method="POST">
+        @csrf
         <div class="form-group">
             <label for="">Seleccione el grupo a reportar</label>
-            <input type="text" class="form-control">
-        </div>
-        <div style="text-align:left; padding-left: 15px;">
-            <label for="">Grupo:</label><br>
-            <label for="">Especialidad:</label><br>
-            <label for="">Turno:</label><br>
+            <div>
+            <select class="form-control" name="grupo" id="" required>
+                <option value="">Seleccione un grupo</option>
+                @foreach ($grupos as $g)
+                    <option value="{{ $g->grupo }}">{{ $g->grupo }}</option>
+                @endforeach
+            </select>
+            </div>
+            <div>
+            <select class="form-control" name="grupo" id="" required>
+                <option value="">Seleccione un turno</option>
+                @foreach ($turnos as $t)
+                    <option value="{{ $t->turno }}">{{ $t->turno }}</option>
+                @endforeach
+            </select>
+            </div>
+            <div>
+            <select class="form-control" name="grupo" id="">
+                <option value="">Seleccione una especialidad</option>
+                @foreach ($especialidades as $e)
+                    <option value="{{ $e->carrera }}">{{ $e->carrera }}</option>
+                @endforeach
+                    <option value="sin_especialidad"> Sin especialidad </option>
+            </select>
+            </div>
         </div>
         <div class="form-group">
             <label for="">Motivo</label>

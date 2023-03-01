@@ -8,6 +8,7 @@ use App\Models\Alumno;
 use App\Models\Reporte;
 use App\Models\Detalle;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class ReporteController extends Controller
 {
@@ -52,7 +53,7 @@ class ReporteController extends Controller
     public function actualizar(Request $datos, $id){
         $reporte=Reporte::with('detalle')->find($id);
         $alumno=Alumno::where('numero_control', '=', $reporte->detalle->numero_control)->first();
-        $reporte->fecha             =Carbon::now();
+        $reporte->fecha                     =Carbon::now();
         $reporte->save();
         $reporte->detalle->motivo           =$datos->input('motivo');
         $reporte->detalle->tutor            =$datos->input('tutor');
@@ -66,7 +67,7 @@ class ReporteController extends Controller
         $reporte->detalle->save();
 
         return redirect('/reporte/consultar');
-    }   
+    }
 
     //Reporte individual - Funciones para vistas
     public function registrarIndividual(){
@@ -83,9 +84,9 @@ class ReporteController extends Controller
         $reporte_detalle=Detalle::create([
             'motivo'            =>$datos->input('motivo'),
             'numero_control'    =>$alumno->numero_control
-        ]); 
+        ]);
         Reporte::create([
-            'tipo_id'=>8, 
+            'tipo_id'=>8,
             'detalle_id'=>$reporte_detalle->id,
             'user_id'=>1,
             'fecha'=>Carbon::now(),
@@ -95,12 +96,14 @@ class ReporteController extends Controller
             'generacion'=>$alumno->generacion
         ]);
         return redirect('/reporte/consultar');
-    }  
+    }
 
     //Reporte grupal - Funciones para vistas
     public function registrarGrupal(){
-        
-        return view('reporte.grupal');
+        $grupos=DB::table('alumnos')->select('grupo')->distinct('grupo')->get();
+        $turnos=DB::table('alumnos')->select('turno')->distinct('turno')->get();
+        $especialidades=DB::table('alumnos')->select('carrera')->distinct('carrera')->get();
+        return view('reporte.grupal', compact('grupos', 'turnos', 'especialidades'));
     }
 
     //Justificante - Funciones para vistas
@@ -122,7 +125,7 @@ class ReporteController extends Controller
             'numero_control'    =>$alumno->numero_control
         ]);
         Reporte::create([
-            'tipo_id'           =>3, 
+            'tipo_id'           =>3,
             'detalle_id'        =>$reporte_detalle->id,
             'user_id'           =>1,
             'fecha'             =>Carbon::now(),
@@ -151,7 +154,7 @@ class ReporteController extends Controller
             'numero_control'    =>$alumno->numero_control
         ]);
         Reporte::create([
-            'tipo_id'           =>2, 
+            'tipo_id'           =>2,
             'detalle_id'        =>$reporte_detalle->id,
             'user_id'           =>1,
             'fecha'             =>Carbon::now(),
@@ -161,7 +164,7 @@ class ReporteController extends Controller
             'generacion'        =>$alumno->generacion
         ]);
         return redirect('/reporte/consultar');
-    }    
+    }
 
     //Carta buena conducta - Funciones para vistas
     public function registrarCartaBuenaConducta(){
@@ -179,7 +182,7 @@ class ReporteController extends Controller
             'numero_control'    =>$alumno->numero_control
         ]);
         Reporte::create([
-            'tipo_id'           =>4, 
+            'tipo_id'           =>4,
             'detalle_id'        =>$reporte_detalle->id,
             'user_id'           =>1,
             'fecha'             =>Carbon::now(),
@@ -210,7 +213,7 @@ class ReporteController extends Controller
             'numero_control'    =>$alumno->numero_control
         ]);
         Reporte::create([
-            'tipo_id'           =>5, 
+            'tipo_id'           =>5,
             'detalle_id'        =>$reporte_detalle->id,
             'user_id'           =>1,
             'fecha'             =>Carbon::now(),
@@ -221,7 +224,7 @@ class ReporteController extends Controller
         ]);
         return redirect('/reporte/consultar');
     }
-    
+
     //Carta compromiso - Funciones para vistas
     public function registrarCartaCompromiso(){
         $alumno=null;
@@ -241,7 +244,7 @@ class ReporteController extends Controller
             'numero_control'    =>$alumno->numero_control
         ]);
         Reporte::create([
-            'tipo_id'           =>6, 
+            'tipo_id'           =>6,
             'detalle_id'        =>$reporte_detalle->id,
             'user_id'           =>1,
             'fecha'             =>Carbon::now(),
@@ -274,7 +277,7 @@ class ReporteController extends Controller
             'numero_control'    =>$alumno->numero_control
         ]);
         Reporte::create([
-            'tipo_id'           =>7, 
+            'tipo_id'           =>7,
             'detalle_id'        =>$reporte_detalle->id,
             'user_id'           =>1,
             'fecha'             =>Carbon::now(),
@@ -285,4 +288,4 @@ class ReporteController extends Controller
         ]);
         return redirect('/reporte/consultar');
     }
-}    
+}

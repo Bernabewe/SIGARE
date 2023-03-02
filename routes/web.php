@@ -3,6 +3,7 @@
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AlumnoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,8 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'home']);
 
-//Rutas de alumnos
+Route::get('/consultar/alumnos', [AlumnoController::class, 'consultar']);
+Route::post('/consultar/alumno', [AlumnoController::class, 'buscar']);
 Route::get('/reporte/consultar', [ReporteController::class, 'consultar']);
 Route::get('/reporte/eliminar/{id}', [ReporteController::class, 'eliminar']);
 Route::get('/reporte/editar/{id}', [ReporteController::class, 'editar']);

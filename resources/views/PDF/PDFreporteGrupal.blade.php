@@ -32,23 +32,23 @@
             width: 40%;
             border: 0.1px solid black;
         }
-        
+
     </style>
-</head> 
+</head>
 <body>
     <img src="{{asset('images/encabezado.jpg')}}" alt="">
     <div style="text-align: right;">
-        <p>Culiacán Sin. ***Fecha*** <br>
-        OFICIO: ***Fecha oficio***</p>
+        <p>Culiacán Sin. {{$fecha}} <br>
+        OFICIO: {{$folio}}</p>
     </div>
     <div style="text-align: center;">
         <h2><b>REPORTE GRUPAL</b></h2>
         <br>
     </div>
     <div class="text-align: left; text">
-        <p>Grupo: <br>
-            Especialidad:   Turno:  <br>
-            Motivo: <br><br>
+        <p>Grupo:  {{$reporte->grupo}} <br>
+            Especialidad: {{$reporte->especialidad}} Turno: {{$reporte->turno}} <br>
+            Motivo: {{$reporte->detalle->motivo}} <br><br>
             En caso de reincidir en faltas al reglamento, los alumnos se harán acreedores a otro
             tipo de sanción. <br></p>
     </div>

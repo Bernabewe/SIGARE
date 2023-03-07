@@ -3,6 +3,7 @@
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AlumnoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+<?php
+
+use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AlumnoController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+Route::group(['prefix' => 'orientador', 'middleware' => ['orientador', 'role:orientador']], function(){
+    Route::get('/home', function(){
+        return view('orientador.home');
+    });
 });
 
 Route::group(['middleware' => ['administrador', 'role:administrador']], function() {
@@ -25,9 +46,7 @@ Route::group(['middleware' => ['administrador', 'role:administrador']], function
     //Rutas de alumnos
     Route::get('/reporte/consultar', [ReporteController::class, 'consultar']);
     Route::get('/reporte/editar/{id}', [ReporteController::class, 'editar']);
-
-    //Ruta de Admin
-        Route::get('/reporte/eliminar/{id}', [ReporteController::class, 'eliminar']);
+    Route::get('/reporte/eliminar/{id}', [ReporteController::class, 'eliminar']);
 
 
     //Reporte individual
@@ -88,12 +107,9 @@ Route::group(['middleware' => ['administrador', 'role:administrador']], function
     Route::get('/reporte/pdfCartaCondicional', [PDFController::class, 'pdfCartaCondicional']);
 });
 
-Route::group(['prefix' => 'orientador', 'middleware' => ['orientador', 'role:orientador']], function(){
-    Route::get('/home', function(){
-        return view('orientador.home');
-    });
-});
+
 
 Route::get('/blank', function () {
     return view('blankpage');
 });
+

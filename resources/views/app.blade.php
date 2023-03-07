@@ -259,8 +259,14 @@
                 </li>
                 <li class="nav-item">
                       <a href="{{asset('/reporte/consultar')}}" class="nav-link">
-                      <i class="fas fa-book nav-icon"></i>
+                        <i class="fas fa-book nav-icon"></i>
                         <p>Consultar reportes</p>
+                      </a>
+                </li>
+                <li class="nav-item">
+                      <a href="{{asset('/consultar/alumnos')}}" class="nav-link">
+                        <i class="fas fa-address-book  nav-icon"></i>
+                        <p>Consultar alumnos</p>
                       </a>
                 </li>
                 <!-- <li class="nav-item">

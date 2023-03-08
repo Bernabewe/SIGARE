@@ -2,12 +2,12 @@
 
 
 use App\Http\Controllers\ProfileController;
-
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\AlumnoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReporteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +19,16 @@ use App\Http\Controllers\ReporteController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::group(['prefix' => 'orientador', 'middleware' => ['orientador', 'role:orientador']], function(){
-    //Route::get('/home', function(){
-        //return view('orientador.home');
-   // });
-//});
 
-//Route::group(['middleware' => ['administrador', 'role:administrador']], function() {
 
-    Route::get('/home', [HomeController::class, 'home']);
+
+Route::group(['prefix' => 'orientador', 'middleware' => ['orientador', 'role:orientador']], function(){
+    Route::get('/home', function(){
+        return view('orientador.home');
+    });
+});
+
+Route::group(['middleware' => ['administrador', 'role:administrador']], function() {
 
     Route::get('/consultar/alumnos', [AlumnoController::class, 'consultar']);
     Route::post('/consultar/alumno', [AlumnoController::class, 'buscar']);
@@ -94,13 +95,10 @@ use App\Http\Controllers\ReporteController;
     Route::get('/reporte/pdfCartaCompromiso', [PDFController::class, 'pdfCartaCompromiso']);
     Route::get('/reporte/pdfCartaBuenaConducta', [PDFController::class, 'pdfCartaBuenaConducta']);
     Route::get('/reporte/pdfCartaCondicional', [PDFController::class, 'pdfCartaCondicional']);
-//});
 
+});
 
 Route::get('/dashboard', [HomeController::class, 'home'])->middleware(['auth', 'verified'])->name('dashboard');
-
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

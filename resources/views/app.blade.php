@@ -149,7 +149,6 @@
               </div>
               <div class="info">
                     <a href="#" class="d-block"> {{ Auth::user()->name;}} </a>
-                {{-- <span>{{(Auth::user()->roles[0]->name)}}</span> --}}
                 <a class="d-block" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">

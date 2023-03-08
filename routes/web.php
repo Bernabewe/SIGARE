@@ -26,7 +26,9 @@ use Illuminate\Support\Facades\Route;
 
     Route::get('/home', [HomeController::class, 'home']);
 
-
+    Route::get('/consultar/alumnos', [AlumnoController::class, 'consultar']);
+    Route::post('/consultar/alumno', [AlumnoController::class, 'buscar']);
+    
     //Rutas de alumnos
     Route::get('/reporte/consultar', [ReporteController::class, 'consultar']);
     Route::get('/reporte/editar/{id}', [ReporteController::class, 'editar']);

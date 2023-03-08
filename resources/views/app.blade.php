@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Proyecto Base</title>
+  <title>SIGARE - Sistema de Gestión y Almacenamiento de Reportes</title>
   <link rel="icon" type="image/x-icon" href="{{ url('images/logohb.ico') }}">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -181,7 +181,7 @@
                      with font-awesome or any other icon font library -->
                 <li class="nav-item active">
                   <a href="{{asset('/home')}}" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <i class="fas fa-home nav-icon"></i>
                     <p>
                       Inicio
                     </p>
@@ -209,48 +209,48 @@
                       </a>
                     </li>-->
                     <li class="nav-item">
-                      <a href="{{asset('/reporte/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/individual')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Individual</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/grupal')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Grupal</p>
                       </a>
                     </li><li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/justificante')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Justificante</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/baja')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Baja</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/cartaBuenaConducta')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Carta buena conducta</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/cartaCondicional')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Carta condicional</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/cartaCompromiso')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Carta compromiso</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="{{asset('/alumno/registrar')}}" class="nav-link">
+                      <a href="{{asset('/reporte/canalizacion')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Canalización</p>
                       </a>
@@ -259,8 +259,14 @@
                 </li>
                 <li class="nav-item">
                       <a href="{{asset('/reporte/consultar')}}" class="nav-link">
-                      <i class="fas fa-book nav-icon"></i>
-                        <p>Consular reportes</p>
+                        <i class="fas fa-book nav-icon"></i>
+                        <p>Consultar reportes</p>
+                      </a>
+                </li>
+                <li class="nav-item">
+                      <a href="{{asset('/consultar/alumnos')}}" class="nav-link">
+                        <i class="fas fa-address-book  nav-icon"></i>
+                        <p>Consultar alumnos</p>
                       </a>
                 </li>
                 <!-- <li class="nav-item">
@@ -326,8 +332,8 @@
         <!-- /.control-sidebar -->
         <!-- Main Footer -->
         <footer class="main-footer">
-          <strong>Tu proyecto Web App &copy; 2023.</strong>
-          derechos reservados.
+          <strong>Sistema de Gestión y Almacenamiento de Reportes &copy; 2023.</strong>
+          Derechos reservados.
           <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 1.0
           </div>

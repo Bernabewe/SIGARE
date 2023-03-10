@@ -44,7 +44,7 @@
                     </td>
                     <td>{{ucwords(mb_convert_case($r->especialidad, MB_CASE_LOWER, "UTF-8"))}}</td>
                     <td>{{ucwords(mb_convert_case($r->tipo->nombre, MB_CASE_LOWER, "UTF-8"))}}</td>
-                    <td>Pendiente Sesión</td>
+                    <td>{{$r->usuario->name}}</td>
                     <td>{{$r->created_at}}</td>
                     <td>
                         <a href="{{ url('reporte/pdf') }}/{{$r->id}}" class="btn btn-success btn-sm">
@@ -53,9 +53,12 @@
                         <a href="{{url('reporte/editar')}}/{{$r->id}}" class="btn btn-primary btn-sm">
                             <i class="far fa-edit"></i>
                         </a>
+                        @if(Auth::user()->hasRole('administrador'))
+
                         <a href="{{url('reporte/eliminar')}}/{{$r->id}}" class="btn btn-danger btn-sm">
-                            <i class="fas fa-times"></i>
-                        </a>
+                                <i class="fas fa-times"></i>
+                            </a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach

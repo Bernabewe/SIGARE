@@ -8,12 +8,19 @@ use App\Models\Alumno;
 use App\Models\Reporte;
 use App\Models\Detalle;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ReporteController extends Controller
 {
     public function consultar(){
-        $reportes= Reporte::with(['detalle', 'tipo'])->get();
+        if(Auth::user()->hasRole('orientador')){
+            $reportes= Reporte::where('user_id', '=', Auth::user()->id)
+                            ->with(['detalle', 'tipo'])
+                            ->get();
+        }else{
+            $reportes= Reporte::with(['detalle', 'tipo'])->get();
+        }
         return view('reporte.consultar', compact('reportes') );
     }
     public function eliminar($id){
@@ -88,7 +95,7 @@ class ReporteController extends Controller
         Reporte::create([
             'tipo_id'=>8,
             'detalle_id'=>$reporte_detalle->id,
-            'user_id'=>1,
+            'user_id'=> Auth::user()->id,
             'fecha'=>Carbon::now(),
             'especialidad'=>$alumno->carrera,
             'grupo'=>$alumno->grupo,
@@ -112,7 +119,7 @@ class ReporteController extends Controller
         Reporte::create([
             'tipo_id'           =>1,
             'detalle_id'        =>$reporte_detalle->id,
-            'user_id'           =>1,
+            'user_id'           =>Auth::user()->id,
             'fecha'             =>Carbon::now(),
             'especialidad'      =>$datos->input('especialidad'),
             'grupo'             =>$datos->input('grupo'),
@@ -143,7 +150,7 @@ class ReporteController extends Controller
         Reporte::create([
             'tipo_id'           =>3,
             'detalle_id'        =>$reporte_detalle->id,
-            'user_id'           =>1,
+            'user_id'           =>Auth::user()->id,
             'fecha'             =>Carbon::now(),
             'especialidad'      =>$alumno->carrera,
             'grupo'             =>$alumno->grupo,
@@ -172,7 +179,7 @@ class ReporteController extends Controller
         Reporte::create([
             'tipo_id'           =>2,
             'detalle_id'        =>$reporte_detalle->id,
-            'user_id'           =>1,
+            'user_id'           =>Auth::user()->id,
             'fecha'             =>Carbon::now(),
             'especialidad'      =>$alumno->carrera,
             'grupo'             =>$alumno->grupo,
@@ -200,7 +207,7 @@ class ReporteController extends Controller
         Reporte::create([
             'tipo_id'           =>4,
             'detalle_id'        =>$reporte_detalle->id,
-            'user_id'           =>1,
+            'user_id'           =>Auth::user()->id,
             'fecha'             =>Carbon::now(),
             'especialidad'      =>$alumno->carrera,
             'grupo'             =>$alumno->grupo,
@@ -231,7 +238,7 @@ class ReporteController extends Controller
         Reporte::create([
             'tipo_id'           =>5,
             'detalle_id'        =>$reporte_detalle->id,
-            'user_id'           =>1,
+            'user_id'           =>Auth::user()->id,
             'fecha'             =>Carbon::now(),
             'especialidad'      =>$alumno->carrera,
             'grupo'             =>$alumno->grupo,
@@ -262,7 +269,7 @@ class ReporteController extends Controller
         Reporte::create([
             'tipo_id'           =>6,
             'detalle_id'        =>$reporte_detalle->id,
-            'user_id'           =>1,
+            'user_id'           =>Auth::user()->id,
             'fecha'             =>Carbon::now(),
             'especialidad'      =>$alumno->carrera,
             'grupo'             =>$alumno->grupo,
@@ -295,7 +302,7 @@ class ReporteController extends Controller
         Reporte::create([
             'tipo_id'           =>7,
             'detalle_id'        =>$reporte_detalle->id,
-            'user_id'           =>1,
+            'user_id'           =>Auth::user()->id,
             'fecha'             =>Carbon::now(),
             'especialidad'      =>$alumno->carrera,
             'grupo'             =>$alumno->grupo,

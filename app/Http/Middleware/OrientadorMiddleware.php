@@ -18,6 +18,11 @@ class OrientadorMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+            if(Auth::check() && Auth::user()->hasRole('orientador')){
+                return $next($request);
+            }elseif (Auth::check() && Auth::user()->hasRole('administrador')){
+                return redirect('/home');
+            }
 
     }
 }

@@ -20,15 +20,7 @@ use App\Http\Controllers\ReporteController;
 |
 */
 
-
-
-Route::group(['prefix' => 'orientador', 'middleware' => ['orientador', 'role:orientador']], function(){
-    Route::get('/home', function(){
-        return view('orientador.home');
-    });
-});
-
-Route::group(['middleware' => ['administrador', 'role:administrador']], function() {
+Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/consultar/alumnos', [AlumnoController::class, 'consultar']);
     Route::post('/consultar/alumno', [AlumnoController::class, 'buscar']);

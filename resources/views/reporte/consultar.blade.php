@@ -11,7 +11,7 @@
 
 @section('contenido')
     <div class="responsive-table">
-        <table class="table table-hover">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>ID</th>

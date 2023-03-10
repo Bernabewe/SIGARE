@@ -48,6 +48,10 @@
             <label for="">Motivo</label>
             <input type="text" class="form-control" name="motivo" required>
         </div>
+        <div class="form-group">
+            <label for="">¿Quién lo solicita?</label>
+            <input type="text" class="form-control" name="solicitante">
+        </div>
         <div style="text-align:right;">
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a href="{{ asset('/home') }}" class="btn btn-danger">Cancelar</a>

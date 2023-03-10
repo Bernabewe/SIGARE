@@ -83,6 +83,7 @@ class ReporteController extends Controller
         $alumno=Alumno::find($datos->input('id'));
         $reporte_detalle=Detalle::create([
             'motivo'            =>$datos->input('motivo'),
+            'reportador'        =>$datos->input('reportador'),
             'numero_control'    =>$alumno->numero_control
         ]);
         Reporte::create([
@@ -108,6 +109,7 @@ class ReporteController extends Controller
     public function grupalGuardar(Request $datos){
         $reporte_detalle=Detalle::create([
             'motivo'            =>$datos->input('motivo'),
+            'reportador'        =>$datos->input('reportador'),
         ]);
         Reporte::create([
             'tipo_id'           =>1,
@@ -136,6 +138,7 @@ class ReporteController extends Controller
         $alumno=Alumno::find($datos->input('id'));
         $reporte_detalle=Detalle::create([
             'motivo'            =>$datos->input('motivo'),
+            'solicitante'       =>$datos->input('solicitante'),
             'fecha_inicial'     =>$datos->input('fecha_inicial'),
             'fecha_final'       =>$datos->input('fecha_final'),
             'numero_control'    =>$alumno->numero_control

@@ -23,7 +23,7 @@
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-mini sidebar-collapse">
     <div class="wrapper">
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-dark border-bottom-0" style="background-color: #A7201F;">
+        <nav class="main-header navbar navbar-expand navbar-dark border-bottom-0" style="background-color: #722C2C;">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -189,9 +189,9 @@
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    <i class="far fa-copy nav-icon"></i>
+                    <i class="fas fa-copy nav-icon"></i>
                     <p>
-                       Registrar reportes
+                       Registrar reporte
                       <i class="fas fa-angle-left right"></i>
                     </p>
                   </a>
@@ -337,7 +337,6 @@
           <div class="float-right d-none d-sm-inline-block">
             <b>Version</b> 1.0
           </div>
-          <a href="">Página web</a>
         </footer>
       </div>
       <!-- ./wrapper -->

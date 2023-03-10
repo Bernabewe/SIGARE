@@ -36,6 +36,10 @@
             <label for="">Motivo</label>
             <input type="text" class="form-control" name="motivo" required>
         </div>
+        <div class="form-group">
+            <label for="">¿Quién reporta?</label>
+            <input type="text" class="form-control" name="reportador">
+        </div>
         <div style="text-align:right;">
             <input value="Guardar" type="submit" class="btn btn-primary">
             <a href="{{ asset('/home') }}" class="btn btn-danger">Cancelar</a>

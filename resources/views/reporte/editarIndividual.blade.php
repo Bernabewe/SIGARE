@@ -30,7 +30,11 @@
         </div>
         <div class="form-group">
             <label for="">Motivo</label>
-            <input value="{{$reporte->detalle->motivo}}" type="text" class="form-control" name="motivo">
+            <input value="{{$reporte->detalle->motivo}}" type="text" class="form-control" name="motivo" required>
+        </div>
+        <div class="form-group">
+            <label for="">¿Quién reporta?</label>
+            <input value="{{$reporte->detalle->reportador}}" type="text" class="form-control" name="reportador">
         </div>
         <div style="text-align:right;">
             <input value="Guardar" type="submit" class="btn btn-primary">

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('motivo')->nullable();
             $table->string('solicitante')->nullable();
+            $table->string('reportador')->nullable();
             $table->string('numero_control')->nullable();
             $table->string('tutor')->nullable();
             $table->date('fecha_inicial')->nullable();

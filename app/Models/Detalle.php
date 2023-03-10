@@ -15,6 +15,7 @@ class Detalle extends Model
     protected $fillable = [
         'motivo',
         'solicitante',
+        'reportador',
         'numero_control',
         'tutor',
         'fecha_inicial',

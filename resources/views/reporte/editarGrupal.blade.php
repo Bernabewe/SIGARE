@@ -34,6 +34,10 @@
             <label for="">Motivo</label>
             <input value="{{$reporte->detalle->motivo}}" name="motivo" type="textarea" class="form-control" required>
         </div>
+        <div class="form-group">
+            <label for="">¿Quién reporta?</label>
+            <input value="{{$reporte->detalle->reportador}}" type="text" class="form-control" name="reportador">
+        </div>
         <div style="text-align:right;">
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a href="{{ asset('/home') }}" class="btn btn-danger">Cancelar</a>

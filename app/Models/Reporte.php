@@ -30,4 +30,7 @@ class Reporte extends Model
     public function tipo(){
         return $this->belongsTo(TipoReporte::class, 'tipo_id', 'id');
     }
+    public function usuario(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

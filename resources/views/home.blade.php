@@ -72,6 +72,7 @@
         </div>
         <div style="width: 30%; display: inline-block;">
             <h5 class="mb-2">Gráfica de pastel</h5>
+            <canvas id="myChart" height="100px"></canvas>
         </div>
     </div>
     <!-- <img src="images/cetis107.jpg" alt="">
@@ -83,3 +84,34 @@
         Página oficial del SISEEMS. <a href="http://siseems.sems.gob.mx/produccion/">Página web</a>
     </div>
 @endsection
+
+@section('scripts')
+<script type="text/javascript">
+
+    var labels =  {{ Js::from($labels) }};
+    var users =  {{ Js::from($data) }};
+
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Reportes',
+            backgroundColor: ['#F0D020', '#B7312C'],
+            borderColor: '#ffffff',
+            data: users,
+        }]
+    };
+
+    const config = {
+        type: 'doughnut',
+        data: data,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+</script>
+@stop

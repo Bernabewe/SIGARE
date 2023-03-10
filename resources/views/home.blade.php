@@ -66,7 +66,7 @@
                   <h3 class="card-title">Otra información</h3>
                 </div>
                 <div class="card-body">
-                  Contenido
+                    Body
                 </div>
                 <div class="card-footer">
                   Footer
@@ -79,7 +79,7 @@
                   <h3 class="card-title">Más información</h3>
                 </div>
                 <div class="card-body">
-                  contenido puede ser una tabla
+                  <canvas id="myChart" height="100px"></canvas>
                 </div>
                 <div class="card-footer">
                   footer
@@ -88,3 +88,34 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+<script type="text/javascript">
+
+    var labels =  {{ Js::from($labels) }};
+    var users =  {{ Js::from($data) }};
+
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Reportes',
+            backgroundColor: ['#F0D020', '#B7312C'],
+            borderColor: '#ffffff',
+            data: users,
+        }]
+    };
+
+    const config = {
+        type: 'doughnut',
+        data: data,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+</script>
+@stop

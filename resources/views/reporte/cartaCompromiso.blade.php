@@ -10,7 +10,7 @@
 @stop
 
 @section('contenido')
-    <form action="{{url('/reporte/cartaCondicional')}}" method="POST">
+    <form action="{{url('/reporte/cartaCompromiso')}}" method="POST">
         @csrf
         <div style="width: 100%;">
             <div class="form-group" style="width: 50%; display: inline-block;">

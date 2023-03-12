@@ -32,10 +32,10 @@
         <h2> Carta Compromiso </h2>
     </div>
     <div style="text-align: right;">
-        <p>Culiacán, Sinaloa; a {{$fecha}}.</p> 
+        <p>Culiacán, Sinaloa; a {{$fecha}}.</p>
     </div>
     <div class="text">
-        <p> 
+        <p>
             De acuerdo a la reunión llevada a cabo por la Dirección del Centro de Estudios Tecnológicos
             Industrial y de Servicios no. 107 para revisar la falta en la que incurrió el alumno: {{$alumno->nombre_completo}}
             del grupo {{$alumno->grupo}} que consiste en: {{$reporte->detalle->motivo}}, se presentó la madre de familia: {{$reporte->detalle->tutor}}, con la
@@ -48,14 +48,13 @@
     </div>
     <div class="text">
         <ul>
-            <li>{{$reporte->detalle->compromisos}}</li>
-            <li></li>
-            <li></li>
-            <li></li>
+            @foreach(explode(",", $reporte->detalle->compromisos) as $c)
+            <li>{{$c}}</li>
+            @endforeach
         </ul>
     </div>
     <div class="text">
-        <p> 
+        <p>
             Las medidas que se llevarán a cabo son para beneficio del alumno, comprometiéndonos las autoridades
             presentes a llevar un monitoreo para verificar que se estén llevando a cabo las acciones propuestas.
         </p>
@@ -71,7 +70,7 @@
     <div class="contenedor">
         <div class="celda">
             <p>{{$reporte->detalle->tutor}}</p>
-            <p>Padre, madre o tutor</p>          
+            <p>Padre, madre o tutor</p>
         </div>
         <div class="celda">
             <p>Psic. Rosangel Camacho González</p>

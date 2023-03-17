@@ -35,7 +35,7 @@
             border: 0.1px solid black;
         }
     </style>
-</head> 
+</head>
 <body>
     <img src="{{asset('images/encabezado.jpg')}}" alt="">
     <div style=" font-weight: bold;">
@@ -56,10 +56,11 @@
     </div><br>
     <div class="text">
         <p>Manifestamos nuestro compromiso, de:</p>
-        <ul>
-            <li style="text-decoration: underline;">COMPROMISOS.</li>
-            <li style="text-decoration: underline;">{{$reporte->detalle->compromisos}}.</li>
-        </ul>
+            <ul>
+                @foreach(explode(",", $reporte->detalle->compromisos) as $c)
+                <li>{{$c}}</li>
+                @endforeach
+            </ul>
     </div><br>
     <div class="text">
         <p>Además de observar y cumplir estrictamente con los reglamentos de la DGETI y el Reglamento Interno
@@ -69,7 +70,7 @@
             será canalizado el caso al Comité Revisor Consultivo.</p>
     </div>
 
-    
+
     <div class="contenedor">
         <div class="celda">
             <hr class="linea">
@@ -85,7 +86,7 @@
             <p style="margin-bottom:50px;">Psic. Rosangel Camacho González <br>
                  Orientadora Educativa T. V.</p>
         </div>
-        
+
         <div class="celda">
             <hr class="linea">
             <p style="margin-bottom:50px;">CP. Adriana Valdez Barreras <br>

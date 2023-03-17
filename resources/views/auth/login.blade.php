@@ -6,7 +6,7 @@
         @csrf
 
         <div class="form-group">
-            <center><label style="font-size: 27px; font-family: sans; font-color: #691c32;">Inicio de sesión</label></center><br>
+            <center><label style="font-size: 27px; font-family: sans-serif; font-color: #691c32;"><b></b></label></center><br>
         </div>
         <!-- Email Address -->
         <div>
@@ -28,13 +28,13 @@
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox"  class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm" style="font-color:#b00702; font-size:15px;">{{ __('Recuerdame') }}</span>
+                <span class="ml-2 text-sm" style="font-color: black; font-size:15px;">{{ __('Recuerdame') }}</span>
             </label>
         </div>
         <br>
 
-        <center><div>
-            <x-primary-button class="ml-3">
+        <center><div style="font-family: sans-serif;">
+            <x-primary-button class="ml-3" style="background-color: #691c32;" >
                 {{ __('Iniciar Sesión') }}
             </x-primary-button>
         </div></center>

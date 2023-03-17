@@ -1,3 +1,6 @@
+<?php
+
+?>
 @extends('app')
 
 @section('contenido')
@@ -44,37 +47,49 @@ The body of the card
         <div class="col-sm-12">
             <h4 class="mb-2 text-center">Reportes de hoy</h4>
             <div class="responsive-table">
-                <table class="table table-striped" style="text-align: center;">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Num. de cotrol</th>
-                            <th>Nombre</th>
-                            <th>Especialidad</th>
-                            <th>Tipo de reporte</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($reportes as $r)
-                        <tr>
-                            <td>{{$r->id}}</td>
-                            <td>
-                                @if ($r->detalle->alumno == NULL)
-                                    -
-                                @else
-                                    {{$r->detalle->numero_control}}
-                                @endif
-                            </td>
-                            <td>
-                                @if ($r->detalle->alumno == NULL)
-                                    -
-                                @else
-                                    {{ucwords(mb_convert_case($r->detalle->alumno->nombre, MB_CASE_LOWER, "UTF-8"))}}
-                                @endif
-                            </td>
-                            <td>{{ucwords(mb_convert_case($r->especialidad, MB_CASE_LOWER, "UTF-8"))}}</td>
-                            <td>{{ucwords(mb_convert_case($r->tipo->nombre, MB_CASE_LOWER, "UTF-8"))}}</td>
-                        </tr>
+                    @php
+                        use App\Models\Reporte;
+                        if(Auth::user()->hasRole('orientador')){
+                            $reportes= Reporte::where('user_id', '=', Auth::user()->id)
+                                            ->with(['detalle', 'tipo'])
+                                            ->get();
+                        }else{
+
+                        }
+                    @endphp
+                    <table class="table table-striped" style="text-align: center;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Num. de cotrol</th>
+                                <th>Nombre</th>
+                                <th>Especialidad</th>
+                                <th>Tipo de reporte</th>
+                                <th>Orientadora</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($reportes as $r)
+                            <tr>
+                                <td>{{$r->id}}</td>
+                                <td>
+                                    @if ($r->detalle->alumno == NULL)
+                                        -
+                                    @else
+                                        {{$r->detalle->numero_control}}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($r->detalle->alumno == NULL)
+                                        -
+                                    @else
+                                        {{ucwords(mb_convert_case($r->detalle->alumno->nombre, MB_CASE_LOWER, "UTF-8"))}}
+                                    @endif
+                                </td>
+                                <td>{{ucwords(mb_convert_case($r->especialidad, MB_CASE_LOWER, "UTF-8"))}}</td>
+                                <td>{{ucwords(mb_convert_case($r->tipo->nombre, MB_CASE_LOWER, "UTF-8"))}}</td>
+                                <td>{{$r->usuario->name}}</td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

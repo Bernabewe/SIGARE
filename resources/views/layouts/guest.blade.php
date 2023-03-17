@@ -15,17 +15,14 @@
     </head>
     <body class="font-sans text-red-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-1 sm:pt-0 bg-gray-300">
-
-            
-            <div class="w-250 h-250  mt-5 px-5 py-1 bg-white shadow-md-color-red sm:rounded-lg" style="box-shadow: 0px 0px 5px 3px #691c32;">
-                <a href="/">
-                    <img class= "w-15 h-15" src= "{{asset('/img/Logo.png')}}" />
-                </a><br>
-                {{ $slot }}
-                
-                
+            <div style="box-shadow: 26px 29px 0px -10px rgba(0,0,0,0.33);border-radius: 15px 15px 15px 15px;">
+                <div class="w-300 h-500  mt-5 px-5 py-1 bg-white shadow-md-color-red sm:rounded-lg" >
+                    <a href="/">
+                        <img style= "width: 400px; height: 120px;" src= "{{asset('/img/LogoDG.png')}}" />
+                    </a><br>
+                    {{ $slot }}
+                </div>
             </div>
-            </div>
-        </div> 
+        </div>
     </body>
 </html>

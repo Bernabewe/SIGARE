@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reporte;
+use App\Models\TipoReporte;
 use Illuminate\Http\Request;
 use App\Models\Alumno;
 use Carbon\Carbon;
@@ -14,13 +15,16 @@ class HomeController extends Controller
         $hoy=Carbon::now()->format('Y-m-d');
         $alumnos=Alumno::all();
         $reportes=Reporte::where('created_at', '>=', $hoy)->get();
-        $users = Reporte::select(DB::raw("COUNT(*) as count"), DB::raw("tipo_id as tipo"))
+        $estadistica = DB::table('reportes as r')
+        ->select(DB::raw("COUNT(*) as count"), DB::raw("tp.nombre as tipo"))
+        ->join('tipo_reportes as tp', 'tp.id', '=', 'r.tipo_id')
         ->groupBy(DB::raw("tipo"))
-        ->orderBy('id','ASC')
+        ->orderBy('r.tipo_id','ASC')
         ->pluck('count', 'tipo');
 
-        $labels = $users->keys();
-        $data = $users->values();
+        $labels = $estadistica->keys();
+        $data = $estadistica->values();
+
 
         return view('home', compact('labels', 'data', 'alumnos', 'reportes'));
     }

@@ -14,14 +14,37 @@ use Illuminate\Support\Facades\DB;
 class ReporteController extends Controller
 {
     public function consultar(){
+        $tipos=DB::table('tipo_reportes')->select('nombre')->distinct('nombre')->get();
+        $especialidades=DB::table('alumnos')->select('carrera')->distinct('carrera')->get();
         if(Auth::user()->hasRole('orientador')){
             $reportes= Reporte::where('user_id', '=', Auth::user()->id)
-                            ->with(['detalle', 'tipo'])
-                            ->get();
+                ->with(['detalle', 'tipo'])
+                ->get();
         }else{
-            $reportes= Reporte::with(['detalle', 'tipo'])->get();
+            $reportes= Reporte::with(['detalle', 'tipo'])
+            ->orderBy('id', 'DESC')
+            ->paginate(15);
         }
-        return view('reporte.consultar', compact('reportes') );
+        return view('reporte.consultar', compact('reportes', 'tipos', 'especialidades') );
+    }
+    public function buscar(Request $datos){
+        $tipos=DB::table('tipo_reportes')->select('nombre')->distinct('nombre')->get();
+        $especialidades=DB::table('alumnos')->select('carrera')->distinct('carrera')->get();
+        if(Auth::user()->hasRole('orientador')){
+            $reportes= Reporte::whereHas('tipo', function(Builder $query){
+                $query->where('nombre', 'like', "%".$datos->get("tipo")."%");
+            })
+                ->with(['detalle', 'tipo'])
+                ->get();
+        }else{
+            $reportes= Reporte::whereRelation('tipo', 'nombre', 'like', "%".$datos->get("tipo")."%")
+            ->whereRelation('detalle.alumno', 'nombre', 'like', "%".$datos->get("nombre")."%")
+            ->where('especialidad', '=', $datos->get('especialidad'))
+            ->with(['detalle', 'tipo'])
+            ->orderBy('id', 'DESC')
+            ->paginate(15);
+        }
+        return view('reporte.consultar', compact('reportes', 'tipos', 'especialidades') );
     }
     public function eliminar($id){
         $reporte=Reporte::find($id);

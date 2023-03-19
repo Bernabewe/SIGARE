@@ -18,7 +18,7 @@
                 <input type="number" class="form-control" name="numero_control" value="{{request()->get('numero_control','')}}" required>
             </div>
             <div style="width: 8%; display: inline-block;">
-                <input type="submit" value="Buscar" class="btn btn-secondary">
+                <input type="submit" value="Buscar" class="btn btn-secondary"  style="margin-bottom: 4px;">
             </div>
         </div>
     </form>

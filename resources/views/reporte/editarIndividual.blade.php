@@ -16,7 +16,7 @@
             <input type="number" class="form-control" name="numero_control" value="{{$reporte->detalle->numero_control}}" disabled>
         </div>
         <div style="width: 8%; display: inline-block;">
-            <input type="submit" value="Buscar" class="btn btn-secondary" disabled>
+            <input type="submit" value="Buscar" class="btn btn-secondary" disabled style="margin-bottom: 4px;">
         </div>
     </div>
     <form action="{{url('/reporte/individual/actualizar')}}/{{$reporte->id}}" class="mt-4" method="POST">

@@ -22,6 +22,7 @@ class ReporteController extends Controller
                 ->get();
         }else{
             $reportes= Reporte::with(['detalle', 'tipo'])
+            ->orderBy('id', 'DESC')
             ->paginate(15);
         }
         return view('reporte.consultar', compact('reportes', 'tipos', 'especialidades') );
@@ -40,6 +41,7 @@ class ReporteController extends Controller
             ->whereRelation('detalle.alumno', 'nombre', 'like', "%".$datos->get("nombre")."%")
             ->where('especialidad', '=', $datos->get('especialidad'))
             ->with(['detalle', 'tipo'])
+            ->orderBy('id', 'DESC')
             ->paginate(15);
         }
         return view('reporte.consultar', compact('reportes', 'tipos', 'especialidades') );

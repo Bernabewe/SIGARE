@@ -27,12 +27,12 @@
             display: inline-block;
         }
     </style>
-</head> 
+</head>
 <body>
     <img src="{{asset('images/encabezado.jpg')}}" alt="">
     <div style="text-align: left; font-weight: bold;">
         <p>DEPTO: SERVICIOS ESCOLARES <br>
-            OFICINA: CONTROL ESCOLAR <br> 
+            OFICINA: CONTROL ESCOLAR <br>
             ASUNTO: BAJA DEFINITIVA</p>
     </div>
     <div style=" font-weight: bold;">
@@ -41,11 +41,11 @@
     </div>
 
     <div class="text">
-        <p> 
-            Por este conducto informó que el alumno: <b>{{$alumno->nombre_completo}},</b> con No. De Control <b>{{$alumno->numero_control}}</b> 
-            del semestre <b>{{$alumno->grupo}}</b> Del turno 
+        <p>
+            Por este conducto informó que el alumno: <b>{{$alumno->nombre_completo}},</b> con No. De Control <b>{{$alumno->numero_control}}</b>
+            del semestre <b>{{$alumno->grupo}}</b> Del turno
             <b>{{$alumno->turno}},</b> de la especialidad  de <b>{{$alumno->carrera}},
-            </b> se le de la <b>BAJA DEFINITIVA</b> en esta institución. 
+            </b> se le de la <b>BAJA DEFINITIVA</b> en esta institución.
         </p>
     </div>
     <div class="text">
@@ -77,10 +77,10 @@
         <p style="text-align: center; font-weight: bold;"> NOMBRE DEL PADRE DE FAMILIA</p>
     </div>
 
-    
+
 
     <div class="footer">
-    <img src="{{asset('images/footer.jpg')}}" alt="">
+    <img src="{{asset('images/footer.JPG')}}" alt="">
     </div>
 </body>
 </html>

@@ -57,7 +57,7 @@
                                         <th>Nombre</th>
                                         <th>Especialidad</th>
                                         <th>Tipo de reporte</th>
-                                        <th>Orientadora</th>
+                                        <th>Orientador</th>
                                     </tr>
                                 </thead>
                                 <tbody>

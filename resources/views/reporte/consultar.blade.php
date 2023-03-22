@@ -42,10 +42,14 @@
                     </select>
                 </div><br>
                 <input type="submit" value="Buscar" class="btn btn-secondary" style="margin-bottom: 4px;">
-                <a href="{{asset('/reporte/consultar')}}" class="btn btn-danger" style="margin-bottom: 4px">Cerrar búsqueda</a>
             </div>
         </div>
     </form>
+    @if($x != null)
+    <div style="text-align: right; margin-bottom: 10px;">
+        <a href="{{asset('/reporte/consultar')}}" class="btn btn-danger">Cancelar búsqueda avanzada</a>
+    </div>
+    @endif
     <div class="responsive-table">
         <table class="table table-striped">
             <thead>
@@ -55,7 +59,7 @@
                     <th>Nombre</th>
                     <th>Especialidad</th>
                     <th>Tipo de reporte</th>
-                    <th>Orientadora</th>
+                    <th>Orientador</th>
                     <th>Fecha de creación</th>
                     <th>Opciones</th>
                 </tr>

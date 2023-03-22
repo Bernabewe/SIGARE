@@ -33,18 +33,18 @@
         </div>
         <br>
 
-        <center><div style="font-family: sans-serif;">
+        <center><div style="font-family: sans-serif; margin-bottom: 10px;">
             <x-primary-button class="ml-3" style="background-color: #691c32;" >
                 {{ __('Iniciar Sesión') }}
             </x-primary-button>
         </div></center>
 
-        <div class="flex items-center justify-end mt-4">
+        <!-- <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                     {{ __('Olvidaste tu contraseña?') }}
                 </a>
             @endif
-        </div>
+        </div> -->
     </form>
 </x-guest-layout>

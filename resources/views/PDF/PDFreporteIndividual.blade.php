@@ -69,7 +69,7 @@
     <div class="contenedor" style="text-align: center;">
         <hr class="linea2">
         <p>PSIC. ROSANGEL CAMACHO G. <br>
-        ORIENTACION EDUCATIVA 1ER. SEMESTRE</p>
+        ORIENTACION EDUCATIVA</p>
     </div>
 
     <div class="footer">

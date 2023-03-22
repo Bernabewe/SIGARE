@@ -112,10 +112,10 @@
 <!-- <img src="images/cetis107.jpg" alt="">
 <img src="images/siseems.jpg" alt=""> -->
 <div style="width: 50%; display: inline-block; text-align:center; font-weight: bold; font-size: 15px;">
-    Página oficial del CETis107. <a href="https://cetis107.edu.mx/portal/" style="color: #722C2C;">Visitar página web</a>
+    Página oficial de DGETI. <a href="http://www.dgeti.sep.gob.mx/" style="color: #722C2C;" target="_blank">Visitar página web</a>
 </div>
 <div style="width: 49%; display: inline-block; text-align:center; font-weight: bold; font-size: 15px;">
-    Página oficial del SISEEMS. <a href="http://siseems.sems.gob.mx/produccion/" style="color: #722C2C;">Visitar página web</a>
+    Página oficial del SISEEMS. <a href="http://siseems.sems.gob.mx/produccion/" style="color: #722C2C;" target="_blank">Visitar página web</a>
 </div>
 @endsection
 

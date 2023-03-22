@@ -18,9 +18,9 @@
         hr{
             width: 40%;
             border: 0.1px solid black;
-        }        
+        }
     </style>
-</head> 
+</head>
 <body>
     <img src="{{asset('images/encabezado.jpg')}}" alt="">
     <div style="text-align: right;">
@@ -34,7 +34,7 @@
         <br>
     </div>
     <div class="text">
-        <p> 
+        <p>
             El que suscribe Director de este Centro de Estudios, perteneciente al Sistema Educativo
             Nacional, por medio de la presente hace CONSTAR: Que el (la) alumno(a), cuyos datos se
             anotan a continuación:
@@ -47,13 +47,13 @@
         <p> Generación: {{$alumno->generacion}} </p>
     </div>
     <div class="text">
-        <p> 
+        <p>
         Observó BUENA CONDUCTA durante el desarrollo de sus actividades académicas. A petición
         del interesado se extiende la presente en la ciudad de Culiacán, Sinaloa a {{$fecha}}.
         </p>
     </div>
     <div style="text-align: center; margin-top: 50px;">
-        <p><b> ATENTAMENTE</p> 
+        <p><b> ATENTAMENTE</p>
     </div>
     <div style="text-align: center; margin-top: 60px;">
         <hr>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="footer">
-    <img src="{{asset('images/footer.jpg')}}" alt="">
+    <img src="{{asset('images/footer.JPG')}}" alt="">
     </div>
 </body>
 </html>

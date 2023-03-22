@@ -19,13 +19,13 @@
             border: 0.1px solid black;
         }
         hr{
-             
+
             width: 40%;
             border: 0.1px solid black;
         }
-        
+
     </style>
-</head> 
+</head>
 <body>
     <img src="{{asset('images/encabezado.jpg')}}" alt="">
     <div style="text-align: center;">
@@ -48,7 +48,7 @@
         <p>Observaciones: {{$reporte->detalle->observaciones}}</p>
     </div>
     <div style="text-align: center;">
-        <p><b> ATENTAMENTE</p> 
+        <p><b> ATENTAMENTE</p>
     </div>
     <div style="text-align: center; margin-top: 60px;">
         <hr>
@@ -64,7 +64,7 @@
     </div>
 
     <div class="footer">
-    <img src="{{asset('images/footer.jpg')}}" alt="">
+    <img src="{{asset('images/footer.JPG')}}" alt="">
     </div>
 </body>
 </html>

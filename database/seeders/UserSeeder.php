@@ -32,5 +32,11 @@ class UserSeeder extends Seeder
             'email' => 'paulo.irizar@dgeti.com.mx',
             'password' =>  bcrypt('paulo123')
         ])->assignRole('orientador');
+
+        User::create([
+            'name' => 'Prueba Usuario',
+            'email' => 'prueba@gmail.com',
+            'password' =>  bcrypt('prueba')
+        ])->assignRole('orientador');
     }
 }

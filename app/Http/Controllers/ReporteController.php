@@ -20,7 +20,7 @@ class ReporteController extends Controller
         if(Auth::user()->hasRole('orientador')){
             $reportes= Reporte::where('user_id', '=', Auth::user()->id)
                 ->with(['detalle', 'tipo'])
-                ->get();
+                ->paginate(15);
         }else{
             $reportes= Reporte::with(['detalle', 'tipo'])->paginate(10);
         }
@@ -35,7 +35,7 @@ class ReporteController extends Controller
                 $query->where('nombre', 'like', "%".$datos->get("tipo")."%");
             })
                 ->with(['detalle', 'tipo'])
-                ->get();
+                ->paginate(15);
         }else{
             $reportes= Reporte::whereRelation('tipo', 'nombre', 'like', "%".$datos->get("tipo")."%")
             ->whereRelation('detalle.alumno', 'nombre', 'like', "%".$datos->get("nombre")."%")

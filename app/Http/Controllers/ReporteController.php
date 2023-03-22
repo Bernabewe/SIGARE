@@ -14,14 +14,35 @@ use Illuminate\Support\Facades\DB;
 class ReporteController extends Controller
 {
     public function consultar(){
+        $tipos=DB::table('tipo_reportes')->select('nombre')->distinct('nombre')->get();
+        $especialidades=DB::table('alumnos')->select('carrera')->distinct('carrera')->get();
+        $x=null;
         if(Auth::user()->hasRole('orientador')){
             $reportes= Reporte::where('user_id', '=', Auth::user()->id)
-                            ->with(['detalle', 'tipo'])
-                            ->get();
+                ->with(['detalle', 'tipo'])
+                ->paginate(15);
         }else{
-            $reportes= Reporte::with(['detalle', 'tipo'])->get();
+            $reportes= Reporte::with(['detalle', 'tipo'])->paginate(10);
         }
-        return view('reporte.consultar', compact('reportes') );
+        return view('reporte.consultar', compact('reportes', 'tipos', 'especialidades', 'x') );
+    }
+    public function buscar(Request $datos){
+        $tipos=DB::table('tipo_reportes')->select('nombre')->distinct('nombre')->get();
+        $especialidades=DB::table('alumnos')->select('carrera')->distinct('carrera')->get();
+        $x=[$datos->get("nombre"), $datos->get("tipo"), $datos->get("especialidad")];
+        if(Auth::user()->hasRole('orientador')){
+            $reportes= Reporte::whereHas('tipo', function(Builder $query){
+                $query->where('nombre', 'like', "%".$datos->get("tipo")."%");
+            })
+                ->with(['detalle', 'tipo'])
+                ->paginate(15);
+        }else{
+            $reportes= Reporte::whereRelation('tipo', 'nombre', 'like', "%".$datos->get("tipo")."%")
+            ->whereRelation('detalle.alumno', 'nombre', 'like', "%".$datos->get("nombre")."%")
+            ->where('especialidad', 'like', "%".$datos->get('especialidad')."%")
+            ->with(['detalle', 'tipo'])->paginate(10);
+        }
+        return view('reporte.consultar', compact('reportes', 'tipos', 'especialidades', 'x') );
     }
     public function eliminar($id){
         $reporte=Reporte::find($id);

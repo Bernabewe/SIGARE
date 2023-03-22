@@ -100,6 +100,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'home']);
 
 //Rutas de alumnos
+    Route::post('/reporte/buscar', [ReporteController::class, 'buscar']);
     Route::get('/reporte/consultar', [ReporteController::class, 'consultar']);
     Route::get('/reporte/registrar', [ReporteController::class, 'registrar']);
     Route::get('/reporte/pdf', [ReporteController::class, 'reportePdf']);

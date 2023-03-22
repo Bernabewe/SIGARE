@@ -49,8 +49,7 @@
     <div class="text">
         <p> 
         Observó BUENA CONDUCTA durante el desarrollo de sus actividades académicas. A petición
-        del interesado se extiende la presente en la ciudad de Culiacán, Sinaloa a los X días del mes
-        de X del año X.
+        del interesado se extiende la presente en la ciudad de Culiacán, Sinaloa a {{$fecha}}.
         </p>
     </div>
     <div style="text-align: center; margin-top: 50px;">
@@ -59,7 +58,7 @@
     <div style="text-align: center; margin-top: 60px;">
         <hr>
         <p> Gabriel G. Vázquez Martínez <br>
-            Director de CETis 107</p>
+            Director de la institución</p>
     </div>
 
     <div class="footer">

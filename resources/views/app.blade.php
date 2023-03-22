@@ -136,8 +136,8 @@
         <aside class="main-sidebar elevation-4 sidebar-light-warning"  style="background-color: #DFDFDF;">
           <!-- Brand Logo -->
           <a href="{{asset('/home')}}" class="brand-link">
-            <img src="{{ asset('img/logo.png') }}" alt="baessh" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">SIGARE - Sistema de Gestión y Almacenamiento de Reportes</span>
+            <img src="{{ asset('img/Logo.png') }}" alt="baessh" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light"> SIGARE </span>
           </a>
 
           <!-- Sidebar -->
@@ -145,16 +145,15 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
               <div class="image">
-                <img src="{{asset('img/usuario1.png')}}"class="img-circle elevation-2" alt="User Image">
+                <img src="{{asset('img/usuario1.png')}}"class="img-circle elevation-2" alt="User Image" style="margin-top:10px;">
               </div>
               <div class="info">
-                    <a href="#" class="d-block"> {{ Auth::user()->name;}} </a>
-                <a class="d-block" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">
-                 {{ __('Cerrar sesión') }}
-                </a>
-
+                  <a href="#" class="d-block"> {{ Auth::user()->name;}} </a>
+                  <a class="d-block" style="color: #722C2C;" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                  {{ __('Cerrar sesión') }}
+                  </a>
              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                  @csrf
              </form>

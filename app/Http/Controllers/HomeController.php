@@ -19,7 +19,6 @@ class HomeController extends Controller
         ->select(DB::raw("COUNT(*) as count"), DB::raw("tp.nombre as tipo"))
         ->join('tipo_reportes as tp', 'tp.id', '=', 'r.tipo_id')
         ->groupBy(DB::raw("tipo"))
-        ->orderBy('r.tipo_id','ASC')
         ->pluck('count', 'tipo');
 
         $labels = $estadistica->keys();

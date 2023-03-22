@@ -4,22 +4,6 @@
 @extends('app')
 
 @section('contenido')
-<div class="card card-outline card-primary">
-<div class="card-header">
-<h3 class="card-title">Primary Outline</h3>
-<div class="card-tools">
-<button type="button" class="btn btn-tool" data-card-widget="collapse">
-<i class="fas fa-minus"></i>
-</button>
-</div>
-
-</div>
-
-<div class="card-body">
-The body of the card
-</div>
-
-</div>
 <div class="container m-0">
     <h4 class="mb-2">Información</h4>
     <div class="row">
@@ -42,72 +26,96 @@ The body of the card
             </div>
         </div>
     </div> <br>
-
-    <div class="row">
-        <div class="col-sm-12">
-            <h4 class="mb-2 text-center">Reportes de hoy</h4>
-            <div class="responsive-table">
-                    @php
-                        use App\Models\Reporte;
-                        if(Auth::user()->hasRole('orientador')){
-                            $reportes= Reporte::where('user_id', '=', Auth::user()->id)
-                                            ->with(['detalle', 'tipo'])
-                                            ->get();
-                        }else{
-
-                        }
-                    @endphp
-                    <table class="table table-striped" style="text-align: center;">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Num. de cotrol</th>
-                                <th>Nombre</th>
-                                <th>Especialidad</th>
-                                <th>Tipo de reporte</th>
-                                <th>Orientadora</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($reportes as $r)
-                            <tr>
-                                <td>{{$r->id}}</td>
-                                <td>
-                                    @if ($r->detalle->alumno == NULL)
-                                        -
-                                    @else
-                                        {{$r->detalle->numero_control}}
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($r->detalle->alumno == NULL)
-                                        -
-                                    @else
-                                        {{ucwords(mb_convert_case($r->detalle->alumno->nombre, MB_CASE_LOWER, "UTF-8"))}}
-                                    @endif
-                                </td>
-                                <td>{{ucwords(mb_convert_case($r->especialidad, MB_CASE_LOWER, "UTF-8"))}}</td>
-                                <td>{{ucwords(mb_convert_case($r->tipo->nombre, MB_CASE_LOWER, "UTF-8"))}}</td>
-                                <td>{{$r->usuario->name}}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+    <div class="card card-outline card-dark collapsed-card" style="border-top: 3px solid #b2b2b2">
+        <div class="card-header">
+            <h3 class="card-title">Reportes de hoy</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" style="color:gray;">
+                    <i class="fas fa-plus"></i>
+                </button>
             </div>
         </div>
-        <div class="col-sm-12 text-center">
-            <h4 class="mb-2">Total de reportes</h4>
-            <canvas id="myChart" height="100px"></canvas>
+        <div class="card-body" style="display: none;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="responsive-table">
+                            @php
+                                use App\Models\Reporte;
+                                if(Auth::user()->hasRole('orientador')){
+                                    $reportes= Reporte::where('user_id', '=', Auth::user()->id)
+                                                    ->with(['detalle', 'tipo'])
+                                                    ->get();
+                                }else{
+
+                                }
+                            @endphp
+                            <table class="table table-striped" style="text-align: center;">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Num. de cotrol</th>
+                                        <th>Nombre</th>
+                                        <th>Especialidad</th>
+                                        <th>Tipo de reporte</th>
+                                        <th>Orientador</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($reportes as $r)
+                                    <tr>
+                                        <td>{{$r->id}}</td>
+                                        <td>
+                                            @if ($r->detalle->alumno == NULL)
+                                                -
+                                            @else
+                                                {{$r->detalle->numero_control}}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($r->detalle->alumno == NULL)
+                                                -
+                                            @else
+                                                {{ucwords(mb_convert_case($r->detalle->alumno->nombre, MB_CASE_LOWER, "UTF-8"))}}
+                                            @endif
+                                        </td>
+                                        <td>{{ucwords(mb_convert_case($r->especialidad, MB_CASE_LOWER, "UTF-8"))}}</td>
+                                        <td>{{ucwords(mb_convert_case($r->tipo->nombre, MB_CASE_LOWER, "UTF-8"))}}</td>
+                                        <td>{{$r->usuario->name}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="card card-outline card-warning collapsed-card" style="border-top: 3px solid #b2b2b2">
+        <div class="card-header">
+            <h3 class="card-title">Total de reportes</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" style="color:gray;">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body" style="display: none;">
+            <div class="col-sm-12 text-center">
+                <canvas id="myChart" height="100px"></canvas>
+            </div>
+        </div>
+    </div>
+    
+
+    
 
 <!-- <img src="images/cetis107.jpg" alt="">
 <img src="images/siseems.jpg" alt=""> -->
-<div style="width: 50%; display: inline-block; text-align:center;">
-    Página oficial del CETis107. <a href="https://cetis107.edu.mx/portal/">Página web</a>
+<div style="width: 50%; display: inline-block; text-align:center; font-weight: bold; font-size: 15px;">
+    Página oficial de DGETI. <a href="http://www.dgeti.sep.gob.mx/" style="color: #722C2C;" target="_blank">Visitar página web</a>
 </div>
-<div style="width: 49%; display: inline-block; text-align:center;">
-    Página oficial del SISEEMS. <a href="http://siseems.sems.gob.mx/produccion/">Página web</a>
+<div style="width: 49%; display: inline-block; text-align:center; font-weight: bold; font-size: 15px;">
+    Página oficial del SISEEMS. <a href="http://siseems.sems.gob.mx/produccion/" style="color: #722C2C;" target="_blank">Visitar página web</a>
 </div>
 @endsection
 
@@ -122,7 +130,7 @@ The body of the card
         labels: labels,
         datasets: [{
             label: 'Reportes',
-            backgroundColor: ['#F0D020', '#B7312C', '#DDC9A3', '#9F2241', '#98989A', '#BC955C', '#6F7271'],
+            backgroundColor: ['#F0D020', '#B7312C', '#98989A', '#9F2241', '#DDC9A3', '#BC955C', '#6F7271'],
             borderColor: '#ffffff',
             data: estadistica,
         }]

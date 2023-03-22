@@ -56,7 +56,7 @@
         las medidas pertinentes le reitero mis atenciones.
     </div><br>
     <div class="text" style="text-align: center;">
-        <p>Culiacán, Sinaloa, a 20 de octubre del 2022.<p>
+        <p>Culiacán, Sinaloa, a {{$fecha}}.<p>
     </div>
         <div class="text" style="text-align: center; font-weight: bold;">
             <p>ATENTAMENTE</p><br>

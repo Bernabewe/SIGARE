@@ -12,9 +12,13 @@ class AlumnoController extends Controller
         return view('consultarAlumnos', compact('alumno'));
     }
     public function buscar(Request $datos){
-        $nombre=strtoupper($datos->input('nombre'));
-        $alumno=Alumno::where('nombre_completo', '=', $nombre)->first();
-        return view('consultarAlumnos', compact('alumno'));
 
+        $alumno=Alumno::when($datos->has("nombre"), function($q) use ($datos){
+            return $q->where("nombre_completo", "like", "%".$datos->get("nombre")."%");
+           })->orderBy('id', 'desc')->paginate(15);
+           
+           $alumno->appends($datos->all());
+   
+           return view('consultarAlumnos', compact('alumno'));
     }
 }

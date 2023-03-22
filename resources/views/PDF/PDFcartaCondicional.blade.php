@@ -51,7 +51,7 @@
             Infringido el Reglamento Escolar de los Planteles dependientes de la D.G.E.T.I., que en su artículo 1º dice:
             “Acatar y cumplir los reglamentos e instrucciones que establezca la Dirección General de Educación
             Tecnológica Industrial, así como las disposiciones que dicten las autoridades del plantel”, al igual que el
-            Reglamento Interno del Plantel, al haber incurrido en:<b> {{$reporte->detalle->motivo}}, lo que señala cómo falta al Art.{{$reporte->detalle->articulo}}  del
+            Reglamento Interno del Plantel, al haber incurrido en:<b> {{$reporte->detalle->motivo}}, lo que señala cómo falta al Artículo(s). {{$reporte->detalle->articulo}}  del
             reglamento interno.</b></p>
     </div><br>
     <div class="text">
@@ -97,7 +97,7 @@
     <div class="text" style="text-align: center;">
         <hr class="linea2">
         <p style="margin-bottom:50px;">M.C. Gabriel G. Vázquez Martínez <br>
-            Director de CETis 107</p>
+            Director del plantel</p>
     </div>
 
     <div class="footer">

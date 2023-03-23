@@ -10,7 +10,7 @@ use PDF;
 
 class PDFController extends Controller
 {
-    
+
     public function pdfMaster($id){
         $folio=Carbon::now()->format('Y')."/".$id;
         $meses=array('', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
@@ -61,15 +61,15 @@ class PDFController extends Controller
     }
     public function pdfCanalizacion(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFcanalizacion', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->download("PDFcanalizaion.pdf"); 
+        return $pdf->download("PDFcanalizacion.pdf");
     }
     public function pdfCartaCompromiso(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFcartaCompromiso', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->download("PDFcartaCompromiso.pdf"); 
+        return $pdf->download("PDFcartaCompromiso.pdf");
     }
     public function pdfCartaBuenaConducta(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFcartaBuenaConducta', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->download("PDFcartaBuenaConducta.pdf"); 
+        return $pdf->download("PDFcartaBuenaConducta.pdf");
     }
     public function pdfCartaCondicional(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFcartaCondicional', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));

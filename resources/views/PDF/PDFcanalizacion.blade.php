@@ -19,10 +19,10 @@
             border: 0.1px solid black;
         }
         hr{
-
             width: 40%;
             border: 0.1px solid black;
         }
+
 
     </style>
 </head>
@@ -55,11 +55,11 @@
         <p> Lic. Evangelina Arrearán Tirado <br>
             Orientadora Educativa T. V.     </p>
     </div>
-    <div style="margin-top: 50px;">
+    <div style="margin-top: 50px;text-align: center;">
         <p>Firma de recibido:</p>
     </div>
-    <div style="margin-top: 40px; text-align: center;">
-        <hr>
+    <div style="margin-top: 40px;text-align: center;">
+        <hr style="text-align: center;">
         <p>Nombre y firma del tutor grupal</p>
     </div>
 

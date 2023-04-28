@@ -33,6 +33,7 @@
                 <a href="{{url('/home')}}" class="nav-link">Inicio</a>
               </li>
             </ul>
+            
 
             <!-- SEARCH FORM -->
             <!-- <form class="form-inline ml-3">

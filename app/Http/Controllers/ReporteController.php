@@ -335,4 +335,8 @@ class ReporteController extends Controller
         ]);
         return redirect('/reporte/consultar');
     }
+
+    public function peticion(){
+        return redirect('/reporte/consultar');
+    }
 }

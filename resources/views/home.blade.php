@@ -11,7 +11,7 @@
             <div class="info-box">
                 <span class="info-box-icon" style="background-color: #e2d4d4;"><i class="fas fa-users" style="color: #2E2E2E;"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Alumnos</span>
+                    <span class="info-box-text">Total de alumnos</span>
                     <span class="info-box-number">{{count($alumnos)}}</span>
                 </div>
             </div>
@@ -20,7 +20,7 @@
             <div class="info-box">
                 <span class="info-box-icon" style="background-color: #e2d4d4;"><i class="fas fa-copy" style="color: #2E2E2E;"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Reportes</span>
+                    <span class="info-box-text">Total de reportes</span>
                     <span class="info-box-number">{{count($reportes)}}</span>
                 </div>
             </div>
@@ -36,6 +36,15 @@
             </div>
         </div>
         <div class="card-body" style="display: none;">
+        <div class="col-md-6 col-sm-6 col-12">
+            <div class="info-box">
+                <span class="info-box-icon" style="background-color: #e2d4d4;"><i class="fas fa-file" style="color: #2E2E2E;"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Reportes de hoy</span>
+                    <span class="info-box-number">{{count($reportesHoy)}}</span>
+                </div>
+            </div>
+        </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="responsive-table">
@@ -61,7 +70,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($reportes as $r)
+                                    @foreach($reportesHoy as $r)
                                     <tr>
                                         <td>{{$r->id}}</td>
                                         <td>

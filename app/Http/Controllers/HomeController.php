@@ -14,7 +14,8 @@ class HomeController extends Controller
     public function home(){
         $hoy=Carbon::now()->format('Y-m-d');
         $alumnos=Alumno::all();
-        $reportes=Reporte::where('created_at', '>=', $hoy)->get();
+        $reportesHoy=Reporte::where('created_at', '>=', $hoy)->get();
+        $reportes=Reporte::all();
         $estadistica = DB::table('reportes as r')
         ->select(DB::raw("COUNT(*) as count"), DB::raw("tp.nombre as tipo"))
         ->join('tipo_reportes as tp', 'tp.id', '=', 'r.tipo_id')
@@ -25,6 +26,6 @@ class HomeController extends Controller
         $data = $estadistica->values();
 
 
-        return view('home', compact('labels', 'data', 'alumnos', 'reportes'));
+        return view('home', compact('labels', 'data', 'alumnos', 'reportesHoy', 'reportes'));
     }
 }

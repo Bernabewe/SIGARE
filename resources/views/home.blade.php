@@ -26,6 +26,11 @@
             </div>
         </div>
     </div> <br>
+    <form action="{{url('/peticion')}}">
+        <input type="textarea" placeholder="¿En qué te puedo ayudar?" style="border-radius: 5px; width: 50%;" name="" id="">
+        <input type="submit" value="Enviar">
+    </form>
+    <br>
     <div class="card card-outline card-dark collapsed-card" style="border-top: 3px solid #b2b2b2">
         <div class="card-header">
             <h3 class="card-title">Reportes de hoy</h3>

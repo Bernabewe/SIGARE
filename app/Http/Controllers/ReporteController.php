@@ -310,12 +310,12 @@ class ReporteController extends Controller
     //Canalizacion - Funciones para vistas
     public function registrarCanalizacion(){
         $alumno=null;
-        return view('reporte.Canalizacion', compact('alumno'));
+        return view('reporte.canalizacion', compact('alumno'));
     }
     public function canalizacionBuscar(Request $datos){
         $numero_control=$datos->input('numero_control');
         $alumno=Alumno::where('numero_control', '=', $numero_control )->first();
-        return view('reporte.Canalizacion', compact('alumno'));
+        return view('reporte.canalizacion', compact('alumno'));
     }
     public function canalizacionGuardar(Request $datos){
         $alumno=Alumno::find($datos->input('id'));
@@ -337,6 +337,10 @@ class ReporteController extends Controller
             'turno'             =>$alumno->turno,
             'generacion'        =>$alumno->generacion
         ]);
+        return redirect('/reporte/consultar');
+    }
+
+    public function peticion(){
         return redirect('/reporte/consultar');
     }
 }

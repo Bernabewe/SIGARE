@@ -24,7 +24,7 @@
         .table tr td {border: 1px solid black; height: 30px;}
         .table tr th {border: 1px solid black; height: 30px;}
     </style>
-</head> 
+</head>
 <body>
     <img src="{{asset('images/encabezado.jpg')}}" alt="">
     <div style="text-align: right;">
@@ -36,7 +36,7 @@
         <br>
     </div>
     <div class="text">
-        <p> 
+        <p>
             C.C. PROFESORES DEL GRUPO: {{$alumno->grupo}} <br>
             ESPECIALIDAD: {{$alumno->carrera}} <br>
             TURNO: {{$alumno->turno}} <br>
@@ -44,7 +44,7 @@
         </p>
     </div>
     <div class="text">
-        <p> 
+        <p>
             Por este conducto, solicito le sea(n) justificada(s) las inasistencias al alumno (a):
             {{$alumno->nombre_completo}} quien por motivos de {{$reporte->detalle->motivo}}, no acudió a
             clases el(los) día(s): {{$reporte->detalle->fecha_inicial}} del presente año.
@@ -54,15 +54,15 @@
         </p>
     </div>
     <div class="text" style="text-align: center; margin-top: 40px;">
-        <p> 
+        <p>
             <b> ATENTAMENTE
         </p>
-        <p> 
+        <p>
             <b> LIC. MARA HERNÁNDEZ VALLE <br>
                 JEFA DE SERVICIOS ESCOLARES
         </p>
     </div>
-    
+
     <div>
         <table class="table">
             <thead>
@@ -108,7 +108,7 @@
     </div>
 
     <div class="footer">
-    <img src="{{asset('images/footer.jpg')}}" alt="">
+    <img src="{{asset('images/footer.JPG')}}" alt="">
     </div>
 </body>
 </html>

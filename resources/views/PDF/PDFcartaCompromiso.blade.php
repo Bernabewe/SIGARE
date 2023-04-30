@@ -82,7 +82,7 @@
         <p> Jefa de Servicios de Escolares T. V.</p>
     </div>
     <div class="footer">
-    <img src="{{asset('images/footer.jpg')}}" alt="">
+    <img src="{{asset('images/footer.JPG')}}" alt="">
     </div>
 </body>
 </html>

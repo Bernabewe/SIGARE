@@ -19,13 +19,13 @@
             border: 0.1px solid black;
         }
         hr{
-             
             width: 40%;
             border: 0.1px solid black;
         }
-        
+
+
     </style>
-</head> 
+</head>
 <body>
     <img src="{{asset('images/encabezado.jpg')}}" alt="">
     <div style="text-align: center;">
@@ -48,23 +48,23 @@
         <p>Observaciones: {{$reporte->detalle->observaciones}}</p>
     </div>
     <div style="text-align: center;">
-        <p><b> ATENTAMENTE</p> 
+        <p><b> ATENTAMENTE</p>
     </div>
     <div style="text-align: center; margin-top: 60px;">
         <hr>
         <p> Lic. Evangelina Arrearán Tirado <br>
             Orientadora Educativa T. V.     </p>
     </div>
-    <div style="margin-top: 50px;">
+    <div style="margin-top: 50px;text-align: center;">
         <p>Firma de recibido:</p>
     </div>
-    <div style="margin-top: 40px; text-align: center;">
-        <hr>
+    <div style="margin-top: 40px;text-align: center;">
+        <hr style="text-align: center;">
         <p>Nombre y firma del tutor grupal</p>
     </div>
 
     <div class="footer">
-    <img src="{{asset('images/footer.jpg')}}" alt="">
+    <img src="{{asset('images/footer.JPG')}}" alt="">
     </div>
 </body>
 </html>

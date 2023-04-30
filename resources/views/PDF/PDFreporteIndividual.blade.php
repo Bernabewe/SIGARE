@@ -32,9 +32,9 @@
             width: 40%;
             border: 0.1px solid black;
         }
-        
-    </style>  
-</head> 
+
+    </style>
+</head>
 <body>
     <img src="{{asset('images/encabezado.jpg')}}" alt="">
     <div style="text-align: right;">
@@ -47,7 +47,7 @@
     </div>
     <div class="text">
         <p>Nombre del Alumno(a): <b>{{$alumno->nombre_completo}}</b> Grupo: <b>{{$alumno->grupo}}</b>. <br>
-        Especialidad: <b>{{$alumno->carrera}}</b> Turno: <b>{{$alumno->turno}}</b> <br> 
+        Especialidad: <b>{{$alumno->carrera}}</b> Turno: <b>{{$alumno->turno}}</b> <br>
         Motivo: <b>{{$reporte->detalle->motivo}}</b>
         </p>
     </div>
@@ -73,7 +73,7 @@
     </div>
 
     <div class="footer">
-    <img src="{{asset('images/footer.jpg')}}" alt="">
+    <img src="{{asset('images/footer.JPG')}}" alt="">
     </div>
 </body>
 </html>

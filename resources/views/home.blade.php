@@ -26,9 +26,11 @@
             </div>
         </div>
     </div> <br>
-    <form action="{{url('/peticion')}}">
-        <input type="textarea" placeholder="¿En qué te puedo ayudar?" style="border-radius: 5px; width: 50%;" name="" id="">
-        <input type="submit" value="Enviar">
+    <form onsubmit="return false" id="form"> <!-- action="{{url('/peticion')}}" -->
+        <input type="textarea" id="mensaje" placeholder="¡Hola!¿En qué puedo ayudarte?" style="border-radius: 5px; width: 50%;" name="">
+        <button onclick="procesarMensaje()">Enviar</button><br>
+        <!-- <input type="submit" value="Enviar"><br> -->
+        <label id="respuesta"></label>
     </form>
     <br>
     <div class="card card-outline card-dark collapsed-card" style="border-top: 3px solid #b2b2b2">
@@ -119,9 +121,6 @@
             </div>
         </div>
     </div>
-    
-
-    
 
 <!-- <img src="images/cetis107.jpg" alt="">
 <img src="images/siseems.jpg" alt=""> -->

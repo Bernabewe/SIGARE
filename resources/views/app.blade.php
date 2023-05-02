@@ -359,6 +359,7 @@
 
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('js/demo.js')}}"></script>
+<script src="{{asset('js/scriptPrueba.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!--<script src="{{asset('js/dashboard2.js')}}"></script>-->
 @yield('scripts')

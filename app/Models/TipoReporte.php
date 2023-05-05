@@ -11,4 +11,8 @@ class TipoReporte extends Model
     use HasFactory;
     use SoftDeletes;
 
+    public function reportes(){
+        return $this->hasMany(Reporte::class, 'tipo_id')->with('detalle');
+    }
+
 }

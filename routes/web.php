@@ -7,6 +7,7 @@ use App\Http\Controllers\AlumnoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\ExpedienteController;
 
 
 /*
@@ -20,8 +21,13 @@ use App\Http\Controllers\ReporteController;
 |
 */
 
+
+    Route::get('consultar/expediente/{nc}' , [ExpedienteController::class, 'consultarExpediente']);
 Route::group(['middleware' => ['auth']], function() {
 
+
+
+    
     Route::get('/consultar/alumnos', [AlumnoController::class, 'consultar']);
     Route::post('/consultar/alumno', [AlumnoController::class, 'buscar']);
 

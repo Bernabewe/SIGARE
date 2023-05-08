@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 
-    
+
     Route::get('/consultar/alumnos', [AlumnoController::class, 'consultar']);
     Route::post('/consultar/alumno', [AlumnoController::class, 'buscar']);
 

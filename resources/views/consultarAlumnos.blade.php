@@ -34,6 +34,7 @@
                     <th>Generación</th>
                     <th>Grupo</th>
                     <th>Sexo</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,6 +47,11 @@
                     <td>{{$a->generacion}}</td>
                     <td>{{$a->grupo}}</td>
                     <td>{{$a->sexo}}</td>
+                    <td>
+                        <a href="{{url('consultar/expediente/')}}/{{$a->numero_control}}" class="btn btn-info btn-sm">
+                            <i class="fas fa-book-open"></i>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

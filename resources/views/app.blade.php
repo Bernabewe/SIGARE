@@ -33,7 +33,7 @@
                 <a href="{{url('/home')}}" class="nav-link">Inicio</a>
               </li>
             </ul>
-            
+
 
             <!-- SEARCH FORM -->
             <!-- <form class="form-inline ml-3">
@@ -268,6 +268,12 @@
                         <p>Consultar alumnos</p>
                       </a>
                 </li>
+                <!--<li class="nav-item">
+                    <a href="{{asset('/consultar/expediente/alumnos')}}" class="nav-link">
+                        <i class="fas fa-book nav-icon"></i>
+                        <p>Consultar Expedientes</p>
+                    </a>
+                </li>-->
                 <!-- <li class="nav-item">
                     <a href="{{asset('/reporte/consultar')}}" class="nav-link">
                       <i class="nav-icon fas fa-tools""></i>

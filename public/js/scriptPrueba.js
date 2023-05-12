@@ -1,35 +1,41 @@
 var mensaje = document.getElementById('mensaje');
-var palabra = "Hola";
-var hola = [
-    "Hola",
-    "Hey",
-    "Saludos",
-    "Buen día",
-    "Buenas",
-    "Hola qué tal",
-    "Hola amigo",
-    "Hola amiga",
-    "Hola cómo estás",
-    "Hola qué hay"
-];
+var url = "http://localhost/SIGARE/public/";
 
 function procesarMensaje(){
-    saludar();
-    /* if(mensaje.value.search("reporte individual") >= 0){
-        document.getElementById('form').removeAttribute("onsubmit");
-        document.getElementById('form').setAttribute("action", "{{url('/peticion')}}");
-    }else{
+    if(mensaje.value.search("reporte individual") >= 0){
+       window.location.href= url + "reporte/individual";
+    }
+    else if(mensaje.value.search("reporte grupal") >= 0){
+        window.location.href= url + "reporte/grupal";
+    }
+    else if(mensaje.value.search("baja") >= 0){
+        window.location.href= url + "reporte/baja";
+    }
+    else if(mensaje.value.search("justificante") >= 0){
+        window.location.href= url + "reporte/justificante";
+    }
+    else if(mensaje.value.search("carta compromiso") >= 0){
+        window.location.href= url + "reporte/cartaCompromiso";
+    }
+    else if(mensaje.value.search("canalización") >= 0){
+        window.location.href= url + "reporte/canalizacion";
+    }
+    else if(mensaje.value.search("carta buena conducta") >= 0){
+        window.location.href= url + "reporte/cartaBuenaConducta";
+    }
+    else if(mensaje.value.search("carta condicional") >= 0){
+        window.location.href= url + "reporte/cartaCondicional";
+    }
+    else if(mensaje.value.search("expediente") >= 0){
+        var mensajeSplit = mensaje.value.split(" ");
+        if(mensajeSplit.length == 2){
+            window.location.href= url + "expedienteAlumnos/" + mensajeSplit[1];
+        }
+    }
+    else{
         document.getElementById('respuesta').innerText = "¡Hola!¿En qué te puedo ayudar?";
-    } */
+    }
 };
-function saludar(element, index, array){
-    hola.forEach();
-    var buscar = mensaje.value.search(element);
-    alert(buscar)
-    /* if(buscar >= 0){
-        document.getElementById('respuesta').innerText = "¡Hola!¿En qué te puedo ayudar?";
-    } */
-}
 
 var genera = [
     "Produce",
@@ -43,7 +49,19 @@ var genera = [
     "Desencadena",
     "Causa"
 ];
-
+var palabra = "Hola";
+var hola = [
+    "Hola",
+    "Hey",
+    "Saludos",
+    "Buen día",
+    "Buenas",
+    "Hola qué tal",
+    "Hola amigo",
+    "Hola amiga",
+    "Hola cómo estás",
+    "Hola qué hay"
+];
 var alumno = [
     "Estudiante",
     "Aprendiz",

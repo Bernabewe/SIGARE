@@ -26,12 +26,9 @@
             </div>
         </div>
     </div> <br>
-    <form onsubmit="return false" id="form"> <!-- action="{{url('/peticion')}}" -->
         <input type="textarea" id="mensaje" placeholder="¡Hola!¿En qué puedo ayudarte?" style="border-radius: 5px; width: 50%;" name="">
         <button onclick="procesarMensaje()">Enviar</button><br>
-        <!-- <input type="submit" value="Enviar"><br> -->
         <label id="respuesta"></label>
-    </form>
     <br>
     <div class="card card-outline card-dark collapsed-card" style="border-top: 3px solid #b2b2b2">
         <div class="card-header">

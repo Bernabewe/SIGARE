@@ -13,18 +13,25 @@
 <div class="container" style="margin-left: 0%; margin-right: 0%;">
     <div class="row" style="width: 100%;">
         <div style="width: 19%; display: inline-block;">
-            @foreach ($alumno as $a)
-                <b>Número de Control </b><br>
-                <p>{{$a->numero_control}}</p>
-                <b>Nombre </b><br>
-                <p>{{ucwords(mb_convert_case($a->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</p>
-                <b>Especialidad </b><br>
-                <p>{{ucwords(mb_convert_case($a->carrera, MB_CASE_LOWER, "UTF-8"))}}</p>
-                <b>Turno </b><br>
-                <p>{{ucwords(mb_convert_case($a->turno, MB_CASE_LOWER, "UTF-8"))}}</p>
-                <b>Grupo </b><br>
-                <p>{{$a->grupo}}</p>
-            @endforeach
+            <div class="list-group">
+                @foreach ($alumno as $a)
+                    <div class="card card-outline card-danger" style="border-top: 3px solid #722C2C;">
+                        <div class="card-header">
+                        <h3 class="card-title">{{ucwords(mb_convert_case($a->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</h3>
+                        </div>
+                        <div class="card-body">
+                                <b>Número de Control </b>
+                                <p>{{$a->numero_control}}</p><hr style="border-top: 1px solid grey;">
+                                <b>Especialidad </b>
+                                <p>{{ucwords(mb_convert_case($a->carrera, MB_CASE_LOWER, "UTF-8"))}}</p><hr style="border-top: 1px solid gray;">
+                                <b>Turno </b> <p class="float-right">{{ucwords(mb_convert_case($a->turno, MB_CASE_LOWER, "UTF-8"))}}</p><hr style="border-top: 1px solid gray;">
+                                <b>Grupo </b>  <p class="float-right">{{$a->grupo}}</p><hr style="border-top: 1px solid gray;">
+                                <b>Generación </b>  <p class="float-right">{{$a->generacion}}</p><hr style="border-top: 1px solid gray;">
+                                <b>Sexo </b>  <p class="float-right">{{$a->sexo}}</p>
+                        </div>
+                @endforeach
+                    </div>
+            </div>
         </div>
         <div style="width: 80%; display: inline-block;">
             <div class="container" style="width: 100%;">
@@ -51,8 +58,8 @@
                                                     <td>{{$r->usuario->name}}</td>
                                                     <td>{{$r->created_at}}</td>
                                                     <td>
-                                                        <a href="{{url('reporte/editar')}}/{{$r->id}}" class="btn btn-primary btn-sm">
-                                                            <i class="far fa-edit"></i>
+                                                        <a href="{{ url('reporte/pdf') }}/{{$r->id}}" class="btn btn-success btn-sm" target="_blank">
+                                                            <i class="far fa-eye" style="px"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

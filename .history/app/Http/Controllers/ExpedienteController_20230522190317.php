@@ -12,7 +12,9 @@ class ExpedienteController extends Controller
 
     public function consultarExpediente($nc){
 
-        $alumno=Alumno::where('numero_control', '=', $nc)->first();
+        $alumno=Alumno::where('numero_control', '=', $nc)->get();
+
+        dd($alumno->id);
 
         $tipos= TipoReporte::whereHas('reportes', function($query) use($nc){
             $query->whereHas('detalle', function ($query) use($nc){

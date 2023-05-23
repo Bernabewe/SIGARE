@@ -30,39 +30,39 @@
             </div>
         </div>
         @foreach ($tipos as $t)
-            <div class="col-sm-4">
-                <div class="card card-outline card-dark" style="border-top: 3px solid #722C2C;">
-                    <div class="card-header">
-                        <h3 class="card-title">{{$t->nombre}}</h3>
-                        <div class="card-tools">
-                            <span class="badge" style="text-align: right; font-size: 17px;">{{count($t->reportes)}}</span>
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" style="color:#722C2C;">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
+        <div class="col-sm-4">
+            <div class="card card-outline card-dark" style="border-top: 3px solid #722C2C;">
+                <div class="card-header">
+                    <h3 class="card-title">{{$t->nombre}}</h3>
+                    <div class="card-tools">
+                        <span class="badge" style="text-align: right; font-size: 17px;">{{count($t->reportes)}}</span>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" style="color:#722C2C;">
+                            <i class="fas fa-plus"></i>
+                        </button>
                     </div>
-                    <div class="card-body">
-                        <div class="responsive-table">
-                            <table class="table">
-                                <tbody>
-                                @foreach($t->reportes as $r)
-                                <tr>
-                                    <td><b>{{$r->id}}</b></td>
-                                    <td>{{$r->usuario->name}}</td>
-                                    <td>{{$r->created_at}}</td>
-                                    <td>
-                                    <a href="{{ url('reporte/pdf') }}/{{$r->id}}" class="btn btn-success btn-sm" target="_blank">
-                                    <i class="far fa-eye" style="px"></i>
-                                    </a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                </div>
+                <div class="card-body">
+                    <div class="responsive-table">
+                        <table class="table">
+                            <tbody>
+                            @foreach($t->reportes as $r)
+                            <tr>
+                                <td><b>{{$r->id}}</b></td>
+                                <td>{{$r->usuario->name}}</td>
+                                <td>{{$r->created_at}}</td>
+                                <td>
+                                <a href="{{ url('reporte/pdf') }}/{{$r->id}}" class="btn btn-success btn-sm" target="_blank">
+                                <i class="far fa-eye" style="px"></i>
+                                </a>
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
+        </div>
         @endforeach
     </div>
 </div>

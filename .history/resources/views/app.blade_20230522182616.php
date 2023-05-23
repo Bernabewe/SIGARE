@@ -319,10 +319,10 @@
                     </div>
                 </div>
             </section>
-            <section class="content">
+            <section class="content" style="padding:0 .99rem !important;">
                 @yield('home')
                 <div class="card card-secondary">
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         @yield('contenido')
                     </div>
                 </div>

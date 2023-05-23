@@ -14,6 +14,8 @@ class ExpedienteController extends Controller
 
         $alumno=Alumno::where('numero_control', '=', $nc)->first();
 
+        dd($alumno);
+
         $tipos= TipoReporte::whereHas('reportes', function($query) use($nc){
             $query->whereHas('detalle', function ($query) use($nc){
                 $query->where('numero_control', $nc)->with('detalle');

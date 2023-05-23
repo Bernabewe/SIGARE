@@ -23,5 +23,6 @@ class TipoReporteSeeder extends Seeder
         TipoReporte::create([ 'nombre' => 'Carta Compromiso' ]);
         TipoReporte::create([ 'nombre' => 'Canalización' ]);
         TipoReporte::create([ 'nombre' => 'Individual' ]);
+        TipoReporte::create([ 'nombre' => 'Expediente' ]);
     }
 }

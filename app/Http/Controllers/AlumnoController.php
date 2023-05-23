@@ -16,9 +16,9 @@ class AlumnoController extends Controller
         $alumno=Alumno::when($datos->has("nombre"), function($q) use ($datos){
             return $q->where("nombre_completo", "like", "%".$datos->get("nombre")."%");
            })->orderBy('id', 'desc')->paginate(15);
-           
+
            $alumno->appends($datos->all());
-   
+
            return view('consultarAlumnos', compact('alumno'));
     }
 }

@@ -1,4 +1,5 @@
 var mensaje = document.getElementById('mensaje');
+<<<<<<< HEAD
 var form = document.getElementById('form');
 var url = "http://localhost/SIGARE/public/reporte/";
 
@@ -23,6 +24,42 @@ function procesarMensaje(){
         form.setAttribute("action", url + "canalizacion");
     }else{
         form.setAttribute("onsubmit", "return false");
+=======
+var url = "http://localhost/SIGARE/public/";
+
+function procesarMensaje(){
+    if(mensaje.value.search("reporte individual") >= 0){
+       window.location.href= url + "reporte/individual";
+    }
+    else if(mensaje.value.search("reporte grupal") >= 0){
+        window.location.href= url + "reporte/grupal";
+    }
+    else if(mensaje.value.search("baja") >= 0){
+        window.location.href= url + "reporte/baja";
+    }
+    else if(mensaje.value.search("justificante") >= 0){
+        window.location.href= url + "reporte/justificante";
+    }
+    else if(mensaje.value.search("carta compromiso") >= 0){
+        window.location.href= url + "reporte/cartaCompromiso";
+    }
+    else if(mensaje.value.search("canalización") >= 0){
+        window.location.href= url + "reporte/canalizacion";
+    }
+    else if(mensaje.value.search("carta buena conducta") >= 0){
+        window.location.href= url + "reporte/cartaBuenaConducta";
+    }
+    else if(mensaje.value.search("carta condicional") >= 0){
+        window.location.href= url + "reporte/cartaCondicional";
+    }
+    else if(mensaje.value.search("expediente") >= 0){
+        var mensajeSplit = mensaje.value.split(" ");
+        if(mensajeSplit.length == 2){
+            window.location.href= url + "expedienteAlumnos/" + mensajeSplit[1];
+        }
+    }
+    else{
+>>>>>>> 9477ff3908cf9ca6c19fb52b0a40c5d995e52f3f
         document.getElementById('respuesta').innerText = "¡Hola!¿En qué te puedo ayudar?";
     }
 };
@@ -39,6 +76,10 @@ var genera = [
     "Desencadena",
     "Causa"
 ];
+<<<<<<< HEAD
+=======
+var palabra = "Hola";
+>>>>>>> 9477ff3908cf9ca6c19fb52b0a40c5d995e52f3f
 var hola = [
     "Hola",
     "Hey",

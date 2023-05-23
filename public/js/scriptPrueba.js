@@ -1,35 +1,31 @@
 var mensaje = document.getElementById('mensaje');
-var palabra = "Hola";
-var hola = [
-    "Hola",
-    "Hey",
-    "Saludos",
-    "Buen día",
-    "Buenas",
-    "Hola qué tal",
-    "Hola amigo",
-    "Hola amiga",
-    "Hola cómo estás",
-    "Hola qué hay"
-];
+var form = document.getElementById('form');
+var url = "http://localhost/SIGARE/public/reporte/";
+
 
 function procesarMensaje(){
-    saludar();
-    /* if(mensaje.value.search("reporte individual") >= 0){
-        document.getElementById('form').removeAttribute("onsubmit");
-        document.getElementById('form').setAttribute("action", "{{url('/peticion')}}");
+    form.removeAttribute("onsubmit");
+    if(mensaje.value.search("reporte individual") >= 0){
+        form.setAttribute("action", url + "individual");
+    }else if(mensaje.search("reporte grupal") >= 0){
+        form.setAttribute("action", url + "grupal");
+    }else if(mensaje.search("baja") >= 0){
+        form.setAttribute("action", url + "baja");
+    }else if(mensaje.search("justificante") >= 0){
+        form.setAttribute("action", url + "justificante");
+    }else if(mensaje.search("carta compromiso") >= 0){
+        form.setAttribute("action", url + "cartaCompromiso");
+    }else if(mensaje.search("buena conducta") >= 0){
+        form.setAttribute("action", url + "cartaBuenaConducta");
+    }else if(mensaje.search("carta condiconal") >= 0){
+        form.setAttribute("action", url + "cartaCondicional");
+    }else if(mensaje.search("canalizacion") >= 0){
+        form.setAttribute("action", url + "canalizacion");
     }else{
+        form.setAttribute("onsubmit", "return false");
         document.getElementById('respuesta').innerText = "¡Hola!¿En qué te puedo ayudar?";
-    } */
+    }
 };
-function saludar(element, index, array){
-    hola.forEach();
-    var buscar = mensaje.value.search(element);
-    alert(buscar)
-    /* if(buscar >= 0){
-        document.getElementById('respuesta').innerText = "¡Hola!¿En qué te puedo ayudar?";
-    } */
-}
 
 var genera = [
     "Produce",
@@ -43,7 +39,18 @@ var genera = [
     "Desencadena",
     "Causa"
 ];
-
+var hola = [
+    "Hola",
+    "Hey",
+    "Saludos",
+    "Buen día",
+    "Buenas",
+    "Hola qué tal",
+    "Hola amigo",
+    "Hola amiga",
+    "Hola cómo estás",
+    "Hola qué hay"
+];
 var alumno = [
     "Estudiante",
     "Aprendiz",

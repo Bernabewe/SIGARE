@@ -43,6 +43,11 @@ class PDFController extends Controller
             return $this->pdfCanalizacion($reporte, $alumno, $fecha, $folio);
         }
     }
+    public function pdfExpediente($nc){
+
+        $pdf = PDF::loadView('PDF.PDFreporteIndividual', array('datos' => $datos));
+        return $pdf->stream("PDFreporteIndividual.pdf");
+    }
     public function pdfIndividual(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFreporteIndividual', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
         return $pdf->stream("PDFreporteIndividual.pdf");

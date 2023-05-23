@@ -9,7 +9,7 @@
     <!-- <title>Reporte PDF Generico</title> -->
 </head>
 <body>
-    <h1>Expediente {{ $alumno->numero_control }}</h1>
+    <h1>Expediente</h1>
 
 </body>
 </html>

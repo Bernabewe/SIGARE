@@ -88,7 +88,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     //PDFs
     Route::get('/reporte/pdf/{id}', [PDFController::class, 'pdfMaster']);
-    Route::get('/reporte/pdfExpediente/{nc}', [ExpedienteController::class, 'pdfExpediente']);
+    Route::get('/reporte/pdfExpediente', [PDFController::class, 'pdfExpediente']);
     Route::get('/reporte/pdfIndividual', [PDFController::class, 'pdfIndividual']);
     Route::get('/reporte/pdfJustificante', [PDFController::class, 'pdfJustificante']);
     Route::get('/reporte/pdfBaja', [PDFController::class, 'pdfBaja']);

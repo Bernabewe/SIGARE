@@ -34,7 +34,7 @@ class ExpedienteController extends Controller
             });
         })->with('reportes')->get();
 
-        $pdf = PDF::loadView('PDF.PDFexpedienteAlumno', array('tipos' => $tipos, 'alumno' =>$alumno));
-        return $pdf->stream("Expediente".$nc.".pdf");
+        $pdf = PDF::loadView('PDF.PDFreporteIndividual', array('tipos' => $tipos, 'alumno' =>$alumno));
+        return $pdf->stream("PDFreporteIndividual.pdf");
     }
 }

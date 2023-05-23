@@ -30,10 +30,8 @@
                 <a class="btn btn-primary" href="{{ url('reporte/pdfExpediente/') }}/{{ $alumno->numero_control }}">PDF</a>
             </div>
         </div>
-        <div class="col-sm-8">
-        <div class="row">
         @foreach ($tipos as $t)
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="card card-outline card-dark" style="border-top: 3px solid #722C2C;">
                     <div class="card-header">
                         <h3 class="card-title">{{$t->nombre}}</h3>
@@ -67,8 +65,6 @@
                 </div>
             </div>
         @endforeach
-        </div>
-    </div>
     </div>
 </div>
 @stop

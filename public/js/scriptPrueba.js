@@ -1,30 +1,4 @@
 var mensaje = document.getElementById('mensaje');
-<<<<<<< HEAD
-var form = document.getElementById('form');
-var url = "http://localhost/SIGARE/public/reporte/";
-
-
-function procesarMensaje(){
-    form.removeAttribute("onsubmit");
-    if(mensaje.value.search("reporte individual") >= 0){
-        form.setAttribute("action", url + "individual");
-    }else if(mensaje.search("reporte grupal") >= 0){
-        form.setAttribute("action", url + "grupal");
-    }else if(mensaje.search("baja") >= 0){
-        form.setAttribute("action", url + "baja");
-    }else if(mensaje.search("justificante") >= 0){
-        form.setAttribute("action", url + "justificante");
-    }else if(mensaje.search("carta compromiso") >= 0){
-        form.setAttribute("action", url + "cartaCompromiso");
-    }else if(mensaje.search("buena conducta") >= 0){
-        form.setAttribute("action", url + "cartaBuenaConducta");
-    }else if(mensaje.search("carta condiconal") >= 0){
-        form.setAttribute("action", url + "cartaCondicional");
-    }else if(mensaje.search("canalizacion") >= 0){
-        form.setAttribute("action", url + "canalizacion");
-    }else{
-        form.setAttribute("onsubmit", "return false");
-=======
 var url = "http://localhost/SIGARE/public/";
 
 function procesarMensaje(){
@@ -59,7 +33,6 @@ function procesarMensaje(){
         }
     }
     else{
->>>>>>> 9477ff3908cf9ca6c19fb52b0a40c5d995e52f3f
         document.getElementById('respuesta').innerText = "¡Hola!¿En qué te puedo ayudar?";
     }
 };
@@ -76,10 +49,6 @@ var genera = [
     "Desencadena",
     "Causa"
 ];
-<<<<<<< HEAD
-=======
-var palabra = "Hola";
->>>>>>> 9477ff3908cf9ca6c19fb52b0a40c5d995e52f3f
 var hola = [
     "Hola",
     "Hey",

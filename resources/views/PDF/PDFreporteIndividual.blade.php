@@ -42,7 +42,7 @@
         OFICIO: {{$folio}}</p>
     </div>
     <div style="text-align: center;">
-        <h2>Reporte Indivual</h2>
+        <h2>Reporte Individual</h2>
         <br>
     </div>
     <div class="text">

@@ -55,7 +55,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Num. de cotrol</th>
+                    <th>Num. de control</th>
                     <th>Nombre</th>
                     <th>Especialidad</th>
                     <th>Tipo de reporte</th>

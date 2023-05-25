@@ -49,7 +49,6 @@ var genera = [
     "Desencadena",
     "Causa"
 ];
-var palabra = "Hola";
 var hola = [
     "Hola",
     "Hey",

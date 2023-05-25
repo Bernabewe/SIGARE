@@ -43,6 +43,14 @@ class PDFController extends Controller
             return $this->pdfCanalizacion($reporte, $alumno, $fecha, $folio);
         }
     }
+    public function pdfExpediente(){
+        $folio=Carbon::now()->format('Y')."/".$id;
+        $meses=array('', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
+        $reporte=Reporte::with('detalle')->find($id);
+        $alumno=Alumno::where('numero_control', '=', $reporte->detalle->numero_control)->first();
+        $tipo=$reporte->tipo_id;
+        $fecha=Carbon::now()->format('d')." de ". $meses[intval(Carbon::now()->format('m'))]." de ".Carbon::now()->format('Y');
+    }
     public function pdfIndividual(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFreporteIndividual', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
         return $pdf->stream("PDFreporteIndividual.pdf");

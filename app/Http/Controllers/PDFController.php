@@ -75,8 +75,4 @@ class PDFController extends Controller
         $pdf = PDF::loadView('PDF.PDFcartaCondicional', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
         return $pdf->download("PDFcartaCondicional.pdf");
     }
-    public function pdfExpedienteAlumno(Reporte $reporte, Alumno $alumno, $fecha, $folio){
-        $pdf = PDF::loadView('PDF.PDFexpedienteAlumno', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->download("PDFexpedienteAlumno.pdf");
-    }
 }

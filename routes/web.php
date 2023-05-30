@@ -97,7 +97,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/reporte/pdfCartaCompromiso', [PDFController::class, 'pdfCartaCompromiso']);
     Route::get('/reporte/pdfCartaBuenaConducta', [PDFController::class, 'pdfCartaBuenaConducta']);
     Route::get('/reporte/pdfCartaCondicional', [PDFController::class, 'pdfCartaCondicional']);
-    Route::get('/consultar/pdfExpedienteAlumno', [PDFController::class, 'pdfExpedienteAlumno']);
+
 
 });
 

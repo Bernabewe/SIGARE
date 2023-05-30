@@ -2,7 +2,6 @@ var mensaje = document.getElementById('mensaje');
 var url = "http://localhost/SIGARE/public/";
 
 function procesarMensaje(){
-    return;
     if(mensaje.value.search("reporte individual") >= 0){
        window.location.href= url + "reporte/individual";
     }
@@ -48,6 +47,12 @@ function procesarMensaje(){
                       })
                 })
         });
+
+          return;
+        var mensajeSplit = mensaje.value.split(" ");
+        if(mensajeSplit.length == 2){
+            window.location.href= url + "expedienteAlumnos/" + mensajeSplit[1];
+        }
     }
     else{
         document.getElementById('respuesta').innerText = "¡Hola!¿En qué te puedo ayudar?";

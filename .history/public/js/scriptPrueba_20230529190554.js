@@ -2,7 +2,6 @@ var mensaje = document.getElementById('mensaje');
 var url = "http://localhost/SIGARE/public/";
 
 function procesarMensaje(){
-    return;
     if(mensaje.value.search("reporte individual") >= 0){
        window.location.href= url + "reporte/individual";
     }
@@ -30,24 +29,24 @@ function procesarMensaje(){
     else if(mensaje.value.search("expediente") >= 0){
 
         $( document ).ready(function() {
-            var jqxhr = $.get( "http://localhost/SIGARE/public/asistente/expediente/"+mensaje.value, function(data) {
+            var jqxhr = $.get( "http://localhost/SIGARE/public/asiste33nte/expediente/"+mensaje.value, function(data) {
                 console.log(data)
-                console.log(data==0);
-                if(data == 0){
-                    document.getElementById('respuesta').innerText = "No hay numero de contro válido";
-                } else {
-                    window.location.href= url + "consultar/expediente/" + data;
-                }
               })
                 .fail(function() {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Ocurrio un error!',
-                        footer: '<a href="">Why do I have this issue?</a>'
-                      })
+                  alert( "error" );
                 })
+            // Swal.fire(
+            //     'Good job!',
+            //     'You clicked the button!',
+            //     'success'
+            //   )
         });
+
+          return;
+        var mensajeSplit = mensaje.value.split(" ");
+        if(mensajeSplit.length == 2){
+            window.location.href= url + "expedienteAlumnos/" + mensajeSplit[1];
+        }
     }
     else{
         document.getElementById('respuesta').innerText = "¡Hola!¿En qué te puedo ayudar?";

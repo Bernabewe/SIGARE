@@ -23,7 +23,7 @@ use App\Http\Controllers\ExpedienteController;
 
 
     Route::get('consultar/expediente/{nc}' , [ExpedienteController::class, 'consultarExpediente']);
-    Route::get('asistente/expediente/{cadena}' , [ExpedienteController::class, 'obtenerNumeroControl']);
+    Route::get('asistente/expediente/{cadena}' , [ExpedienteController::class, 'consultarExpediente']);
     Route::group(['middleware' => ['auth']], function() {
 
 

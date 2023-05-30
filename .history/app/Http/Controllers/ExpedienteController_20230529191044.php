@@ -46,10 +46,11 @@ class ExpedienteController extends Controller
     }
 
     public function obtenerNumeroControl($cadena){
-        $nc = "0";
+        $nc = "vacio";
+        dd($cadena);
         foreach(explode(' ', $cadena) as $c){
-            $alumno = Alumno::where('numero_control', $c)->first();
-            if($alumno != null){
+            $alumno = Alumno::where('numero_control', $c)->get();
+            if(count($alumno) >0){
                 $nc = $alumno->numero_control;
             }
         }

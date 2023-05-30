@@ -2,7 +2,7 @@ var mensaje = document.getElementById('mensaje');
 var url = "http://localhost/SIGARE/public/";
 
 function procesarMensaje(){
-    return;
+    //peticion si es true return;
     if(mensaje.value.search("reporte individual") >= 0){
        window.location.href= url + "reporte/individual";
     }
@@ -33,6 +33,7 @@ function procesarMensaje(){
             var jqxhr = $.get( "http://localhost/SIGARE/public/asistente/expediente/"+mensaje.value, function(data) {
                 console.log(data)
                 console.log(data==0);
+                return;
                 if(data == 0){
                     document.getElementById('respuesta').innerText = "No hay numero de contro válido";
                 } else {

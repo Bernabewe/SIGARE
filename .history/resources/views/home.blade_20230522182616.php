@@ -26,7 +26,7 @@
             </div>
         </div>
     </div> <br>
-        <input type="textarea" id="mensaje" placeholder="¡Hola!¿En qué puedo ayudarte?" style="border-radius: 5px; width: 50%;" name="" value="expediente 89789687687">
+        <input type="textarea" id="mensaje" placeholder="¡Hola!¿En qué puedo ayudarte?" style="border-radius: 5px; width: 50%;" name="">
         <button onclick="procesarMensaje()">Enviar</button><br>
         <label id="respuesta"></label>
     <br>

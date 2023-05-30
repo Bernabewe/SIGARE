@@ -46,6 +46,9 @@ class ExpedienteController extends Controller
     }
 
     public function obtenerNumeroControl($cadena){
+        $alumnos = Alumno::all();
+
+        return $alumnos;
         $nc = "0";
         foreach(explode(' ', $cadena) as $c){
             $alumno = Alumno::where('numero_control', $c)->first();

@@ -23,8 +23,7 @@ use App\Http\Controllers\ExpedienteController;
 
 
     Route::get('consultar/expediente/{nc}' , [ExpedienteController::class, 'consultarExpediente']);
-    Route::get('asistente/expediente/{cadena}' , [ExpedienteController::class, 'obtenerNumeroControl']);
-    Route::get('revision/mensaje/{cadena}' , [ExpedienteController::class, 'revisarCadena']);
+    Route::get('asistente/expediente/{cadena}' , [ExpedienteController::class, 'consultarExpediente']);
     Route::group(['middleware' => ['auth']], function() {
 
 
@@ -99,7 +98,7 @@ use App\Http\Controllers\ExpedienteController;
     Route::get('/reporte/pdfCartaCompromiso', [PDFController::class, 'pdfCartaCompromiso']);
     Route::get('/reporte/pdfCartaBuenaConducta', [PDFController::class, 'pdfCartaBuenaConducta']);
     Route::get('/reporte/pdfCartaCondicional', [PDFController::class, 'pdfCartaCondicional']);
-
+    Route::get('/consultar/pdfExpedienteAlumno', [PDFController::class, 'pdfExpedienteAlumno']);
 
 });
 

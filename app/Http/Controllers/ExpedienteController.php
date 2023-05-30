@@ -55,4 +55,18 @@ class ExpedienteController extends Controller
         }
         return $nc;
     }
+    public function revisarCadena($cadena){
+        $contador = 0;
+        $groserias = ["Carajo", "Coño", "Joder", "Puta", "Mierda", "Cabrón", "Cabron", "Pendejo",
+        "Cagada", "Verga", "Chingar", "carajo", "coño", "joder", "puta", "mierda", "cabron", "cabrón", 
+        "pendejo", "cagada", "verga", "chingar"];
+        foreach($groserias as $g){
+            foreach(explode(' ', $cadena) as $c){
+                if($g == $c){
+                    $contador = 1;
+                    return $contador;
+                }
+            }
+        }
+    }
 }

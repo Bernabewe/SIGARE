@@ -21,13 +21,12 @@
                 <input type="submit" value="Buscar" class="btn btn-secondary" style="margin-bottom: 4px;">
             </div>
         </div>
-    </form>  
+    </form>
     @if($alumno != null)
     <div class="responsive-table">
         <table class="table table-hover" style="text-align: center;">
             <thead>
                 <tr>
-                    <th style="width: 20px"></th>
                     <th>Num. de cotrol</th>
                     <th>Nombre Completo</th>
                     <th>Especialidad</th>
@@ -40,13 +39,9 @@
             </thead>
             <tbody>
                 @foreach($alumno as $a)
-                <tr>
-                    <td>
-                        <button onclick="copiarNumControl()">
-                            <i class="far fa-file" id="botonCopiar"></i>
-                        </button> 
-                    </td>
+                <tr class="vertical">
                     <td id="numeroControlCopiar">
+                        <img src="{{ asset('images/copyIcon.png') }}" alt="" width="20px">&nbsp;
                         {{$a->numero_control}}
                     </td>
                     <td>{{ucwords(mb_convert_case($a->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</td>

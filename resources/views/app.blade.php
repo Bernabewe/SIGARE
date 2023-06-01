@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="{{asset('css/misestilos.css')}}">
   <style>
     div nav ul {
         justify-content: center;

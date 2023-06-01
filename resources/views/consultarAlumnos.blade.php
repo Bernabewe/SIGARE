@@ -40,9 +40,9 @@
             <tbody>
                 @foreach($alumno as $a)
                 <tr class="vertical">
-                    <td id="numeroControlCopiar">
-                        <img src="{{ asset('images/copyIcon.png') }}" alt="" width="20px">&nbsp;
-                        {{$a->numero_control}}
+                    <td>
+                        <img onclick="copiar()" title="copiar" src="{{ asset('images/copyIcon.png') }}" width="20px">&nbsp;
+                        <span id="copiar">{{$a->numero_control}}</span>
                     </td>
                     <td>{{ucwords(mb_convert_case($a->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</td>
                     <td>{{ucwords(mb_convert_case($a->carrera, MB_CASE_LOWER, "UTF-8"))}}</td>

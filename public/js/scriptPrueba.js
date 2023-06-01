@@ -1,7 +1,13 @@
 var mensaje = document.getElementById('mensaje');
 var url = "http://localhost/SIGARE/public/";
-const boton = document.querySelector('botonCopiar')
-const input = document.getElementById('numeroControlCopiar')
+
+function copiar(){
+    $( document ).ready(function(){
+        const content = document.getElementById('copiar')
+        navigator.clipboard.writeText(content.textContent);
+        
+    })
+}
 
 function procesarMensaje(){
     $( document ).ready(function() {
@@ -65,9 +71,3 @@ function procesarMensaje(){
     
 };
 
-
-
-boton.addEventListener('click', function(){
-    input.focus()
-    document.execCommand('selectAll')
-});

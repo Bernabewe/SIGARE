@@ -3,10 +3,29 @@ var url = "http://localhost/SIGARE/public/";
 
 function copiar(){
     $( document ).ready(function(){
-        const content = document.getElementById('copiar')
-        navigator.clipboard.writeText(content.textContent);
-        
-    })
+        const content = document.getElementById('copiar');
+        navigator.clipboard.writeText(content.textContent);   
+        $('#copyImg').attr('src', url + "images/check.png");
+        $('#tooltip').text('Copiado!');
+        $('#copyImg').attr('width', '20px');
+        $('#tooltip').attr('class', 'tooltip-box');
+        setTimeout(function() { 
+            $('#copyImg').attr('src', url + "images/copyIcon.png");
+            $('#tooltip').text('Copiar');
+            $('#tooltip').attr('class', 'tooltip-box-none');
+        }, 2000);
+    });
+}
+function mouseover(){
+    $( document ).ready(function(){
+        $('#tooltip').attr('class', 'tooltip-box');
+    });
+}
+
+function mouseout(){
+    $( document ).ready(function(){
+        $('#tooltip').attr('class', 'tooltip-box-none');
+    });
 }
 
 function procesarMensaje(){

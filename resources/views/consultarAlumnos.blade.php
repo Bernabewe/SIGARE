@@ -41,7 +41,10 @@
                 @foreach($alumno as $a)
                 <tr class="vertical">
                     <td>
-                        <img onclick="copiar()" title="copiar" src="{{ asset('images/copyIcon.png') }}" width="20px">&nbsp;
+                        
+                        <img id="copyImg" onclick="copiar()" onmouseover="mouseover()" onmouseout="mouseout()" src="{{ asset('images/copyIcon.png') }}" width="20px">
+                            <span id="tooltip" class="tooltip-box-none">Copiar</span>
+                        </img>
                         <span id="copiar">{{$a->numero_control}}</span>
                     </td>
                     <td>{{ucwords(mb_convert_case($a->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</td>

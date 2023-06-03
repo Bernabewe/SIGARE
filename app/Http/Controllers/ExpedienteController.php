@@ -7,6 +7,7 @@ use App\Models\Alumno;
 use App\Models\Reporte;
 use App\Models\TipoReporte;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use PDF;
 
 
@@ -68,7 +69,7 @@ class ExpedienteController extends Controller
 
         $collection = new Collection ($groserias);
         foreach(explode(' ', $cadena) as $c){
-            if($collection->contains(strlower($c))){
+            if($collection->contains(strtolower($c))){
                 $contador = 1;
                 return $contador;
             }

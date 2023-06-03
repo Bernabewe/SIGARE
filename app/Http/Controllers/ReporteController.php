@@ -37,7 +37,7 @@ class ReporteController extends Controller
             })
                 ->with(['detalle', 'tipo'])
                 ->orderBy('id', 'DESC')
-                ->paginate(15);
+                ->paginate(10);
         }else{
             $reportes= Reporte::whereRelation('tipo', 'nombre', 'like', "%".$datos->get("tipo")."%")
             ->whereRelation('detalle.alumno', 'nombre', 'like', "%".$datos->get("nombre")."%")

@@ -27,11 +27,10 @@ function mouseout(){
         $('#tooltip').attr('class', 'tooltip-box-none');
     });
 }
-
+       
 function procesarMensaje(){
     $( document ).ready(function() {
         var jqxhr = $.get(url + "revision/mensaje/" + mensaje.value, function(data) {
-            console.log(data);
             if(data == 0){
                 if(mensaje.value.search("reporte individual") >= 0){
                     window.location.href= url + "reporte/individual";
@@ -62,7 +61,7 @@ function procesarMensaje(){
                      $( document ).ready(function() {
                          var jqxhr = $.get(url + "asistente/expediente/"+mensaje.value, function(data) {
                              if(data == 0){
-                                 document.getElementById('respuesta').innerText = "No hay un número de control válido";
+                                 document.getElementById('respuesta').innerText = "No hay un número de control válido para seleccionar el expediente";
                              } else {
                                  window.location.href= url + "consultar/expediente/" + data;
                              }

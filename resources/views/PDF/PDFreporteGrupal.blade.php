@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte Grupal</title>
+    <title>Reporte Grupal {{$a}}</title>
     <!-- <title>Reporte PDF Generico</title> -->
     <style>
         .text {
@@ -67,7 +67,8 @@
         <div class="text" style="text-align: center;">
             <p><hr class="linea2"> <br>
             PSIC. ROSANGEL CAMACHO G. <br>
-            ORIENTACION EDUCATIVA</p>
+            ORIENTACION EDUCATIVA
+        </p>
         </div>
     </div>
     <div class="footer">

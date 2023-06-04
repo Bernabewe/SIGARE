@@ -41,9 +41,9 @@
         </p>
     </div>
     <div class="text">
-        <p> Nombre del Alumno(a): {{$alumno->nombre_completo}} </p>
+        <p> Nombre del Alumno(a): {{ucwords(mb_convert_case($alumno->nombre_completo, MB_CASE_LOWER, "UTF-8"))}} </p>
         <p> No. de control: {{$alumno->numero_control}} </p>
-        <p> Especialidad: {{$alumno->carrera}} </p>
+        <p> Especialidad: {{ucwords(mb_convert_case($alumno->carrera, MB_CASE_LOWER, "UTF-8"))}} </p>
         <p> Generación: {{$alumno->generacion}} </p>
     </div>
     <div class="text">

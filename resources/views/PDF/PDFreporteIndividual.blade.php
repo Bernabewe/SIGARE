@@ -46,8 +46,8 @@
         <br>
     </div>
     <div class="text">
-        <p>Nombre del Alumno(a): <b>{{$alumno->nombre_completo}}</b> Grupo: <b>{{$alumno->grupo}}</b>. <br>
-        Especialidad: <b>{{$alumno->carrera}}</b> Turno: <b>{{$alumno->turno}}</b> <br>
+        <p>Nombre del Alumno(a): <b>{{ucwords(mb_convert_case($alumno->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</b> Grupo: <b>{{$alumno->grupo}}</b>. <br>
+        Especialidad: <b>{{ucwords(mb_convert_case($alumno->carrera, MB_CASE_LOWER, "UTF-8"))}}</b> Turno: <b>{{ucwords(mb_convert_case($alumno->turno, MB_CASE_LOWER, "UTF-8"))}}</b> <br>
         Motivo: <b>{{$reporte->detalle->motivo}}</b>
         </p>
     </div>

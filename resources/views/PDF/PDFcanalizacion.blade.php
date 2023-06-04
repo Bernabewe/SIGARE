@@ -35,17 +35,17 @@
         <p>Fecha: {{$fecha}}.
     </div>
     <div class="text">
-        <p>Nombre del Alumno(a): {{$alumno->nombre_completo}} </p>
-        <p>Grupo: {{$alumno->grupo}}  Turno: {{$alumno->turno}}  Especialidad: {{$alumno->carrera}}</p>
-        <p>Nombre del padre o tutor: {{$reporte->detalle->tutor}}</p>
+        <p>Nombre del Alumno(a): <b>{{ucwords(mb_convert_case($alumno->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</b> </p>
+        <p>Grupo: <b>{{$alumno->grupo}}</b>  Turno: <b>{{ucwords(mb_convert_case($alumno->turno, MB_CASE_LOWER, "UTF-8"))}}</b>  Especialidad: <b>{{ucwords(mb_convert_case($alumno->carrera, MB_CASE_LOWER, "UTF-8"))}}</b></p>
+        <p>Nombre del padre o tutor: <b>{{$reporte->detalle->tutor}}</b></p>
         <p>Nombre de la institución: CETIS 107</p>
-        <p>Domiciliio: {{$reporte->detalle->domicilio}}</p>
-        <p>Teléfono: TELEFONO</p>
+        <p>Domiciliio: <b>{{$reporte->detalle->domicilio}}</b></p>
+        <p>Teléfono: 1234567890</p>
     </div>
     <div class="text">
-        <p>Especifiqué el problema: {{$reporte->detalle->motivo}}</p>
-        <p>Área donde se canaliza: {{$reporte->detalle->area_canalizacion}}</p>
-        <p>Observaciones: {{$reporte->detalle->observaciones}}</p>
+        <p>Especifiqué el problema: <b>{{$reporte->detalle->motivo}}</b></p>
+        <p>Área donde se canaliza: <b>{{$reporte->detalle->area_canalizacion}}</b>}</p>
+        <p>Observaciones: <b>{{$reporte->detalle->observaciones}}</b></p>
     </div>
     <div style="text-align: center;">
         <p><b> ATENTAMENTE</p>

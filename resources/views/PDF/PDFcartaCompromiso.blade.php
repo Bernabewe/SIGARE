@@ -37,13 +37,13 @@
     <div class="text">
         <p>
             De acuerdo a la reunión llevada a cabo por la Dirección del Centro de Estudios Tecnológicos
-            Industrial y de Servicios no. 107 para revisar la falta en la que incurrió el alumno: {{$alumno->nombre_completo}}
-            del grupo {{$alumno->grupo}} que consiste en: {{$reporte->detalle->motivo}}, se presentó la madre de familia: {{$reporte->detalle->tutor}}, con la
+            Industrial y de Servicios no. 107 para revisar la falta en la que incurrió el alumno: <b>{{ucwords(mb_convert_case($alumno->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</b>
+            del grupo <b>{{$alumno->grupo}}</b> que consiste en: <b>{{$reporte->detalle->motivo}}</b>, se presentó la madre de familia: <b>{{$reporte->detalle->tutor}}</b>, con la
             finalidad de llevar a cabo compromisos y acuerdos que sirvan de pauta para mejorar dicha situación.
         </p>
         <p>
             Por cada una de las partes interesadas se establecerán los siguientes compromisos y estrategias para
-            que el alumno: {{$alumno->nombre_completo}} corrija y resuelva sus dificultades.
+            que el alumno: <b>{{ucwords(mb_convert_case($alumno->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</b> corrija y resuelva sus dificultades.
         </p>
     </div>
     <div class="text">
@@ -64,7 +64,7 @@
         </p>
     </div>
     <div style="text-align: center; margin-top: 60px;">
-        <p>{{$alumno->nombre_completo}}</p>
+        <p>{{ucwords(mb_convert_case($alumno->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</p>
         <p>Alumno </p>
     </div>
     <div class="contenedor">

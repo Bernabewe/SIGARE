@@ -5,6 +5,7 @@ console.log(url_server);
 
 function copiar(){
     $( document ).ready(function(){
+        console.log("contenido---->" + content);
         navigator.clipboard.writeText($("#copiar").text());
         $('#copyImg').attr('src', url_server + "../images/check.png");
         $('#tooltip').text('Copiado!');

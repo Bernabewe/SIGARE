@@ -7,7 +7,7 @@ function copiar(){
     $( document ).ready(function(){
         const content = document.getElementById('copiar');
         navigator.clipboard.writeText(content.textContent);
-        $('#copyImg').attr('src', url_server + "./images/check.png");
+        $('#copyImg').attr('src', url_server + "images/check.png");
         $('#tooltip').text('Copiado!');
         $('#copyImg').attr('width', '20px');
         $('#tooltip').attr('class', 'tooltip-box');

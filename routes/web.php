@@ -86,7 +86,7 @@ use App\Http\Controllers\ExpedienteController;
     Route::get('/reporte/canalizacion', [ReporteController::class, 'registrarCanalizacion']);
     Route::post('reporte/canalizacion', [ReporteController::class, 'canalizacionBuscar']);
     Route::post('reporte/canalizacion/guardar', [ReporteController::class, 'canalizacionGuardar']);
-    Route::post('reporte/canalizacion/actulizar/{id}', [ReporteController::class, 'actualizar']);
+    Route::post('reporte/canalizacion/actualizar/{id}', [ReporteController::class, 'actualizar']);
 
     //PDFs
     Route::get('/reporte/pdf/{id}', [PDFController::class, 'pdfMaster']);

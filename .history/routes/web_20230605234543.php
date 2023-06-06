@@ -22,9 +22,9 @@ use App\Http\Controllers\ExpedienteController;
 */
 
 
-    Route::get('consultar/expediente/{nc}' , [ExpedienteController::class, 'consultarExpediente']);
-    Route::get('asistente/expediente/{cadena}' , [ExpedienteController::class, 'obtenerNumeroControl']);
-    Route::get('revision/mensaje/{cadena}' , [ExpedienteController::class, 'revisarCadena']);
+    Route::get('dashboard/consultar/expediente/{nc}' , [ExpedienteController::class, 'consultarExpediente']);
+    Route::get('dashboard/asistente/expediente/{cadena}' , [ExpedienteController::class, 'obtenerNumeroControl']);
+    Route::get('dashboard/revision/mensaje/{cadena}' , [ExpedienteController::class, 'revisarCadena']);
     Route::group(['middleware' => ['auth']], function() {
 
 

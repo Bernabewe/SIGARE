@@ -5,18 +5,14 @@ console.log(url_server);
 
 function copiar(){
     $( document ).ready(function(){
-        const queryOpts = { name: 'clipboard-read', allowWithoutGesture: false };
-        const permissionStatus = navigator.permissions.query(queryOpts);
-        // Will be 'granted', 'denied' or 'prompt':
-        console.log(permissionStatus.state);
         const content = document.getElementById('copiar');
         navigator.clipboard.writeText(content.textContent);
-        $('#copyImg').attr('src', url_server + "../images/check.png");
+        $('#copyImg').attr('src', url_server + "./images/check.png");
         $('#tooltip').text('Copiado!');
         $('#copyImg').attr('width', '20px');
         $('#tooltip').attr('class', 'tooltip-box');
         setTimeout(function() {
-            $('#copyImg').attr('src', url_server + "../images/copyIcon.png");
+            $('#copyImg').attr('src', url_server + "./images/copyIcon.png");
             $('#tooltip').text('Copiar');
             $('#tooltip').attr('class', 'tooltip-box-none');
         }, 2000);

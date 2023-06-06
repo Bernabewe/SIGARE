@@ -5,11 +5,17 @@ console.log(url_server);
 
 function copiar(){
     $( document ).ready(function(){
-        const queryOpts = { name: 'clipboard-read', allowWithoutGesture: false };
-        const permissionStatus = navigator.permissions.query(queryOpts);
-        // Will be 'granted', 'denied' or 'prompt':
-        console.log(permissionStatus.state);
-        const content = document.getElementById('copiar');
+        const copyText = document.getElementById('copiar');
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard
+          .writeText(copyText.value)
+          .then(() => {
+            alert("successfully copied");
+          })
+          .catch(() => {
+            alert("something went wrong");
+          });
         navigator.clipboard.writeText(content.textContent);
         $('#copyImg').attr('src', url_server + "../images/check.png");
         $('#tooltip').text('Copiado!');

@@ -1,22 +1,18 @@
 var mensaje = document.getElementById('mensaje');
 var url = "http://localhost/SIGARE/public/";
-var url_server = "";
+var url_server = window.location.href;
 console.log(url_server);
 
 function copiar(){
     $( document ).ready(function(){
-        const queryOpts = { name: 'clipboard-read', allowWithoutGesture: false };
-        const permissionStatus = navigator.permissions.query(queryOpts);
-        // Will be 'granted', 'denied' or 'prompt':
-        console.log(permissionStatus.state);
         const content = document.getElementById('copiar');
         navigator.clipboard.writeText(content.textContent);
-        $('#copyImg').attr('src', url_server + "../images/check.png");
+        $('#copyImg').attr('src', url + "images/check.png");
         $('#tooltip').text('Copiado!');
         $('#copyImg').attr('width', '20px');
         $('#tooltip').attr('class', 'tooltip-box');
         setTimeout(function() {
-            $('#copyImg').attr('src', url_server + "../images/copyIcon.png");
+            $('#copyImg').attr('src', url + "images/copyIcon.png");
             $('#tooltip').text('Copiar');
             $('#tooltip').attr('class', 'tooltip-box-none');
         }, 2000);
@@ -40,37 +36,37 @@ function procesarMensaje(){
             console.log(data);
             if(data == 0){
                 if(mensaje.value.search("reporte individual") >= 0){
-                    window.location.href= url_server + "reporte/individual";
+                    window.location.href= url + "reporte/individual";
                  }
                  else if(mensaje.value.search("reporte grupal") >= 0){
-                     window.location.href= url_server + "reporte/grupal";
+                     window.location.href= url + "reporte/grupal";
                  }
                  else if(mensaje.value.search("baja") >= 0){
-                     window.location.href= url_server + "reporte/baja";
+                     window.location.href= url + "reporte/baja";
                  }
                  else if(mensaje.value.search("justificante") >= 0){
-                     window.location.href= url_server + "reporte/justificante";
+                     window.location.href= url + "reporte/justificante";
                  }
                  else if(mensaje.value.search("carta compromiso") >= 0){
-                     window.location.href= url_server + "reporte/cartaCompromiso";
+                     window.location.href= url + "reporte/cartaCompromiso";
                  }
                  else if(mensaje.value.search("canalización") >= 0){
-                     window.location.href= url_server + "reporte/canalizacion";
+                     window.location.href= url + "reporte/canalizacion";
                  }
                  else if(mensaje.value.search("carta buena conducta") >= 0){
-                     window.location.href= url_server + "reporte/cartaBuenaConducta";
+                     window.location.href= url + "reporte/cartaBuenaConducta";
                  }
                  else if(mensaje.value.search("carta condicional") >= 0){
-                     window.location.href= url_server + "reporte/cartaCondicional";
+                     window.location.href= url + "reporte/cartaCondicional";
                  }
                  else if(mensaje.value.search("expediente") >= 0){
 
                      $( document ).ready(function() {
-                         var jqxhr = $.get(url_server + "asistente/expediente/"+mensaje.value, function(data) {
+                         var jqxhr = $.get(url + "asistente/expediente/"+mensaje.value, function(data) {
                              if(data == 0){
-                                 document.getElementById('respuesta').innerText = "No hay un número de control válido para seleccionar el expediente";
+                                 document.getElementById('respuesta').innerText = "No hay un número de control válido";
                              } else {
-                                 window.location.href= url_server + "consultar/expediente/" + data;
+                                 window.location.href= url + "consultar/expediente/" + data;
                              }
                            })
                              .fail(function() {

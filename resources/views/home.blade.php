@@ -25,30 +25,36 @@
                 </div>
             </div>
         </div>
-    </div> <br>
-        <input type="textarea" id="mensaje" placeholder="¡Hola!¿En qué puedo ayudarte?" style="border-radius: 5px; width: 50%;" name="" value="expediente 89789687687">
-        <button onclick="procesarMensaje()">Enviar</button><br>
-        <label id="respuesta"></label>
-    <br>
+    </div><br><hr style="border-color: black;">
+    
+    <script>
+        window.addEventListener("keydown", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("button-addon2").click();
+            }
+        }); 
+    </script>
+    <label id="respuesta"></label><br>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" id="mensaje" placeholder="¡Hola!¿En qué puedo ayudarte?" aria-label="¡Hola!¿En qué puedo ayudarte?" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button onclick="procesarMensaje()" class="btn btn-outline-secondary" type="button" id="button-addon2">Enviar</button>
+        </div>
+    </div>
+    <hr style="border-color: black;"><br>
+
     <div class="card card-outline card-dark collapsed-card" style="border-top: 3px solid #b2b2b2">
         <div class="card-header">
             <h3 class="card-title">Reportes de hoy</h3>
             <div class="card-tools">
+            <span class="badge" style="text-align: right; font-size: 18px;">{{count($reportesHoy)}}</span>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" style="color:gray;">
                     <i class="fas fa-plus"></i>
                 </button>
             </div>
         </div>
         <div class="card-body" style="display: none;">
-        <div class="col-md-6 col-sm-6 col-12">
-            <div class="info-box">
-                <span class="info-box-icon" style="background-color: #e2d4d4;"><i class="fas fa-file" style="color: #2E2E2E;"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Reportes de hoy</span>
-                    <span class="info-box-number">{{count($reportesHoy)}}</span>
-                </div>
-            </div>
-        </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="responsive-table">
@@ -99,6 +105,9 @@
                             </tbody>
                         </table>
                     </div>
+                    @if(count($reportesHoy) < 1)
+                        <p style="text-align: center; font-size: 18px"><i> No hay reportes para mostrar </i></p>   
+                    @endif
                 </div>
             </div>
         </div>

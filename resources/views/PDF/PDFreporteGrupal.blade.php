@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte Grupal</title>
+    <title>Reporte Grupal {{$a}}</title>
     <!-- <title>Reporte PDF Generico</title> -->
     <style>
         .text {
@@ -46,9 +46,9 @@
         <br>
     </div>
     <div class="text-align: left; text">
-        <p>Grupo:  {{$reporte->grupo}} <br>
-            Especialidad: {{$reporte->especialidad}} Turno: {{$reporte->turno}} <br>
-            Motivo: {{$reporte->detalle->motivo}} <br><br>
+        <p>Grupo:  <b>{{$reporte->grupo}} </b><br>
+            Especialidad: <b>{{ucwords(mb_convert_case($reporte->especialidad, MB_CASE_LOWER, "UTF-8"))}}</b> Turno: <b>{{ucwords(mb_convert_case($reporte->turno, MB_CASE_LOWER, "UTF-8"))}}</b> <br>
+            Motivo: <b>{{$reporte->detalle->motivo}}</b> <br><br>
             En caso de reincidir en faltas al reglamento, los alumnos se harán acreedores a otro
             tipo de sanción. <br></p>
     </div>
@@ -67,7 +67,8 @@
         <div class="text" style="text-align: center;">
             <p><hr class="linea2"> <br>
             PSIC. ROSANGEL CAMACHO G. <br>
-            ORIENTACION EDUCATIVA</p>
+            ORIENTACION EDUCATIVA
+        </p>
         </div>
     </div>
     <div class="footer">

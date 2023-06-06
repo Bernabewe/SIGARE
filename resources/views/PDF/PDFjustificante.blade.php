@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Justificante</title>
+    <title>Justificante de {{$alumno->numero_control}}</title>
     <style>
         .text {
             font-size: 18px;
@@ -37,16 +37,16 @@
     </div>
     <div class="text">
         <p>
-            C.C. PROFESORES DEL GRUPO: {{$alumno->grupo}} <br>
-            ESPECIALIDAD: {{$alumno->carrera}} <br>
-            TURNO: {{$alumno->turno}} <br>
+            C.C. PROFESORES DEL GRUPO: <b>{{$alumno->grupo}}</b><br>
+            ESPECIALIDAD: <b>{{ucwords(mb_convert_case($alumno->carrera, MB_CASE_LOWER, "UTF-8"))}}</b> <br>
+            TURNO: <b>{{ucwords(mb_convert_case($alumno->turno, MB_CASE_LOWER, "UTF-8"))}}</b> <br>
             P R E S E N T E.
         </p>
     </div>
     <div class="text">
         <p>
             Por este conducto, solicito le sea(n) justificada(s) las inasistencias al alumno (a):
-            {{$alumno->nombre_completo}} quien por motivos de {{$reporte->detalle->motivo}}, no acudió a
+            <b>{{ucwords(mb_convert_case($alumno->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</b> quien por motivos de {{$reporte->detalle->motivo}}, no acudió a
             clases el(los) día(s): {{$reporte->detalle->fecha_inicial}} del presente año.
             Cabe señalar que es RESPONSABILIDAD del ALUMNO(A) regularizarse en la entrega de trabajos
             y/o tareas que el (la) profesor(a) haya encomendado, haciendo mención que el presente documento

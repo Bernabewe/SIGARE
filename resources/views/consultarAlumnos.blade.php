@@ -41,7 +41,7 @@
                 @foreach($alumno as $a)
                 <tr class="vertical">
                     <td>
-                        
+
                         <img id="copyImg" onclick="copiar()" onmouseover="mouseover()" onmouseout="mouseout()" src="{{ asset('images/copyIcon.png') }}" width="20px">
                             <span id="tooltip" class="tooltip-box-none">Copiar</span>
                         </img>

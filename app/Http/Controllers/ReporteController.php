@@ -37,14 +37,23 @@ class ReporteController extends Controller
             })
                 ->with(['detalle', 'tipo'])
                 ->orderBy('id', 'DESC')
-                ->paginate(15);
+                ->paginate(10);
         }else{
-            $reportes= Reporte::whereRelation('tipo', 'nombre', 'like', "%".$datos->get("tipo")."%")
-            ->whereRelation('detalle.alumno', 'nombre', 'like', "%".$datos->get("nombre")."%")
-            ->where('especialidad', 'like', "%".$datos->get('especialidad')."%")
-            ->with(['detalle', 'tipo'])
-            ->orderBy('id', 'DESC')
-            ->paginate(10);
+            if($datos->get("nombre") == null){
+                $reportes= Reporte::whereRelation('tipo', 'nombre', 'like', "%".$datos->get("tipo")."%")
+                ->where('especialidad', 'like', "%".$datos->get('especialidad')."%")
+                ->with(['detalle', 'tipo'])
+                ->orderBy('id', 'DESC')
+                ->paginate(10);
+            }
+            else{
+                $reportes= Reporte::whereRelation('tipo', 'nombre', 'like', "%".$datos->get("tipo")."%")
+                ->whereRelation('detalle.alumno', 'nombre', 'like', "%".$datos->get("nombre")."%")
+                ->where('especialidad', 'like', "%".$datos->get('especialidad')."%")
+                ->with(['detalle', 'tipo'])
+                ->orderBy('id', 'DESC')
+                ->paginate(10);
+            }
         }
         return view('reporte.consultar', compact('reportes', 'tipos', 'especialidades', 'x') );
     }

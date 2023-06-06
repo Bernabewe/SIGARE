@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Carta Condicional</title>
+    <title>Carta Condicional de {{$alumno->numero_control}}</title>
     <!-- <title>Reporte PDF Generico</title> -->
     <style>
         .text {
@@ -46,8 +46,8 @@
         <p>Culiacán Sin., {{$fecha}} <br></p>
     </div>
     <div class="text">
-        <p>Conscientes de la formación educativa que promueve el Plantel, y que mi hijo (a) <b>{{$alumno->nombre_completo}},
-            </b> del grupo <b>"{{$alumno->grupo}}"</b> Turno <b>{{$alumno->turno}},</b> de la Especialidad: <b>{{$alumno->carrera}},</b> ha
+        <p>Conscientes de la formación educativa que promueve el Plantel, y que mi hijo (a) <b>{{ucwords(mb_convert_case($alumno->nombre_completo, MB_CASE_LOWER, "UTF-8"))}},
+            </b> del grupo <b>"{{$alumno->grupo}}"</b> Turno <b>{{ucwords(mb_convert_case($alumno->turno, MB_CASE_LOWER, "UTF-8"))}},</b> de la Especialidad: <b>{{ucwords(mb_convert_case($alumno->carrera, MB_CASE_LOWER, "UTF-8"))}},</b> ha
             Infringido el Reglamento Escolar de los Planteles dependientes de la D.G.E.T.I., que en su artículo 1º dice:
             “Acatar y cumplir los reglamentos e instrucciones que establezca la Dirección General de Educación
             Tecnológica Industrial, así como las disposiciones que dicten las autoridades del plantel”, al igual que el

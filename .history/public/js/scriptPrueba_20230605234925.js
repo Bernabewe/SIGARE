@@ -1,7 +1,7 @@
 var mensaje = document.getElementById('mensaje');
-var url = "http://localhost/SIGARE/public/";
-var url_server = "www.sigare.servicioscetis107.com/";
-console.log(url_server);
+var url_server = "http://localhost/SIGARE/public/";
+var url_server_server = window.location.href+"/";
+console.log(url_server_server);
 
 function copiar(){
     $( document ).ready(function(){

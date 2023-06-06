@@ -32,7 +32,7 @@
                 <label for="">Motivo (Especifiqué el problema)</label>
                 <input value="{{$reporte->detalle->motivo}}" type="text" class="form-control" name="motivo">
             </div>
-            
+
             <div class="form-group">
                 <label for="">Nombre del padre, madre o tutor</label>
                 <input value="{{$reporte->detalle->tutor}}" type="text" class="form-control" name="tutor">

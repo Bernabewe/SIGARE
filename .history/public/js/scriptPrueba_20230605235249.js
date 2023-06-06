@@ -1,6 +1,6 @@
 var mensaje = document.getElementById('mensaje');
 var url = "http://localhost/SIGARE/public/";
-var url_server = "www.sigare.servicioscetis107.com/";
+var url_server = window.location.pathname;
 console.log(url_server);
 
 function copiar(){

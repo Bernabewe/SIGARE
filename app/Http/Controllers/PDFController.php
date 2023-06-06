@@ -45,34 +45,35 @@ class PDFController extends Controller
     }
     public function pdfIndividual(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFreporteIndividual', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->stream("PDFreporteIndividual.pdf");
+        return $pdf->download("Reporte Individual de ".$alumno->numero_control.".pdf");
     }
     public function pdfJustificante(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFjustificante', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->download("PDFjustificante.pdf");
+        return $pdf->download("Justificante de ".$alumno->numero_control.".pdf");
     }
     public function pdfBaja(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFbaja', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->download("PDFbaja.pdf");
+        return $pdf->download("Baja de ".$alumno->numero_control.".pdf");
     }
     public function pdfGrupal(Reporte $reporte, $fecha, $folio){
-        $pdf = PDF::loadView('PDF.PDFreporteGrupal', array('reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->download("PDFreporteGrupal.pdf");
+        $a = $reporte->grupo.strtoupper(substr($reporte->turno, 0, 1)).substr($reporte->especialidad, 0, 1);
+        $pdf = PDF::loadView('PDF.PDFreporteGrupal', array('reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio, 'a' => $a));
+        return $pdf->download("Reporte Grupal ".$a.".pdf");
     }
     public function pdfCanalizacion(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFcanalizacion', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->download("PDFcanalizacion.pdf");
+        return $pdf->download("Canalización de ".$alumno->numero_control.".pdf");
     }
     public function pdfCartaCompromiso(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFcartaCompromiso', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->download("PDFcartaCompromiso.pdf");
+        return $pdf->download("Carta Compromiso de ".$alumno->numero_control.".pdf");
     }
     public function pdfCartaBuenaConducta(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFcartaBuenaConducta', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->download("PDFcartaBuenaConducta.pdf");
+        return $pdf->download("Carta Buena Conducta de ".$alumno->numero_control.".pdf");
     }
     public function pdfCartaCondicional(Reporte $reporte, Alumno $alumno, $fecha, $folio){
         $pdf = PDF::loadView('PDF.PDFcartaCondicional', array('alumno' => $alumno, 'reporte' => $reporte, 'fecha' => $fecha, 'folio' => $folio));
-        return $pdf->download("PDFcartaCondicional.pdf");
+        return $pdf->download("Carta Condicional".$alumno->numero_control.".pdf");
     }
 }

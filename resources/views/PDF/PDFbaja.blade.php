@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Baja</title>
-    <!-- <title>Reporte PDF Generico</title> -->
+    <title>Baja de {{$alumno->numero_control}}</title>
     <style>
         .text {
             font-size: 18px;
@@ -42,9 +41,9 @@
 
     <div class="text">
         <p>
-            Por este conducto informó que el alumno: <b>{{$alumno->nombre_completo}},</b> con No. De Control <b>{{$alumno->numero_control}}</b>
+            Por este conducto informó que el alumno: <b>{{ucwords(mb_convert_case($alumno->nombre_completo, MB_CASE_LOWER, "UTF-8"))}},</b> con No. De Control <b>{{$alumno->numero_control}}</b>
             del semestre <b>{{$alumno->grupo}}</b> Del turno
-            <b>{{$alumno->turno}},</b> de la especialidad  de <b>{{$alumno->carrera}},
+            <b>{{ucwords(mb_convert_case($alumno->turno, MB_CASE_LOWER, "UTF-8"))}},</b> de la especialidad  de <b>{{ucwords(mb_convert_case($alumno->carrera, MB_CASE_LOWER, "UTF-8"))}},
             </b> se le de la <b>BAJA DEFINITIVA</b> en esta institución.
         </p>
     </div>

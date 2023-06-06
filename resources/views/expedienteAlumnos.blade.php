@@ -24,11 +24,14 @@
                     <b>Grupo </b>             <p class="float-right">{{$alumno->grupo}}</p><hr style="border-top: 1px solid gray;">
                     <b>Generación</b>         <p class="float-right">{{$alumno->generacion}}</p><hr style="border-top: 1px solid gray;">
                     <b>Sexo </b>              <p class="float-right">{{$alumno->sexo}}</p><hr style="border-top: 1px solid gray;">
-                    <p class="float-right"><a class="btn btn-primary" href="{{ url('reporte/pdfExpediente/') }}/{{ $alumno->numero_control }}">Convertir a PDF</a></p> 
+                    <p class="float-right"><a class="btn btn-primary" href="{{ url('reporte/pdfExpediente/') }}/{{ $alumno->numero_control }}" target="_blank">Convertir a PDF</a></p> 
                 </div>
             </div>
         </div>
         <div class="col-sm-8">
+        @if(count($tipos) < 1)
+            <p style="text-align: center; font-size: 18px"><i> No hay reportes para mostrar </i></p>   
+        @endif
         <div class="row">
         @foreach ($tipos as $t)
             <div class="col-sm-6">

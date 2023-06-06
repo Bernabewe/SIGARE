@@ -1,38 +1,11 @@
 var mensaje = document.getElementById('mensaje');
 var url = "http://localhost/SIGARE/public/";
-var url_server = window.location.href+"/";
-console.log(url_server);
-
-function copiar(){
-    $( document ).ready(function(){
-        const content = document.getElementById('copiar');
-        navigator.clipboard.writeText(content.textContent);
-        $('#copyImg').attr('src', url + "images/check.png");
-        $('#tooltip').text('Copiado!');
-        $('#copyImg').attr('width', '20px');
-        $('#tooltip').attr('class', 'tooltip-box');
-        setTimeout(function() {
-            $('#copyImg').attr('src', url + "images/copyIcon.png");
-            $('#tooltip').text('Copiar');
-            $('#tooltip').attr('class', 'tooltip-box-none');
-        }, 2000);
-    });
-}
-function mouseover(){
-    $( document ).ready(function(){
-        $('#tooltip').attr('class', 'tooltip-box');
-    });
-}
-
-function mouseout(){
-    $( document ).ready(function(){
-        $('#tooltip').attr('class', 'tooltip-box-none');
-    });
-}
+const boton = document.querySelector('botonCopiar')
+const input = document.getElementById('numeroControlCopiar')
 
 function procesarMensaje(){
     $( document ).ready(function() {
-        var jqxhr = $.get(url_server + "revision/mensaje/" + mensaje.value, function(data) {
+        var jqxhr = $.get(url + "revision/mensaje/" + mensaje.value, function(data) {
             console.log(data);
             if(data == 0){
                 if(mensaje.value.search("reporte individual") >= 0){
@@ -92,3 +65,9 @@ function procesarMensaje(){
 
 };
 
+
+
+boton.addEventListener('click', function(){
+    input.focus()
+    document.execCommand('selectAll')
+});

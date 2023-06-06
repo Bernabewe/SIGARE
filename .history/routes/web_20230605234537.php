@@ -22,8 +22,8 @@ use App\Http\Controllers\ExpedienteController;
 */
 
 
-    Route::get('dashboard/consultar/expediente/{nc}' , [ExpedienteController::class, 'consultarExpediente']);
-    Route::get('dashboard/asistente/expediente/{cadena}' , [ExpedienteController::class, 'obtenerNumeroControl']);
+    Route::get('consultar/expediente/{nc}' , [ExpedienteController::class, 'consultarExpediente']);
+    Route::get('asistente/expediente/{cadena}' , [ExpedienteController::class, 'obtenerNumeroControl']);
     Route::get('dashboard/revision/mensaje/{cadena}' , [ExpedienteController::class, 'revisarCadena']);
     Route::group(['middleware' => ['auth']], function() {
 

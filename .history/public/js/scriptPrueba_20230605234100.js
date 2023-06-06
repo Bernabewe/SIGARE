@@ -1,7 +1,6 @@
 var mensaje = document.getElementById('mensaje');
 var url = "http://localhost/SIGARE/public/";
-var url_server = window.location.href+"/";
-console.log(url_server);
+var url_server = window.location.href;
 
 function copiar(){
     $( document ).ready(function(){
@@ -32,7 +31,7 @@ function mouseout(){
 
 function procesarMensaje(){
     $( document ).ready(function() {
-        var jqxhr = $.get(url_server + "revision/mensaje/" + mensaje.value, function(data) {
+        var jqxhr = $.get(url + "revision/mensaje/" + mensaje.value, function(data) {
             console.log(data);
             if(data == 0){
                 if(mensaje.value.search("reporte individual") >= 0){

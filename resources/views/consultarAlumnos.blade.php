@@ -27,7 +27,7 @@
         <table class="table table-hover" style="text-align: center;">
             <thead>
                 <tr>
-                    <th>Num. de cotrol</th>
+                    <th>Num. de control</th>
                     <th>Nombre Completo</th>
                     <th>Especialidad</th>
                     <th>Turno</th>

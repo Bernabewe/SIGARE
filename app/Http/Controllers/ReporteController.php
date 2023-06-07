@@ -21,9 +21,12 @@ class ReporteController extends Controller
             $reportes= Reporte::where('user_id', '=', Auth::user()->id)
                 ->orderBy('id', 'DESC')
                 ->with(['detalle', 'tipo'])
-                ->paginate(15);
+                ->paginate(10);
         }else{
-            $reportes= Reporte::with(['detalle', 'tipo'])->paginate(10);
+            $reportes= Reporte::with(['detalle', 'tipo'])
+                ->orderBy('id', 'DESC')
+                ->with(['detalle', 'tipo'])
+                ->paginate(10);
         }
         return view('reporte.consultar', compact('reportes', 'tipos', 'especialidades', 'x') );
     }

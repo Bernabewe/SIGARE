@@ -24,9 +24,9 @@ function mouseover(id){
     });
 }
 
-function mouseout(id){
+function mouseout(){
     $( document ).ready(function(){
-        $('#tooltip'+id).attr('class', 'tooltip-box-none');
+        $('#tooltip').attr('class', 'tooltip-box-none');
     });
 }
 

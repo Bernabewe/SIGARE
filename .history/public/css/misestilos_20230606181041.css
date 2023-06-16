@@ -2,7 +2,7 @@
 
 .tooltip-box-none {
 	display: none;
-	position:absolute;
+	position: static;
     width: 80px;
 	background: #000;
 	line-height: 20px;

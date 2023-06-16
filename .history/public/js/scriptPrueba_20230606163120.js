@@ -7,26 +7,26 @@ function copiar(id){
     $( document ).ready(function(){
         const content = document.getElementById("copiar"+id);
         navigator.clipboard.writeText(content.textContent);
-        $('#copyImg'+id).attr('src', url_server + "../images/check.png");
-        $('#tooltip'+id).text('Copiado!');
-        $('#copyImg'+id).attr('width', '20px');
-        $('#tooltip'+id).attr('class', 'tooltip-box');
+        $('#copyImg').attr('src', url_server + "../images/check.png");
+        $('#tooltip').text('Copiado!');
+        $('#copyImg').attr('width', '20px');
+        $('#tooltip').attr('class', 'tooltip-box');
         setTimeout(function() {
-            $('#copyImg'+id).attr('src', url_server + "../images/copyIcon.png");
-            $('#tooltip'+id).text('Copiar');
-            $('#tooltip'+id).attr('class', 'tooltip-box-none');
+            $('#copyImg').attr('src', url_server + "../images/copyIcon.png");
+            $('#tooltip').text('Copiar');
+            $('#tooltip').attr('class', 'tooltip-box-none');
         }, 2000);
     });
 }
-function mouseover(id){
+function mouseover(){
     $( document ).ready(function(){
-        $('#tooltip'+id).attr('class', 'tooltip-box');
+        $('#tooltip').attr('class', 'tooltip-box');
     });
 }
 
-function mouseout(id){
+function mouseout(){
     $( document ).ready(function(){
-        $('#tooltip'+id).attr('class', 'tooltip-box-none');
+        $('#tooltip').attr('class', 'tooltip-box-none');
     });
 }
 

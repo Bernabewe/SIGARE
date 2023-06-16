@@ -18,15 +18,15 @@ function copiar(id){
         }, 2000);
     });
 }
-function mouseover(id){
+function mouseover(){
     $( document ).ready(function(){
         $('#tooltip'+id).attr('class', 'tooltip-box');
     });
 }
 
-function mouseout(id){
+function mouseout(){
     $( document ).ready(function(){
-        $('#tooltip'+id).attr('class', 'tooltip-box-none');
+        $('#tooltip').attr('class', 'tooltip-box-none');
     });
 }
 

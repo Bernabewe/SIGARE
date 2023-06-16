@@ -2,7 +2,6 @@
 
 .tooltip-box-none {
 	display: none;
-	position:absolute;
     width: 80px;
 	background: #000;
 	line-height: 20px;
@@ -18,7 +17,6 @@
 }
 .tooltip-box {
 	display: inline-block;
-	position: absolute;
     width: 80px;
 	background: #000;
 	line-height: 20px;

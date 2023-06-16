@@ -42,8 +42,9 @@
                 <tr class="vertical">
                     <td>
 
-                        <img id="copyImg{{ $a->id }}" onclick="copiar({{ $a->id }})" onmouseover="mouseover({{ $a->id }})" onmouseout="mouseout({{ $a->id }})" src="{{ asset('images/copyIcon.png') }}" width="20px">
+                        <img id="copyImg" onclick="copiar({{ $a->id }})" onmouseover="mouseover({{ $a->id }})" onmouseout="mouseout({{ $a->id }})" src="{{ asset('images/copyIcon.png') }}" width="20px">
                             <span id="tooltip{{ $a->id }}" class="tooltip-box-none">Copiar</span>
+                        </img>
                         <span id="copiar{{ $a->id }}">{{$a->numero_control}}</span>
                     </td>
                     <td>{{ucwords(mb_convert_case($a->nombre_completo, MB_CASE_LOWER, "UTF-8"))}}</td>

@@ -2,7 +2,7 @@
 
 .tooltip-box-none {
 	display: none;
-	position:absolute;
+	position:relative;
     width: 80px;
 	background: #000;
 	line-height: 20px;
@@ -12,9 +12,7 @@
 	font-size: 14px;
 	padding: 5px 10px;
 	border-radius: 5px;
-	left: 48px;
-	right: 0;
-	bottom: 89px;
+
 }
 .tooltip-box {
 	display: inline-block;

@@ -30,7 +30,6 @@ class ExpedienteController extends Controller
             $t->reportes = Reporte::whereRelation('detalle', 'numero_control', '=', $nc)
                                     ->where('tipo_id', $t->id)->get();
         }
-
         return view('expedienteAlumnos', compact('tipos', 'alumno'));
     }
 
@@ -39,10 +38,16 @@ class ExpedienteController extends Controller
         $meses=array('', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
         $fecha=Carbon::now()->format('d')." de ". $meses[intval(Carbon::now()->format('m'))]." de ".Carbon::now()->format('Y');
         $tipos= TipoReporte::whereHas('reportes', function($query) use($nc){
+            $query->whereRelation('detalle', 'numero_control', '=', $nc);
             $query->whereHas('detalle', function ($query) use($nc){
-                $query->where('numero_control', $nc)->with('detalle');
+                $query->where('numero_control', '=', $nc);
             });
-        })->with('reportes')->get();
+        })->get();
+        foreach($tipos as $t){
+            $t->reportes = Reporte::whereRelation('detalle', 'numero_control', '=', $nc)
+                                    ->where('tipo_id', $t->id)->get();
+        }
+
 
         $pdf = PDF::loadView('PDF.PDFexpedienteAlumno', array('tipos' => $tipos, 'alumno' =>$alumno, 'fecha'=> $fecha));
         return $pdf->stream("Expediente".$nc.".pdf");
